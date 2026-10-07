@@ -1,0 +1,4 @@
+# 构建期临时产物
+__pycache__/
+*.pyc
+.dsh-vision-toolkit/
