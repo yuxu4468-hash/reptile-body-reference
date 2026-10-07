@@ -35,7 +35,9 @@ def _version():
 
 
 TAG = _version()
-# 版本号可传参：python tools/publish_github.py --tag v1.0.1
+# 版本号默认从 VERSION 读；也可临时指定：python tools/publish_github.py --tag vX.Y.Z
+# ⚠️ 注释里**不要写具体版本号** —— 这个脚本会随仓库发布，
+#    写过期的版本号就是用户看到的那个「版本号没更新」（见 docs/33 的 E23）。
 for _i, _a in enumerate(sys.argv):
     if _a == "--tag" and _i + 1 < len(sys.argv):
         TAG = sys.argv[_i + 1]
