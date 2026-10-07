@@ -712,13 +712,45 @@
         '<div class="tiny" style="margin-top:6px">' + h(t().searchNoMatchHint || '可以到「反馈」页告诉我们你想加的物种。') + '</div></div>');
     }
     list.forEach(function (sp) {
-      var n = (sp.curves || []).length;
-      var has = n > 0;
-      o.push('<button class="sp" data-go="' + h(sp.id) + '">' +
-        '<div class="nm">' + h(spName(sp)) + '<span class="lt">' + h(sp.latin || '') + '</span>' +
-        '<span class="badge ' + (has ? 'has' : 'none') + '">' + (has ? (n + ' 条曲线') : (t().noData || '暂无数据')) + '</span></div>' +
-        '<div class="meta">' + h(taxonLabel(sp.taxon)) + (sp.caliberSummary ? ' · ' + h(sp.caliberSummary) : '') + '</div>' +
-        '</button>');
+      var curves = sp.curves || [];
+      var lw = curves.filter(function (c) { return c.kind === 'length_weight'; });
+      var al = curves.filter(function (c) { return c.kind === 'age_length'; });
+      var empty = curves.length === 0;
+      // ⚠️⚠️ 与小程序 `pages/index/index.js` 的 `build()` **逐字对齐**：
+      //       · 分层各自计数 → 「体长-体重 N」「年龄-体长 M」两个标签
+      //       · 空层显示「暂无」并置灰（tag-none），而不是整个物种只报一个总数
+      //       · 再列「分组：…」「测量口径：…」两行
+      //      之前离线版只显示「x 条曲线」，两边口径不一致（用户 2026-10-08 指出）。
+      var lwTag = lw.length ? (t().layerLW + ' ' + lw.length) : (t().layerLW + ' ' + t().noShort);
+      var alTag = al.length ? (t().layerAL + ' ' + al.length) : (t().layerAL + ' ' + t().noShort);
+      // 分组只从体长-体重层收集 —— 小程序就是这么做的，照搬
+      var groups = [];
+      lw.forEach(function (c) {
+        var g = locale === 'en' ? c.groupEn : c.groupZh;
+        if (g && groups.indexOf(g) < 0) groups.push(g);
+      });
+
+      o.push('<button class="sp" data-go="' + h(sp.id) + '">');
+      o.push('<div class="nm">' + h(spName(sp)) +
+        '<span class="lt">' + h(sp.latin || '') + '</span></div>');
+      // 中文模式才显示英文名（英文模式下名字本身已是英文，重复没意义）
+      if (locale === 'zh' && sp.en) {
+        o.push('<div class="meta">' + h(sp.en) + '</div>');
+      }
+      if (!empty) {
+        o.push('<div class="tags">' +
+          '<span class="tag ' + (lw.length ? 'tag-wild' : 'tag-none') + '">' + h(lwTag) + '</span>' +
+          '<span class="tag ' + (al.length ? 'tag-captive' : 'tag-none') + '">' + h(alTag) + '</span>' +
+          '</div>');
+        o.push('<div class="meta">' + h(t().labelGroups || '分组：') +
+          h(groups.join(' / ') || '—') + '</div>');
+        o.push('<div class="meta">' + h(t().labelCaliber || '测量口径：') +
+          h((locale === 'en' ? sp.caliberSummaryEn : sp.caliberSummary) || '—') + '</div>');
+      } else {
+        o.push('<div class="tags"><span class="tag tag-none">' +
+          h(t().noData || '暂无可靠数据') + '</span></div>');
+      }
+      o.push('</button>');
     });
     o.push('<div class="foot">' + h(t().disclaimer || '') + '<br><a href="#/feedback">' + h(t().feedbackEntry || '希望增加哪个物种？') + '</a></div>');
     return o.join('');

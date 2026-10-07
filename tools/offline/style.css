@@ -195,3 +195,15 @@ textarea.input { min-height: 82px; resize: vertical; }
 .doc-body { margin-top: 10px; }
 .doc-item { margin-top: 10px; }
 .doc-t { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+
+/* ---------- 分层标签（与小程序 app.wxss 的 .tag 家族对齐）---------- */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.tag {
+  display: inline-block; padding: 2px 10px; border-radius: 999px;
+  font-size: 12px; line-height: 1.7; white-space: nowrap;
+}
+.tag-wild { background: #e3f0e8; color: #2f6f4e; }
+.tag-captive { background: #fdeee2; color: #b0682a; }
+.tag-interp { background: #fbe4e4; color: #b02a2a; }
+.tag-none { background: #f4f4f2; color: #8a8a80; border: 1px solid #e2e2dc; }
+.sp .meta { font-size: 12px; color: var(--muted); margin-top: 3px; }
