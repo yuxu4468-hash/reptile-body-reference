@@ -29,6 +29,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -78,6 +79,7 @@ module.exports = [
     "band95": 24.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -128,6 +130,7 @@ module.exports = [
     "band95": 52.7
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -178,6 +181,7 @@ module.exports = [
     "band95": 35.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -228,6 +232,7 @@ module.exports = [
     "band95": 54.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -278,6 +283,7 @@ module.exports = [
     "band95": 33.7
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -326,6 +332,7 @@ module.exports = [
     "t95TextEn": "7.4 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -373,7 +380,8 @@ module.exports = [
     "t95Text": "9.4 年",
     "t95TextEn": "9.4 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Ambystoma_mexicanum",
@@ -403,6 +411,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -454,6 +463,7 @@ module.exports = [
     "band95": 42.4
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -514,6 +524,7 @@ module.exports = [
     "t95TextEn": "—"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -573,7 +584,8 @@ module.exports = [
     "t95Text": "—",
     "t95TextEn": "—"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Apalone_ferox",
@@ -600,6 +612,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -650,7 +663,8 @@ module.exports = [
     ],
     "band95": null
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Boa_imperator",
@@ -683,6 +697,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -734,6 +749,7 @@ module.exports = [
     "band95": 54.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -782,7 +798,8 @@ module.exports = [
     ],
     "band95": 64.0
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Carettochelys_insculpta",
@@ -812,6 +829,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -864,7 +882,8 @@ module.exports = [
     "caliberUncertaintyLen": 5.0,
     "caliberUncertaintyPct": 15.1
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Centrochelys_sulcata",
@@ -894,6 +913,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -944,6 +964,7 @@ module.exports = [
     "band95": 13.7
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -991,7 +1012,8 @@ module.exports = [
     "t95Text": "10.6 年",
     "t95TextEn": "10.6 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Ceratophrys_cranwelli",
@@ -1019,6 +1041,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -1065,7 +1088,8 @@ module.exports = [
     ],
     "band95": 34.8
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Ceratophrys_ornata",
@@ -1096,7 +1120,8 @@ module.exports = [
    "AmphibiaWeb 物种条目（仅均值）",
    "Deichmann 2008（36 种新热带蛙 SVL-体重回归，尚未取得）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Chamaeleo_calyptratus",
@@ -1125,6 +1150,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -1176,6 +1202,7 @@ module.exports = [
     "band95": 93.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -1226,6 +1253,7 @@ module.exports = [
     "band95": 38.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -1276,7 +1304,8 @@ module.exports = [
     ],
     "band95": 73.5
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Chelydra_serpentina",
@@ -1308,6 +1337,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -1383,6 +1413,7 @@ module.exports = [
     "band95": 22.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -1430,6 +1461,7 @@ module.exports = [
     "band95": 13.4
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -1476,6 +1508,7 @@ module.exports = [
     "t95TextEn": "13.1 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -1522,6 +1555,7 @@ module.exports = [
     "t95TextEn": "7.2 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -1568,6 +1602,7 @@ module.exports = [
     "t95TextEn": "28.5 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -1613,7 +1648,8 @@ module.exports = [
     "t95Text": "20.0 年",
     "t95TextEn": "20.0 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Correlophus_ciliatus",
@@ -1641,7 +1677,8 @@ module.exports = [
    "Brundage 2024（圈养配对序列，n=60）",
    "figshare 10.6084/m9.figshare.14220098（个体级原始数据，尚未取得）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Cuora_flavomarginata",
@@ -1670,6 +1707,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -1720,6 +1758,7 @@ module.exports = [
     "t95TextEn": "13.8 yr"
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -1769,7 +1808,8 @@ module.exports = [
     ],
     "band95": null
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Eublepharis_macularius",
@@ -1796,6 +1836,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -1841,7 +1882,8 @@ module.exports = [
     "t95Text": "2.9 年",
     "t95TextEn": "2.9 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Hemitheconyx_caudicinctus",
@@ -1869,6 +1911,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -1919,7 +1962,8 @@ module.exports = [
     ],
     "band95": 93.7
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Heterodon_nasicus",
@@ -1947,6 +1991,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -1996,6 +2041,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -2045,6 +2091,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -2091,6 +2138,7 @@ module.exports = [
     "t95TextEn": "5.7 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -2136,7 +2184,8 @@ module.exports = [
     "t95Text": "9.0 年",
     "t95TextEn": "9.0 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Iguana_iguana",
@@ -2166,6 +2215,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -2215,6 +2265,7 @@ module.exports = [
     "band95": 20.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -2264,6 +2315,7 @@ module.exports = [
     "band95": 21.9
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -2312,6 +2364,7 @@ module.exports = [
     "t95TextEn": "4.0 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -2359,7 +2412,8 @@ module.exports = [
     "t95Text": "3.6 年",
     "t95TextEn": "3.6 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Kinosternon_baurii",
@@ -2389,6 +2443,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -2434,7 +2489,8 @@ module.exports = [
     "t95Text": "15.0 年",
     "t95TextEn": "15.0 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Lampropeltis_brooksi",
@@ -2469,7 +2525,8 @@ module.exports = [
    "Godley et al. 2017（n=34 成体 SVL+质量，**只给均值**；索取逐只表是唯一翻盘路径）",
    "Meshaka & Layne 2015（358 页，已核，无可用数据）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Lampropeltis_californiae",
@@ -2497,6 +2554,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -2544,6 +2602,7 @@ module.exports = [
     "band95": 58.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -2591,6 +2650,7 @@ module.exports = [
     "band95": 54.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -2637,7 +2697,8 @@ module.exports = [
     ],
     "band95": 58.1
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Lampropeltis_triangulum",
@@ -2665,6 +2726,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -2714,6 +2776,7 @@ module.exports = [
     "t95TextEn": "13.0 yr"
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -2763,7 +2826,8 @@ module.exports = [
     ],
     "band95": 18.9
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Litoria_caerulea",
@@ -2794,6 +2858,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -2844,6 +2909,7 @@ module.exports = [
     "band95": 18.8
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -2897,7 +2963,8 @@ module.exports = [
     "caliberUncertaintyPct": 13.7,
     "band95Combined": true
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Macrochelys_spp",
@@ -2925,6 +2992,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -2972,6 +3040,7 @@ module.exports = [
     "band95": 14.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -3032,7 +3101,8 @@ module.exports = [
     ],
     "band95": 22.6
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Malaclemys_terrapin",
@@ -3060,6 +3130,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -3107,6 +3178,7 @@ module.exports = [
     "band95": 18.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -3154,6 +3226,7 @@ module.exports = [
     "band95": 14.7
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -3201,6 +3274,7 @@ module.exports = [
     "band95": 16.9
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -3247,6 +3321,7 @@ module.exports = [
     "t95TextEn": "6.9 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -3292,7 +3367,8 @@ module.exports = [
     "t95Text": "9.2 年",
     "t95TextEn": "9.2 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Mauremys_reevesii",
@@ -3322,6 +3398,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -3369,6 +3446,7 @@ module.exports = [
     "band95": 24.8
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -3416,6 +3494,7 @@ module.exports = [
     "band95": 16.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -3463,6 +3542,7 @@ module.exports = [
     "band95": 29.8
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -3509,6 +3589,7 @@ module.exports = [
     "t95TextEn": "22.5 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -3555,6 +3636,7 @@ module.exports = [
     "t95TextEn": "8.0 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -3600,7 +3682,8 @@ module.exports = [
     "t95Text": "22.5 年",
     "t95TextEn": "22.5 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Mauremys_sinensis",
@@ -3631,7 +3714,8 @@ module.exports = [
    "Di Blasio 2021（意/波/台种群体尺，内部不自洽，已剔除）",
    "陳添喜碩士論文（hdl.handle.net/11296/xng65c，同时覆盖花龟与黄缘闭壳龟，尚未取得）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Nephrurus_spp",
@@ -3667,7 +3751,8 @@ module.exports = [
    "Smith 2018（*N. stellatus* 逐个体数据已测未公开）",
    "Kealley et al. 2020（*N. cinctus* 提升为独立种）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Pantherophis_guttatus",
@@ -3692,6 +3777,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -3738,7 +3824,8 @@ module.exports = [
     ],
     "band95": 29.0
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Pelodiscus_sinensis",
@@ -3766,6 +3853,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -3816,6 +3904,7 @@ module.exports = [
     "band95": 55.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -3870,7 +3959,8 @@ module.exports = [
     "caliberUncertaintyPct": 9.9,
     "band95Combined": true
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Pituophis_catenifer_sayi",
@@ -3898,6 +3988,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -3947,6 +4038,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -3996,6 +4088,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -4041,7 +4134,8 @@ module.exports = [
     "t95Text": "3.2 年",
     "t95TextEn": "3.2 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Platysternon_megacephalum",
@@ -4069,6 +4163,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -4116,6 +4211,7 @@ module.exports = [
     "band95": 20.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -4163,6 +4259,7 @@ module.exports = [
     "band95": 26.6
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -4209,7 +4306,8 @@ module.exports = [
     ],
     "band95": 22.3
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Pogona_vitticeps",
@@ -4237,6 +4335,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -4284,6 +4383,7 @@ module.exports = [
     "band95": 22.0
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -4331,6 +4431,7 @@ module.exports = [
     "band95": 28.2
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -4378,6 +4479,7 @@ module.exports = [
     "band95": 22.8
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -4425,6 +4527,7 @@ module.exports = [
     "band95": 19.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -4472,6 +4575,7 @@ module.exports = [
     "band95": 27.6
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -4519,6 +4623,7 @@ module.exports = [
     "band95": 23.0
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -4564,7 +4669,8 @@ module.exports = [
     "t95Text": "1.4 年",
     "t95TextEn": "1.4 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Python_bivittatus",
@@ -4592,6 +4698,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -4641,6 +4748,7 @@ module.exports = [
     "t95TextEn": "6.7 yr"
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -4690,6 +4798,7 @@ module.exports = [
     "band95": 54.2
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -4739,6 +4848,7 @@ module.exports = [
     "band95": 50.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -4788,6 +4898,7 @@ module.exports = [
     "band95": 57.7
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -4837,6 +4948,7 @@ module.exports = [
     "band95": 52.7
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -4886,6 +4998,7 @@ module.exports = [
     "band95": 49.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -4935,6 +5048,7 @@ module.exports = [
     "band95": 55.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -4984,6 +5098,7 @@ module.exports = [
     "band95": 58.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -5032,7 +5147,8 @@ module.exports = [
     ],
     "band95": 52.0
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Python_regius",
@@ -5060,6 +5176,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -5114,7 +5231,8 @@ module.exports = [
     "caliberUncertaintyPct": 27.4,
     "band95Combined": true
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Pyxicephalus_adspersus",
@@ -5142,6 +5260,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -5191,6 +5310,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -5239,7 +5359,8 @@ module.exports = [
     ],
     "band95": null
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Rhacodactylus_auriculatus",
@@ -5267,6 +5388,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -5316,6 +5438,7 @@ module.exports = [
     "band95": 30.2
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -5366,6 +5489,7 @@ module.exports = [
     "band95": 18.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -5415,7 +5539,8 @@ module.exports = [
     ],
     "band95": 31.6
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Rhacodactylus_leachianus",
@@ -5447,7 +5572,8 @@ module.exports = [
    "Cunkelman A 2005, M.S. thesis, Villanova（尚未取得，Cloudflare 403）",
    "Grokipedia / Reptile Database（亚种归属核对）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Salamandra_salamandra",
@@ -5477,6 +5603,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -5524,6 +5651,7 @@ module.exports = [
     "band95": 38.6
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -5573,6 +5701,7 @@ module.exports = [
     "band95": 28.6
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -5620,7 +5749,8 @@ module.exports = [
     "t95Text": "4.0 年",
     "t95TextEn": "4.0 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Salvator_merianae",
@@ -5650,6 +5780,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -5697,6 +5828,7 @@ module.exports = [
     "band95": 35.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -5744,6 +5876,7 @@ module.exports = [
     "band95": 34.0
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -5791,6 +5924,7 @@ module.exports = [
     "band95": 38.6
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -5838,6 +5972,7 @@ module.exports = [
     "band95": 26.5
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -5885,6 +6020,7 @@ module.exports = [
     "band95": 26.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -5931,7 +6067,8 @@ module.exports = [
     ],
     "band95": 26.6
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Staurotypus_triporcatus",
@@ -5968,7 +6105,8 @@ module.exports = [
    "Reynoso et al. 2016, CONABIO 项目 MM009（n=159，仅均值）",
    "Zapletal et al. 2026, J Exp Zool A（doi 10.1002/jez.70059，尚未取得）"
   ],
-  "curves": []
+  "curves": [],
+  "lowRelCurves": []
  },
  {
   "id": "Sternotherus_carinatus",
@@ -5997,6 +6135,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6042,7 +6181,8 @@ module.exports = [
     "t95Text": "14.3 年",
     "t95TextEn": "14.3 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Sternotherus_odoratus",
@@ -6074,6 +6214,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6122,7 +6263,8 @@ module.exports = [
     "caliberUncertaintyLen": 4.0,
     "caliberUncertaintyPct": 4.0
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Terrapene_carolina_carolina",
@@ -6151,6 +6293,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -6201,6 +6344,7 @@ module.exports = [
     "band95": 16.2
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -6251,6 +6395,7 @@ module.exports = [
     "t95TextEn": "17.9 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -6301,6 +6446,7 @@ module.exports = [
     "t95TextEn": "18.5 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6348,7 +6494,8 @@ module.exports = [
     "t95Text": "16.0 年",
     "t95TextEn": "16.0 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Terrapene_carolina_triunguis",
@@ -6376,6 +6523,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6423,6 +6571,7 @@ module.exports = [
     "band95": 19.9
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6470,7 +6619,8 @@ module.exports = [
     "t95Text": "13.6 年",
     "t95TextEn": "13.6 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Testudo_hermanni",
@@ -6497,6 +6647,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -6544,6 +6695,7 @@ module.exports = [
     "band95": 19.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -6591,6 +6743,7 @@ module.exports = [
     "band95": 19.1
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -6638,6 +6791,7 @@ module.exports = [
     "band95": 23.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -6685,6 +6839,7 @@ module.exports = [
     "band95": 28.6
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6731,6 +6886,7 @@ module.exports = [
     "t95TextEn": "57.1 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6776,7 +6932,8 @@ module.exports = [
     "t95Text": "65.4 年",
     "t95TextEn": "65.4 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Thamnophis_elegans",
@@ -6805,6 +6962,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -6852,6 +7010,7 @@ module.exports = [
     "band95": 40.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -6900,7 +7059,8 @@ module.exports = [
     ],
     "band95": 36.3
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Thamnophis_marcianus",
@@ -6929,6 +7089,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -6978,6 +7139,7 @@ module.exports = [
     "band95": 47.4
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_male",
     "groupZh": "家养·雄性",
@@ -7027,6 +7189,7 @@ module.exports = [
     "band95": 46.8
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -7076,6 +7239,7 @@ module.exports = [
     "band95": 38.8
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -7123,7 +7287,8 @@ module.exports = [
     "t95Text": "1.7 年",
     "t95TextEn": "1.7 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Thamnophis_radix",
@@ -7152,6 +7317,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -7202,6 +7368,7 @@ module.exports = [
     "band95": null
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -7251,7 +7418,8 @@ module.exports = [
     ],
     "band95": null
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Thamnophis_sirtalis",
@@ -7282,6 +7450,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -7331,6 +7500,7 @@ module.exports = [
     "band95": 31.7
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -7379,7 +7549,8 @@ module.exports = [
     ],
     "band95": 32.7
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Tiliqua_scincoides",
@@ -7407,6 +7578,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -7454,6 +7626,7 @@ module.exports = [
     "band95": 33.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -7501,6 +7674,7 @@ module.exports = [
     "band95": 28.8
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_mixed",
     "groupZh": "家养·混合",
@@ -7547,7 +7721,8 @@ module.exports = [
     ],
     "band95": 37.4
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Timon_lepidus",
@@ -7576,6 +7751,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -7627,6 +7803,7 @@ module.exports = [
     "band95": 28.3
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -7678,6 +7855,7 @@ module.exports = [
     "band95": 15.6
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -7728,7 +7906,8 @@ module.exports = [
     ],
     "band95": 40.4
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Trachemys_scripta_elegans",
@@ -7757,6 +7936,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -7804,6 +7984,7 @@ module.exports = [
     "band95": 32.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -7851,6 +8032,7 @@ module.exports = [
     "band95": 23.9
    },
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "wild_mixed",
     "groupZh": "野外·混合",
@@ -7898,6 +8080,7 @@ module.exports = [
     "band95": 36.4
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_male",
     "groupZh": "野外·雄性",
@@ -7944,6 +8127,7 @@ module.exports = [
     "t95TextEn": "11.9 yr"
    },
    {
+    "lowRel": false,
     "kind": "age_length",
     "group": "wild_female",
     "groupZh": "野外·雌性",
@@ -7989,7 +8173,8 @@ module.exports = [
     "t95Text": "15.1 年",
     "t95TextEn": "15.1 yr"
    }
-  ]
+  ],
+  "lowRelCurves": []
  },
  {
   "id": "Xenopus_laevis",
@@ -8019,6 +8204,7 @@ module.exports = [
   "refs": [],
   "curves": [
    {
+    "lowRel": false,
     "kind": "length_weight",
     "group": "captive_female",
     "groupZh": "家养·雌性",
@@ -8068,6 +8254,7 @@ module.exports = [
     ],
     "band95": 63.2
    }
-  ]
+  ],
+  "lowRelCurves": []
  }
 ];

@@ -111,6 +111,11 @@ def main():
     html.append('<button id="lang">中 / EN</button>')
     html.append('<a href="#/feedback" style="text-decoration:none"><button>反馈</button></a>')
     html.append("</div></div>")
+    # 公开征集横幅：挂在**整页最顶端**（页眉下、搜索框上），表明征集意图。
+    # ⚠️ 文案不提身份 —— 一提身份类别就变成在分类，反而缩小来源。
+    html.append('<a class="collect-banner" href="#/feedback">'
+                '<span class="collect-text" id="collectText"></span>'
+                '<span class="collect-link" id="collectLink"></span></a>')
     html.append('<div id="app"></div>')
 
     # ---- 运行环境垫片 ----

@@ -132,3 +132,41 @@ textarea.input { min-height: 82px; resize: vertical; }
   .wrap { padding: 12px 10px 50px; }
   .card { padding: 12px; }
 }
+
+/* 未发表数据（低可靠性）：刻意做得与文献卡片明显不同，避免误认 */
+.lowrel-card { border: 2px dashed var(--warn-line); background: #fffdf6; }
+.lowrel-toggle {
+  background: #fff; color: #8a6d1f; border: 1px solid var(--warn-line);
+  border-radius: 999px; padding: 6px 16px; font-size: 13px; cursor: pointer;
+  font-family: inherit; margin-top: 8px;
+}
+.lowrel-toggle:hover { background: var(--warn-bg); }
+.lowrel-warn { margin-top: 10px; padding: 10px 12px; background: var(--warn-bg); border-radius: 8px; }
+.lowrel-warn-item { font-size: 13px; color: #8a6d1f; line-height: 1.65; }
+.lowrel-item {
+  margin-top: 12px; padding: 10px 12px;
+  background: #fff; border: 1px solid #eee3c8; border-radius: 8px;
+}
+
+/* 征集数据告示：用项目的绿色系，区别于警示的黄、错误红 */
+.donate-box { margin-top: 14px; padding: 14px; background: var(--green-soft);
+  border: 1px solid #bcd9c6; border-radius: 10px; }
+.donate-title { font-size: 15px; font-weight: 600; color: var(--green); }
+.donate-body { margin-top: 6px; font-size: 13px; color: #35513f; line-height: 1.65; }
+.donate-how { margin-top: 8px; font-size: 12px; color: #5d7a67; line-height: 1.6; }
+.donate-mail { margin-top: 8px; font-size: 12px; color: #5d7a67; }
+
+/* 公开征集横幅：整页最顶端（页眉下），表明征集意图 */
+.collect-banner {
+  display: flex; align-items: center; gap: 10px;
+  max-width: 900px; margin: 10px auto -2px; padding: 9px 14px;
+  background: var(--green-soft); border: 1px solid #bcd9c6; border-radius: 10px;
+  text-decoration: none;
+}
+.collect-banner:hover { background: #e2efe7; }
+.collect-text { flex: 1; font-size: 13px; color: #35513f; line-height: 1.5; }
+.collect-link { flex: 0 0 auto; font-size: 13px; color: var(--green); white-space: nowrap; }
+@media (max-width: 560px) {
+  .collect-banner { margin: 8px 10px -2px; }
+  .collect-text { font-size: 12px; }
+}

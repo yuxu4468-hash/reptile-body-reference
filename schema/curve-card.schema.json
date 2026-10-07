@@ -1,0 +1,336 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://health-table.local/schema/curve-card.schema.json",
+  "title": "爬宠健康参照表 · 曲线卡数据格式 v1",
+  "description": "每一条『物种 × 曲线类型 × 分组』的拟合曲线即为一条记录。整个物种的卡片是该记录的集合，可直接被程序读取。",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/curveRecord"
+  },
+  "definitions": {
+    "curveRecord": {
+      "type": "object",
+      "required": [
+        "species",
+        "kind",
+        "group",
+        "caliber",
+        "n",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "species": {
+          "type": "string",
+          "description": "物种标识（拉丁名，下划线连接）。混合种用 _spp 结尾。",
+          "pattern": "^[A-Z][A-Za-z_]+$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "length_weight",
+            "age_length"
+          ],
+          "description": "length_weight = 体长-体重（M = a·L^b）；age_length = 年龄-体长"
+        },
+        "group": {
+          "type": "string",
+          "enum": [
+            "wild_male",
+            "wild_female",
+            "wild_mixed",
+            "captive_male",
+            "captive_female",
+            "captive_mixed"
+          ],
+          "description": "分组 = 家养/野外 × 性别。性别影响不大时用 *_mixed 合并两性。"
+        },
+        "caliber": {
+          "type": "string",
+          "enum": [
+            "SCL",
+            "CLmax",
+            "CCL",
+            "midline_CL",
+            "MCL",
+            "PL",
+            "SVL",
+            "TL",
+            "unspecified"
+          ],
+          "description": "测量口径。SCL=直甲长；CLmax=最大甲长；midline_CL=中线甲长；MCL=最大甲壳长（大鳄龟文献用法）；PL=腹甲长；SVL=吻肛长；TL=总长。 | unspecified = 原文未声明量法（须同时给 caliber_uncertainty_len_pct，且不得与其它口径互相代入）"
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "样本量"
+        },
+        "source": {
+          "type": "string",
+          "description": "文献出处（作者+年份+刊名/DOI）"
+        },
+        "evidence": {
+          "type": "string",
+          "enum": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "U1"
+          ],
+          "description": "获取等级：L1 原始数据/一手全文；L2 有方程与样本量；L3 仅二手转引；L4 无来源；U1 **未发表的一手种群数据**（繁殖者/养殖场具名提供，未经同行评审，走 docs/42 的准入清单，且仅在无文献数据时可用）"
+        },
+        "note": {
+          "type": "string",
+          "description": "口径差异、产地、限制等必须随卡标注的说明"
+        },
+        "segments": {
+          "type": "array",
+          "description": "kind=length_weight 时必填。分段数组（体长区间 + 该段系数）。index 越小越先匹配。",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "range",
+              "a",
+              "b"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                },
+                "description": "[体长下限, 体长上限]，单位 mm，闭区间"
+              },
+              "a": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "M(g) = a × L(mm)^b 的系数"
+              },
+              "b": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "幂指数"
+              },
+              "r2": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "resid_sd_log10": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "对数残差标准差。判定用的误差尺度必须是这个（不是 CI）。"
+              },
+              "source": {
+                "type": "string",
+                "description": "该区间的来源。若同一组的不同区间来自不同文献，必须在此逐段标注。"
+              },
+              "note": {
+                "type": "string",
+                "description": "该区间的额外说明（口径差异等）。"
+              },
+              "interpolated": {
+                "type": "boolean",
+                "description": "true = 该区间【无实测数据】，由相邻两段在对数空间桥接插值得到。程序应据此降低该区间的展示权重，并提示用户该段置信度低。"
+              }
+            }
+          }
+        },
+        "model": {
+          "type": "string",
+          "enum": [
+            "von_bertalanffy",
+            "gompertz",
+            "logistic",
+            "richards",
+            "two_segment_linear"
+          ],
+          "description": "kind=age_length 时必填。two_segment_linear 用于「先近线性上升、到某年龄后骤然转平」的变态发育动物（如六角恐龙）：t ≤ t_break 时 L = L0_mm + m1_mm_per_year·t；t > t_break 时 L = L_at_break_mm + m2_mm_per_year·(t − t_break)。⚠️ 它没有渐近线，故 Linf 与 t95 在数学上无定义。"
+        },
+        "params": {
+          "type": "object",
+          "description": "kind=age_length 时的模型参数。von_bertalanffy 用 L = Linf - (Linf - L0)·exp(-k·(t - t0))。",
+          "properties": {
+            "Linf": {
+              "type": "number"
+            },
+            "k": {
+              "type": "number",
+              "description": "时间单位必须是「每年」；若原文以生长日计须先换算"
+            },
+            "t0": {
+              "type": "number"
+            },
+            "L0": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "A": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Richards/logistic 的渐近值"
+            },
+            "K": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Richards/logistic 的速率参数"
+            },
+            "T": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "display": {
+          "type": "object",
+          "description": "仅供展示的事实字段。【重要】程序端只用它来『报告偏差程度』，不得据此输出正常/异常、档位、误报率、健康建议或诊断。",
+          "additionalProperties": false,
+          "properties": {
+            "reference_pct": {
+              "type": "number",
+              "default": 20,
+              "description": "可选参考线（%）。仅作视觉标注，不参与任何判定。"
+            },
+            "observed_band_95_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "该组实测的 95% 区间半宽（%）。这是关于数据散度的【事实】，供用户自行解读，不构成对个体是否正常的结论。"
+            }
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "description": "该曲线的【数据覆盖度】，用于反映曲线可靠性。分母：体长-体重 = 该物种完整体型范围；年龄-体长 = t95。桶数固定 15，分子 = 最大连续非空桶数（容差 1 个空桶），只反映数据全面性。",
+          "properties": {
+            "buckets_total": {
+              "type": "integer",
+              "description": "桶总数，固定 15"
+            },
+            "buckets_filled": {
+              "type": "integer",
+              "description": "有数据的桶数"
+            },
+            "longest_run": {
+              "type": "integer",
+              "description": "最大连续非空桶数（即覆盖度的分子）"
+            },
+            "ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "longest_run / 15"
+            },
+            "domain": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              },
+              "description": "分母所定义的域。体长-体重为 [物种最小 mm, 最大 mm]；年龄-体长为 [0, t95]"
+            },
+            "data_ranges": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "description": "实际有数据的区间列表"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "n_kind": {
+          "type": "string",
+          "enum": [
+            "individuals",
+            "observations"
+          ],
+          "description": "n 的含义。individuals=个体数（默认）；observations=观测次数（同批个体重复测量），界面须换用「观测 N 次」的说法"
+        },
+        "caliber_uncertainty_len_pct": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "口径歧义在【长度轴】上的相对不确定度（百分比）。仅当 caliber='unspecified' 时必填。程序端据此叠加波动带：体长-体重换算成质量不确定度 (1+p/100)^b−1，年龄-体长直接使用 p。"
+        },
+        "caveats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "caliber_unspecified",
+              "no_spread_reported",
+              "age_from_size_frequency",
+              "digitized_from_figure",
+              "small_n",
+              "single_captive_population",
+              "single_wild_population",
+              "extrapolation_only",
+              "age_from_growth_rings",
+              "gravid_females_not_identified"
+            ]
+          },
+          "description": "需要让【用户】知道的关键限制代码。与 note 的区别：note 是我们的工作记录（不进小程序包），caveats 是要展示给用户看的短警示，界面文案走 i18n。"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "length_weight"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "segments"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "age_length"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "model",
+              "params"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

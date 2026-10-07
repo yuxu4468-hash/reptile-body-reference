@@ -88,7 +88,9 @@
   });
 
   // ---------------- 状态 ----------------
-  var S = { q: '', taxon: '', cmp: null };
+  // lowOpen：低可靠区块（U1 未发表数据）是否展开。
+  // ⚠️ **默认 false** —— 用户必须主动点开才看得到（红线 R2，见 docs/42 §3）。
+  var S = { q: '', taxon: '', cmp: null, lowOpen: false };
 
   function cur() {
     var hash = location.hash || '#/';
@@ -427,6 +429,7 @@
     if (sp.scopeShort) o.push('<div class="box scope">' + h(locale === 'en' ? (sp.scopeShortEn || sp.scopeShort) : sp.scopeShort) + '</div>');
     if (!sp.curves || !sp.curves.length) {
       o.push('<div class="muted" style="margin-top:8px">' + h(t().layerEmptyTitle || '本物种暂无可靠数据') + '</div>');
+      o.push(donateBox());
       if (sp.refs && sp.refs.length) {
         o.push('<div class="tiny" style="margin-top:8px"><b>' + h(t().refsTitle || '已核查的来源') + '</b><ul>' +
           sp.refs.map(function (x) { return '<li>' + h(x) + '</li>'; }).join('') + '</ul></div>');
@@ -445,6 +448,44 @@
     }
     if (!lw.length && (sp.curves || []).length) {
       o.push('<div class="box scope">' + h(t().layerEmptyTitle || '该层暂无数据') + '</div>');
+      o.push(donateBox());
+    }
+    // ---- 未发表数据（低可靠性，U1）----
+    // ⚠️ 这些曲线**不在 sp.curves 里**（构建时已分流到 lowRelCurves），
+    //    所以上面的查询对照与卡片渲染**在物理上**碰不到它们（红线 R1/R2）。
+    //    **默认折叠** —— 用户必须主动展开才看得到（红线 R2）。
+    var low = sp.lowRelCurves || [];
+    if (low.length) {
+      o.push('<div class="card lowrel-card">');
+      o.push('<h2>' + h(t().lowRelTitle || '未发表数据（低可靠性）') + '</h2>');
+      o.push('<div class="muted">' + h(t().lowRelLead || '') + '</div>');
+      o.push('<button class="lowrel-toggle" data-lowtoggle="1">' +
+        h(S.lowOpen ? (t().lowRelClose || '收起') : (t().lowRelOpen || '展开查看')) +
+        (S.lowOpen ? '' : '（' + low.length + '）') + '</button>');
+      if (S.lowOpen) {
+        o.push('<div class="lowrel-warn">' +
+          [t().lowRelWarnNoMix, t().lowRelWarnSingle, t().lowRelWarnSample, t().lowRelWhy]
+            .filter(Boolean).map(function (x) { return '<div class="lowrel-warn-item">' + h(x) + '</div>'; }).join('') +
+          '</div>');
+        low.forEach(function (c) {
+          o.push('<div class="lowrel-item">');
+          o.push('<div class="curve-head"><span class="g">' + h(groupText(c)) + '</span>' +
+            '<span class="pill">' + h(calText(c)) + '</span>' +
+            '<span class="pill">' + h((locale === 'en' ? c.nTextEn : c.nText) || '') + '</span></div>');
+          if (c.kind === 'length_weight') {
+            (c.segments || []).forEach(function (sg) {
+              o.push('<div class="tiny mono">' + num(sg.lo, 0) + '–' + num(sg.hi, 0) +
+                ' mm　M = ' + Number(sg.a).toExponential(3) + ' × L^' + Number(sg.b).toFixed(4) + '</div>');
+            });
+          } else {
+            o.push('<div class="tiny">' + h((locale === 'en' ? c.modelTextEn : c.modelText) || c.model || '') +
+              '　t95：' + h(c.t95Text || '—') + '</div>');
+          }
+          o.push('<div class="tiny">' + h(t().sourceLabel || '来源') + '：' + h(c.source || '') + '</div>');
+          o.push('</div>');
+        });
+      }
+      o.push('</div>');
     }
     if ((sp.curves || []).length) o.push(cmpPanel(sp));
     o.push('<div style="margin:16px 0"><a href="#/">← ' + h(t().chooseSpecies || '返回物种列表') + '</a></div>');
@@ -515,6 +556,26 @@
       (v.note ? (t().fbFieldNote || '补充说明') + ' ' + v.note + '\n' : '') +
       '\n— 来自「爬宠体型参照」离线版 ' + APP_VER;
   }
+  /**
+   * 征集数据的告示。
+   * 放两处：反馈页，以及「本层暂无可靠数据」的详情页 ——
+   * 后者价值更高：正在看这个空缺的人，恰恰最可能手里有一批数据。
+   * 口径刻意写成「有较大的种群」，**不预设对方是繁殖者** ——
+   * 有规模的玩家同样可以提供（用户明确提过这一点）。
+   */
+  function donateBox(variant) {
+    // 反馈页与详情页**场景不同**：详情页可以说"这个物种"，
+    // 反馈页用户还没说是什么物种，只能泛指。所以文案分两套。
+    var isFb = variant === 'fb';
+    return '<div class="donate-box">' +
+      '<div class="donate-title">' + h(isFb ? (t().donateFbTitle || '') : (t().donateTitle || '')) + '</div>' +
+      '<div class="donate-body">' + h(isFb ? (t().donateFbBody || '') : (t().donateBody || '')) + '</div>' +
+      '<div class="donate-body">' + h(t().donateWho || '') + '</div>' +
+      '<div class="donate-how">' + h(t().donateHow || '') + '</div>' +
+      '<div class="donate-mail">' + h(t().donateMail || '') + '</div>' +
+      '</div>';
+  }
+
   function viewFeedback() {
     var v = loadFb();
     var txt = fbText();
@@ -523,7 +584,10 @@
       '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(txt);
     var o = [];
     o.push('<div class="card"><h2>' + h(t().fbTitle || '想要哪个物种') + '</h2>');
+    // ⚠️ 顺序：开场白 → 告示。第一版把告示插在开场白**之前**，读起来很突兀。
     o.push('<div class="muted">' + h(t().fbIntro || '') + '</div>');
+    // 反馈页用 'fb' 变体：这里用户还没说是什么物种，不能写「这个物种」
+    o.push(donateBox('fb'));
     o.push('<div class="box scope">' + h(t().fbMailHint || '') + '<br><b>' + h(FEEDBACK_EMAIL) + '</b></div>');
     o.push('<div class="field"><label>' + h(t().fbFieldSpecies || '物种名') + '</label>' +
       '<input class="input" id="fbSpecies" value="' + h(v.species) + '" placeholder="' + h(t().fbPhSpecies || '') + '"></div>');
@@ -550,6 +614,7 @@
     else if (r.view === 'feedback') html = viewFeedback();
     else html = viewIndex();
     app.innerHTML = '<div class="wrap">' + html + '</div>';
+    fillBanner();
     // 列表页：保持搜索框焦点
     if (r.view === 'index' && S.q) {
       var qi = document.getElementById('q');
@@ -561,7 +626,8 @@
     var el = ev.target;
     while (el && el !== document.body && !(el.dataset && (el.dataset.go || el.dataset.taxon !== undefined ||
       el.dataset.cmpmode || el.dataset.cmpcal !== undefined || el.dataset.cmpgrp !== undefined ||
-      el.dataset.cmpgo || el.dataset.cmprst || el.dataset.fbmail || el.dataset.fbshow))) {
+      el.dataset.cmpgo || el.dataset.cmprst || el.dataset.fbmail || el.dataset.fbshow ||
+      el.dataset.lowtoggle))) {
       el = el.parentNode;
     }
     if (!el || el === document.body) return;
@@ -570,6 +636,8 @@
     var sp = r.view === 'detail' ? byId(r.id) : null;
     if (d.go !== undefined) { go('#/s/' + encodeURIComponent(d.go)); return; }
     if (d.taxon !== undefined) { S.taxon = d.taxon; render(); return; }
+    // 低可靠区块的展开/收起。默认折叠，用户主动点才开（红线 R2）。
+    if (d.lowtoggle) { S.lowOpen = !S.lowOpen; render(); return; }
     if (d.cmpmode) { ensureCmp(sp).mode = d.cmpmode; ensureCmp(sp).rows = []; render(); return; }
     if (d.cmpcal !== undefined) { ensureCmp(sp).caliber = d.cmpcal; ensureCmp(sp).group = ''; ensureCmp(sp).rows = []; render(); return; }
     if (d.cmpgrp !== undefined) { ensureCmp(sp).group = d.cmpgrp; ensureCmp(sp).rows = []; render(); return; }
@@ -638,9 +706,20 @@
   //    但**页面完全不会重新渲染**，等于「导航失灵」。
   //    这类 bug 单看首屏截图是发现不了的（首屏正常），只有真的点一下才暴露。
   window.addEventListener('hashchange', function () {
+    // 换页/换物种时把低可靠区块**收回折叠**，
+    // 否则上一个物种的展开状态会串到下一个物种（等于变相"默认展开"）。
+    S.lowOpen = false;
     window.scrollTo(0, 0);
     render();
   });
+
+  /** 填顶部横幅文案。语言切换后要跟着变，所以在 render 里同步刷新。 */
+  function fillBanner() {
+    var tx = document.getElementById('collectText');
+    var lk = document.getElementById('collectLink');
+    if (tx) tx.textContent = t().bannerText || '';
+    if (lk) lk.textContent = (t().bannerLink || '') + ' ›';
+  }
 
   // 初始渲染
   document.documentElement.lang = locale === 'zh' ? 'zh' : 'en';
