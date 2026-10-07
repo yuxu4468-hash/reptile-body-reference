@@ -20,7 +20,21 @@ REPO_DIR = os.path.join(ROOT, "Health Table Git")
 TOKEN_FILE = r"C:\Users\39287\.dsh\.gh-issue-token.txt"
 OWNER = "yuxu4468-hash"
 NAME = "reptile-body-reference"
-TAG = "v1.0.0"
+# ⚠️ 版本号**只有一个来源**：仓库/项目根的 `VERSION` 文件。
+#    ⚠️ 这个脚本本身是**发布在仓库里**的 —— 所以版本号绝不能在脚本里写死，
+#    否则 GitHub 上谁点开源码都会看到一个过期的版本号，
+#    即使 Releases 页明明已经是最新的（2026-10-08 实际发生过）。
+def _version():
+    for cand in (os.path.join(ROOT, "VERSION"),
+                 os.path.join(os.path.dirname(os.path.abspath(__file__)), "VERSION")):
+        if os.path.isfile(cand):
+            v = io.open(cand, encoding="utf-8").read().strip()
+            if v:
+                return v if v.startswith("v") else ("v" + v)
+    return "v0.0.0-unknown"
+
+
+TAG = _version()
 # 版本号可传参：python tools/publish_github.py --tag v1.0.1
 for _i, _a in enumerate(sys.argv):
     if _a == "--tag" and _i + 1 < len(sys.argv):
@@ -147,7 +161,10 @@ def main():
     # 4) commit（无父提交 = 初始提交）
     st, ref = api("GET", "https://api.github.com/repos/%s/%s/git/ref/heads/main" % (OWNER, NAME))
     parents = [ref["object"]["sha"]] if st == 200 else []
-    msg = (u"v1.0.0 · 首个公开版本\n\n"
+    # ⚠️ 提交信息**不能写死**。原来写死了版本号与「首个公开版本」这几个字，
+    #    于是每个版本的 commit 在**提交历史**里都显示同一个旧版本号，
+    #    而且后续版本还都自称「首个公开版本」。
+    msg = (TAG + u" · 爬宠体型参照\n\n"
            u"- 单文件离线版 index.html（52 物种 / 135 条曲线，双击即用、不联网）\n"
            u"- 权威数据 data/curves.json 与物种元数据 data/species_meta.json\n"
            u"- 构建脚本 tools/build_offline.py（复用共享的数据与算法模块）\n"
