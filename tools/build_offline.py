@@ -56,6 +56,13 @@ def wrap(name, src, note):
     ) % (note, name, src)
 
 
+def data_uri(path):
+    """把 PNG 读成 data: URI —— **必须内联**，否则离线版会变成"要联网才显示图标"。"""
+    import base64
+    with open(path, "rb") as fh:
+        return "data:image/png;base64," + base64.b64encode(fh.read()).decode("ascii")
+
+
 def main():
     curves = read(os.path.join(MINI, "data", "curves.js"))
     calcjs = read(os.path.join(MINI, "utils", "calc.js"))
@@ -77,6 +84,13 @@ def main():
     html.append('<meta charset="utf-8">')
     html.append('<meta name="viewport" content="width=device-width,initial-scale=1">')
     html.append("<title>爬宠体型参照 · 离线版</title>")
+    # 图标：**必须内联成 data: URI**。若写成外部文件引用，离线版一换目录图标就没了，
+    # 那就不叫"下载即用"了。（同时也是浏览器标签页上的 favicon。）
+    icon_small = os.path.join(ROOT, "assets", "icon-64.png")
+    icon_head = os.path.join(ROOT, "assets", "icon-192.png")
+    if os.path.isfile(icon_small):
+        html.append('<link rel="icon" type="image/png" href="%s">' % data_uri(icon_small))
+        html.append('<link rel="apple-touch-icon" href="%s">' % data_uri(icon_head if os.path.isfile(icon_head) else icon_small))
     html.append("<!--")
     html.append("  爬宠体型参照 · 离线版（单文件）")
     html.append("  · 双击本文件即可使用；不联网、不需要服务器、不调用任何隐私接口。")
@@ -90,6 +104,9 @@ def main():
     html.append("</head>")
     html.append("<body>")
     html.append('<div class="topbar"><div class="topbar-in">')
+    if os.path.isfile(icon_head):
+        # 顶栏图标同样内联 —— 保证单文件换任何位置都能正常显示
+        html.append('<img class="brand" src="%s" alt="" width="30" height="30">' % data_uri(icon_head))
     html.append('<h1>爬宠体型参照 · 离线版</h1>')
     html.append('<button id="lang">中 / EN</button>')
     html.append('<a href="#/feedback" style="text-decoration:none"><button>反馈</button></a>')

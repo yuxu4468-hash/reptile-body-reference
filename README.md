@@ -1,3 +1,5 @@
+<img src="assets/icon.png" alt="爬宠体型参照" width="120" align="right">
+
 # 爬宠体型参照 · reptile-body-reference
 
 依据**公开文献**整理的爬宠（龟 / 蛇 / 蜥蜴·守宫 / 蛙·蝾螈）**体型参照数据**。

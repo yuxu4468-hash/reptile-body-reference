@@ -29,6 +29,8 @@ a { color: var(--green); }
   position: sticky; top: 0; z-index: 10;
 }
 .topbar-in { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+/* 顶栏图标：内联 data: URI，换目录也不会丢 */
+.brand { border-radius: 6px; flex: 0 0 auto; display: block; }
 .topbar h1 { font-size: 17px; margin: 0; flex: 1; font-weight: 600; }
 .topbar button {
   background: rgba(255,255,255,.16); color: #fff; border: 0; border-radius: 6px;
