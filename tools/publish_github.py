@@ -56,11 +56,22 @@ def api(method, url, payload=None, raw=None, ctype="application/json"):
         return e.code, {"_error": body[:500]}
 
 
+# ⚠️ **发布脚本不能无脑上传目录里的一切**。
+#    上一版就是这么做的 —— 结果把 `tools/__pycache__/*.pyc`
+#    （用 importlib 导入构建脚本时自动生成的字节码缓存）也传上去了。
+#    `.gitignore` 里虽然写了 `__pycache__/`，但**本脚本不看 .gitignore** —— 所以这里显式排除。
+EXCLUDE_DIRS = {"__pycache__", ".git", "node_modules", ".dsh-vision-toolkit"}
+EXCLUDE_EXT = {".pyc", ".pyo", ".bak", ".tmp", ".log", ".DS_Store"}
+EXCLUDE_NAMES = {".DS_Store", "Thumbs.db"}
+
+
 def collect():
     out = []
     for dp, dn, fn in os.walk(REPO_DIR):
-        dn[:] = [d for d in dn if d != ".git"]
+        dn[:] = [d for d in dn if d not in EXCLUDE_DIRS]
         for f in fn:
+            if f in EXCLUDE_NAMES or os.path.splitext(f)[1].lower() in EXCLUDE_EXT:
+                continue
             p = os.path.join(dp, f)
             rel = os.path.relpath(p, REPO_DIR).replace("\\", "/")
             out.append((rel, p))
@@ -166,20 +177,33 @@ def main():
     #    而且即便 Release 存在，tag 仍指向**旧 commit**，会与仓库内容不一致。
     #    所以：已存在就 PATCH 更新正文，并把 tag 强制移到当前 commit。
     rel_body = (u"## 下载即用\n\n"
-                u"下载下面的 **index.html**，双击用任意浏览器打开即可。\n"
-                u"不需要联网、不需要安装、不需要服务器。\n\n"
-                u"## 这一版有什么\n\n"
-                u"- **52 个物种**（45 个有数据，7 个如实标注「暂无可靠数据」）\n"
-                u"- **135 条参照曲线**（体长-体重 96 / 年龄-体长 39）\n"
-                u"- 搜索支持中文正名 / 俗名 / 学名 / 拼音 / 拼音首字母；按龟·蛇·蜥蜴·两栖四类筛选\n"
-                u"- **查询对照**：输入体长、体重或年龄，给出各分组的参照值与偏差；"
-                u"可自选**测量口径**与**参照分组**\n"
-                u"- 每个物种卡片给出：口径、样本量、来源、拟合方程与 R²、95% 波动带、"
-                u"覆盖度、以及需要注意的局限\n\n"
-                u"## 它不做的事\n\n"
-                u"**只报告与参照数据的偏离程度，不判断健康与否，也不构成诊断。**\n\n"
-                u"## 反馈\n\n"
-                u"希望增加哪个物种：**yuxu446@gmail.com**（离线版页面里也有「用邮件发送」按钮）。")
+                u"\u2b07\ufe0f **index.html** \u2014\u2014 \u70b9\u4e0b\u9762\u7684\u9644\u4ef6\u4e0b\u8f7d\uff0c"
+                u"\u53cc\u51fb\u7528\u4efb\u610f\u6d4f\u89c8\u5668\u6253\u5f00\u5373\u53ef\u3002\n"
+                u"\u4e0d\u9700\u8981\u8054\u7f51\u3001\u4e0d\u9700\u8981\u5b89\u88c5\u3001\u4e0d\u9700\u8981\u670d\u52a1\u5668\u3002\n\n"
+                u"## \u8fd9\u4e00\u7248\u6709\u4ec0\u4e48\n\n"
+                u"- **52 \u4e2a\u7269\u79cd**\uff0845 \u4e2a\u6709\u6570\u636e\uff0c7 \u4e2a\u5982\u5b9e\u6807\u6ce8\u300c\u6682\u65e0\u53ef\u9760\u6570\u636e\u300d\uff09\n"
+                u"- **135 \u6761\u53c2\u7167\u66f2\u7ebf**\uff08\u4f53\u957f-\u4f53\u91cd / \u5e74\u9f84-\u4f53\u957f\uff09\n"
+                u"- \u641c\u7d22\u652f\u6301\u4e2d\u6587\u6b63\u540d / \u4fd7\u540d / \u5b66\u540d / \u62fc\u97f3 / \u62fc\u97f3\u9996\u5b57\u6bcd\n"
+                u"- \u67e5\u8be2\u5bf9\u7167\uff1a\u8f93\u5165\u4f53\u957f\u3001\u4f53\u91cd\u6216\u5e74\u9f84\uff0c\u53ef\u81ea\u9009**\u6d4b\u91cf\u53e3\u5f84**\u4e0e**\u53c2\u7167\u5206\u7ec4**\n"
+                u"- \u6bcf\u5f20\u5361\u7247\u7ed9\u51fa\uff1a\u53e3\u5f84\u3001\u6837\u672c\u91cf\u3001\u6765\u6e90\u3001\u65b9\u7a0b\u4e0e R\u00b2\u3001"
+                u"95% \u6ce2\u52a8\u5e26\u3001\u8986\u76d6\u5ea6\u3001\u4ee5\u53ca\u9700\u8981\u6ce8\u610f\u7684\u5c40\u9650\n\n"
+                u"## \u2b50 \u6211\u4eec\u5728\u516c\u5f00\u5f81\u96c6\u6570\u636e\n\n"
+                u"**\u5982\u679c\u4f60\u624b\u4e0a\u6709\u9972\u517b\u8bb0\u5f55\uff0c\u6b22\u8fce\u63d0\u4f9b\u7ed9\u6211\u4eec\u3002**\n\n"
+                u"\u4e0d\u9700\u8981\u4f60\u662f\u7e41\u6b96\u8005\u6216\u517b\u6b96\u573a\uff1b**\u6ca1\u6709\u6570\u91cf\u95e8\u69db**"
+                u"\uff08\u6211\u4eec\u81ea\u5df1\u7684\u66f2\u7ebf\u91cc\u5c31\u6709 n<30 \u7684\uff0c\u6700\u5c0f n=3\uff09\uff0c"
+                u"\u8bb0\u5f55\u4e5f**\u4e0d\u5fc5\u5b8c\u6574**\u3002\n\n"
+                u"\u9700\u8981\u7684\u53ea\u6709\u4e09\u6837\uff1a**\u4f53\u957f\u3001\u4f53\u91cd\u3001\u5e74\u9f84**\u3002"
+                u"\u53e3\u5f84\u600e\u4e48\u91cf\u3001\u9700\u8981\u54ea\u4e9b\u5b57\u6bb5\uff0c"
+                u"\u89c1\u4ed3\u5e93\u91cc\u7684 `docs/43_\u7ed9\u613f\u610f\u63d0\u4f9b\u6570\u636e\u7684\u4eba.md` "
+                u"\u4e0e\u53ef\u76f4\u63a5\u586b\u7684 `docs/43_\u6570\u636e\u6a21\u677f.csv`\u3002\n\n"
+                u"\u5f81\u96c6\u6765\u7684\u6570\u636e\u4f1a**\u5355\u72ec\u6807\u660e\u3001\u5217\u51fa**\uff0c"
+                u"\u4e0e\u6587\u732e\u6570\u636e\u5206\u5f00\uff1b**\u5bf9\u5916\u9ed8\u8ba4\u4e0d\u7f72\u540d**\uff0c\u4e5f\u53ef\u968f\u65f6\u8981\u6c42\u5220\u9664\u3002\n\n"
+                u"## \u5b83\u4e0d\u505a\u7684\u4e8b\n\n"
+                u"**\u53ea\u62a5\u544a\u4e0e\u53c2\u7167\u6570\u636e\u7684\u504f\u79bb\u7a0b\u5ea6\uff0c\u4e0d\u5224\u65ad\u5065\u5eb7\u4e0e\u5426\uff0c"
+                u"\u4e5f\u4e0d\u6784\u6210\u8bca\u65ad\u3002**\n\n"
+                u"## \u53cd\u9988\n\n"
+                u"\u5e0c\u671b\u589e\u52a0\u54ea\u4e2a\u7269\u79cd\u3001\u6216\u53d1\u73b0\u54ea\u6761\u66f2\u7ebf\u4e0d\u5bf9\uff1a"
+                u"**yuxu446@gmail.com**\uff0c\u6216\u5728 Issues \u91cc\u63d0\u3002")
 
     st, exist = api("GET", "https://api.github.com/repos/%s/%s/releases/tags/%s" % (OWNER, NAME, TAG))
     if st == 200:
