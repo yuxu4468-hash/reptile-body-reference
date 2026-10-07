@@ -161,29 +161,45 @@ def main():
         return 1
     print(u"✅ main 已指向 %s" % commit["sha"][:10])
 
-    # 6) 创建 Release
-    st, rel = api("POST", "https://api.github.com/repos/%s/%s/releases" % (OWNER, NAME), {
-        "tag_name": TAG,
-        "target_commitish": "main",
-        "name": TAG + u" · 爬宠体型参照",
-        "body": (u"## 下载即用\n\n"
-                 u"下载下面的 **index.html**，双击用任意浏览器打开即可。\n"
-                 u"不需要联网、不需要安装、不需要服务器。\n\n"
-                 u"## 这一版有什么\n\n"
-                 u"- **52 个物种**（45 个有数据，7 个如实标注「暂无可靠数据」）\n"
-                 u"- **135 条参照曲线**（体长-体重 96 / 年龄-体长 39）\n"
-                 u"- 搜索支持中文正名 / 俗名 / 学名 / 拼音 / 拼音首字母；按龟·蛇·蜥蜴·两栖四类筛选\n"
-                 u"- **查询对照**：输入体长、体重或年龄，给出各分组的参照值与偏差；"
-                 u"可自选**测量口径**与**参照分组**\n"
-                 u"- 每个物种卡片给出：口径、样本量、来源、拟合方程与 R²、95% 波动带、"
-                 u"覆盖度、以及需要注意的局限\n\n"
-                 u"## 它不做的事\n\n"
-                 u"**只报告与参照数据的偏离程度，不判断健康与否，也不构成诊断。**\n\n"
-                 u"## 反馈\n\n"
-                 u"希望增加哪个物种：**yuxu446@gmail.com**（离线版页面里也有「用邮件发送」按钮）。"),
-        "draft": False,
-        "prerelease": False,
-    })
+    # 6) 创建 / 更新 Release（**幂等**）
+    # ⚠️ 重发时会撞 422「tag_name already_exists」—— 第一版就是直接 POST，第二次就失败。
+    #    而且即便 Release 存在，tag 仍指向**旧 commit**，会与仓库内容不一致。
+    #    所以：已存在就 PATCH 更新正文，并把 tag 强制移到当前 commit。
+    rel_body = (u"## 下载即用\n\n"
+                u"下载下面的 **index.html**，双击用任意浏览器打开即可。\n"
+                u"不需要联网、不需要安装、不需要服务器。\n\n"
+                u"## 这一版有什么\n\n"
+                u"- **52 个物种**（45 个有数据，7 个如实标注「暂无可靠数据」）\n"
+                u"- **135 条参照曲线**（体长-体重 96 / 年龄-体长 39）\n"
+                u"- 搜索支持中文正名 / 俗名 / 学名 / 拼音 / 拼音首字母；按龟·蛇·蜥蜴·两栖四类筛选\n"
+                u"- **查询对照**：输入体长、体重或年龄，给出各分组的参照值与偏差；"
+                u"可自选**测量口径**与**参照分组**\n"
+                u"- 每个物种卡片给出：口径、样本量、来源、拟合方程与 R²、95% 波动带、"
+                u"覆盖度、以及需要注意的局限\n\n"
+                u"## 它不做的事\n\n"
+                u"**只报告与参照数据的偏离程度，不判断健康与否，也不构成诊断。**\n\n"
+                u"## 反馈\n\n"
+                u"希望增加哪个物种：**yuxu446@gmail.com**（离线版页面里也有「用邮件发送」按钮）。")
+
+    st, exist = api("GET", "https://api.github.com/repos/%s/%s/releases/tags/%s" % (OWNER, NAME, TAG))
+    if st == 200:
+        rel_id = exist["id"]
+        # tag 指向旧 commit 时把它移过来，保证 Release 与仓库内容一致
+        api("PATCH", "https://api.github.com/repos/%s/%s/git/refs/tags/%s" % (OWNER, NAME, TAG),
+            {"sha": commit["sha"], "force": True})
+        st, rel = api("PATCH", "https://api.github.com/repos/%s/%s/releases/%d" % (OWNER, NAME, rel_id),
+                      {"name": TAG + u" · 爬宠体型参照", "body": rel_body,
+                       "draft": False, "prerelease": False})
+        print(u"✅ Release %s 已存在 → 已更新，tag 已移到 %s" % (TAG, commit["sha"][:10]))
+    else:
+        st, rel = api("POST", "https://api.github.com/repos/%s/%s/releases" % (OWNER, NAME), {
+            "tag_name": TAG,
+            "target_commitish": "main",
+            "name": TAG + u" · 爬宠体型参照",
+            "body": rel_body,
+            "draft": False,
+            "prerelease": False,
+        })
     if st not in (200, 201):
         print(u"❌ Release 失败 %s: %s" % (st, rel))
         return 1
