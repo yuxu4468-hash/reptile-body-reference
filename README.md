@@ -60,6 +60,14 @@ python tools/build_offline.py --out .
 
 会把 `index.html` 重新生成在仓库根目录。改了 `data/*.json` 或 `tools/offline/` 后重跑即可。
 
+## 发布新版本（维护者）
+
+`ash
+python tools/publish_github.py --tag v1.0.1
+`
+
+会用 Git Data API 把仓库内容提交成一个新 commit，并创建同名 Release、附上 \index.html\。
+
 ## 反馈
 
 希望增加哪个物种？发邮件到 **yuxu446@gmail.com**，或在 [Issues](../../issues) 里提。
