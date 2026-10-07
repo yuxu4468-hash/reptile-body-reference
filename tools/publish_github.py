@@ -203,10 +203,18 @@ def main():
     if st not in (200, 201):
         print(u"❌ Release 失败 %s: %s" % (st, rel))
         return 1
-    print(u"✅ Release %s 已创建" % TAG)
 
-    # 7) 把 index.html 作为 Release 资源上传（免登录下载）
+    # 7) 把 index.html 作为 Release 资源上传（免登录下载）—— **幂等**
+    #    ⚠️ 重发时同名资源会撞 422 already_exists，所以先删旧的再传。
+    #    不这样做的话，Release 页面上的下载件会永远停在**第一次**发的版本
+    #   （仓库源码更新了、用户下载到的却是旧的，是最容易骗过自己的那种不一致）。
     asset = os.path.join(REPO_DIR, "index.html")
+    for a in api("GET", "https://api.github.com/repos/%s/%s/releases/%d/assets"
+                 % (OWNER, NAME, rel["id"]))[1] or []:
+        if a.get("name") == "index.html":
+            api("DELETE", "https://api.github.com/repos/%s/%s/releases/assets/%d"
+                % (OWNER, NAME, a["id"]))
+            print(u"   已删除旧资源 %s（%d 字节）" % (a["name"], a.get("size", 0)))
     url = ("https://uploads.github.com/repos/%s/%s/releases/%d/assets?name=%s"
            % (OWNER, NAME, rel["id"], "index.html"))
     st, a = api("POST", url, raw=open(asset, "rb").read(),
@@ -214,7 +222,8 @@ def main():
     if st not in (200, 201):
         print(u"⚠️ 资源上传失败 %s: %s" % (st, a))
     else:
-        print(u"✅ 资源已上传（%.1f KB）" % (a.get("size", 0) / 1024.0))
+        print(u"✅ Release %s 就绪 ｜ 资源 index.html %.1f KB" % (TAG, a.get("size", 0) / 1024.0))
+        print(u"   下载：%s" % a.get("browser_download_url", ""))
 
     print(u"\n仓库：https://github.com/%s/%s" % (OWNER, NAME))
     print(u"发布：https://github.com/%s/%s/releases/tag/%s" % (OWNER, NAME, TAG))
