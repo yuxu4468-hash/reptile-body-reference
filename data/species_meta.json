@@ -1,1147 +1,1147 @@
 {
- "_说明": "物种展示名元数据。新增物种时在此登记中文名/拉丁名/英文名；两个生成器（gen_cards.py / build_miniprogram_data.py）都读这里。缺项时回退为拉丁名。",
- "Ambystoma_mavortium": {
-  "zh": "虎纹钝口螈",
-  "latin": "Ambystoma mavortium",
-  "en": "Barred Tiger Salamander",
-  "taxon": "amphibian",
-  "py": "huwendunkouyuan",
-  "pyi": "hwdky",
-  "alias": [
-   "虎纹蝾螈",
-   "虎斑蝾螈",
-   "横带虎纹钝口螈",
-   "虎纹钝口螈",
-   "tiger salamander"
-  ],
-  "alias_en": [
-   "Tiger Salamander",
-   "Barred Tiger Salamander"
-  ],
-  "scope": "北美大平原（美国中西部至墨西哥北部）。⚠️ **「虎纹蝾螈」原是一个复合体，现已被拆分为两个独立种**：本卡为**横带虎纹钝口螈 *A. mavortium***；东部的**虎纹钝口螈 *A. tigrinum*** 是**另一个种**（本项目暂无其数据）。另有加州虎纹钝口螈 *A. californiense*。",
-  "scope_short": "⚠️ **本卡只有幼体（有外鳃）的数据**（SVL 17–26 mm），**不含陆生成体**。⚠️ 「虎纹蝾螈」是复合体：本卡是 ***A. mavortium***（横带），***A. tigrinum***（东部）是另一个种、本卡不适用。",
-  "scope_short_en": "⚠️ Larval (externally gilled) data only (SVL 17-26 mm); adult terrestrial animals are not covered. ⚠️ \"Tiger salamander\" is a complex: this card is A. mavortium; the eastern A. tigrinum is a separate species and is not covered.",
-  "status_note": "**体长-体重 1 条（幼体 only）**：PANGAEA 913841（L1，美国北达科他州野外采集的**水栖幼体**，用于 96 h 急性毒性实验），n=56，**口径 SVL**，17.4–26.29 mm，b=1.8579，r²=0.7542，95% 带 ±23.7%。**覆盖度仅 3/15 = 0.2** —— 分母是物种完整体型范围 [17, 98] mm SVL，而数据只落在最幼小的那一小段。\n⚠️ **b≈1.86 明显低于等速生长的 3**：这批全是**幼体**，其体重**包含尾与鳃**（二者都不计入 SVL 轴），加上卵黄吸收期的成分变化，故 b 偏低属**发育轨迹**而非静态异速。**不得外推到陆生成体。**\n**年龄-体长：无可用数据 → 该层拒答**（未获取任何已知年龄个体或生长方程）。\n**未获取**：陆生成体的体长-体重、年龄层、*A. tigrinum* 的全部数据。\n**🎯 翻盘路径（Lead 已核实可用）**：**Dryad 的 Whiteman/Lackey 长期种群数据**（标记重捕 + 骨龄学，最可能同时含 SVL + 体重 + 年龄）：`10.5061/dryad.z612jm6h9`（version **240229**）、`10.5061/dryad.52kd8tg`（version **26246**）等，经 `/api/v2/versions/{id}/download` **200、免凭据**可取（**前一位曾误报其不可用**，见 docs/33 E11）。已另派 task-32 专门去取。"
- },
- "Ambystoma_mexicanum": {
-  "zh": "墨西哥钝口螈",
-  "latin": "Ambystoma mexicanum",
-  "en": "Axolotl",
-  "taxon": "amphibian",
-  "py": "moxigedunkouyuan",
-  "pyi": "mxgdky",
-  "alias": [
-   "六角恐龙",
-   "墨西哥钝口螈",
-   "美西螈",
-   "六角龙",
-   "axolotl"
-  ],
-  "alias_en": [
-   "Axolotl",
-   "Mexican Axolotl"
-  ],
-  "scope": "墨西哥城霍奇米尔科（Xochimilco）湖区**特有**。**IUCN 极危**、CITES 附录 II。野外几近灭绝，全球宠物与实验室个体数量极大（几乎全为人工繁育品系）。",
-  "scope_short": "⚠️ 本卡**只有体长-体重**；**年龄-体长暂不提供** —— 该种的生长是**两段线性**，项目现有模型在此数据上有约 ±18% 的系统误差，会误报。",
-  "scope_short_en": "⚠️ Length-weight only. Age-length is withheld: this species grows in two linear phases, and the standard growth models carry about ±18% systematic error here, which would produce false deviations.",
-  "status_note": "**体长-体重 1 条**（**L1**，Vieu et al. 2024, *Sci Rep* 14:11787 Table 1 逐个体，宠物群体）：captive_mixed，**口径 TL（全长，含尾）**，n=27，TL 175–300 mm / 39–190 g，`M=0.0021792·TL^1.9147`，r²=0.7003，95% 带 ±45.3%。b 的 95%CI = **1.399–2.431**（bootstrap 1.185–2.478）—— ⚠️ **偏宽**，但**未跨 1–4 全域**，按项目既定判据可用。⚠️ b≈1.91 低于等速生长的 3：**本种体形细长且尾极长**（TL/SVL ≈ 2.0），而口径是 **TL（含尾）**，尾部质量占比大 → b 偏低属**真实生物学**。\n**年龄-体长：拒答（模型不可表达）—— 本项目当前最重要的未决技术问题**。\n原文 Riquelme-Guzmán et al. 2022（*Dev Dyn* 251(6):1015–1034）用 **n=220** 只实验室个体（0–250 月，德累斯顿 CRTD，20–22 °C）给出**两段线性**模型（TL: m1=1.144 cm/月、m2=0.0325、断点 19.87 月；SVL: 0.618 / 0.0202 / 19.00 月，L0≈0）。\n**⚠️ 关键**：把它重拟合为项目支持的模型，**RMSE 看似可接受**（VBGF 1.70 cm、Gompertz 1.84、logistic 1.93），**但在数据最密的 19–20 月处系统性偏低 14–21%** —— **一只正常的 19 月龄个体会被报成约 +18% 偏差**。而 19 月龄**正是宠物六角恐龙的常见年龄段**，影响面很大。本项目以**误报率**为判定标准，故**不予发布**。\n→ **待用户拍板**：是否新增 `two_segment_linear`（两段线性 + 断点）模型？若新增，必须**同时定义它如何求 t95、以及覆盖度分母取什么** —— **两段线性没有渐近线，`t95` 在数学上无定义**，而现行覆盖度分母 `ln(20)/k` 依赖 k。\n⚠️ **口径警告**：本种 **TL/SVL ≈ 2.0**，两条口径**严禁互算**。\n**未获取**：陆生/野生个体的体长-体重、野生年龄层。**线索被证伪**：任务简报里的 McIntyre 2019（Bridgewater 荣誉项目）**正文拿不到**（CF 403 → bepress 302 到 login；Wayback 3 个快照亦为 302；OAI-PMH 找到直链但 live 与快照都 403），落盘的 `bw_1000.pdf` 经渲染确认是 **249 kB 的申请表扫描件、不是 646 KB 正文**（C1/D5 陷阱复现）。另：**Nieuwkoop & Faber 是 *Xenopus* 的正常表，不是 axolotl**（任务简报该条有误）。"
- },
- "Apalone_ferox": {
-  "zh": "佛罗里达鳖",
-  "latin": "Apalone ferox",
-  "en": "Florida Softshell Turtle",
-  "taxon": "turtle",
-  "py": "foluolidabie",
-  "pyi": "flldb",
-  "alias": [
-   "佛罗里达鳖",
-   "佛鳖",
-   "佛罗里达软壳龟"
-  ],
-  "alias_en": [
-   "Florida Softshell Turtle"
-  ],
-  "scope": "美国东南部（佛罗里达、佐治亚等）。**CITES 附录 III**（2016 年与拟鳄龟、*A. mutica*、*A. spinifera* 一并列入）",
-  "scope_short": "⚠️ 同属还有孔雀鳖 A. spinifera 与光滑鳖 A. mutica（体型小得多）；且宠物圈已知有 A. ferox × A. spinifera 杂交个体在流通。本卡只覆盖 A. ferox。",
-  "scope_short_en": "⚠️ The genus also includes the spiny (A. spinifera) and smooth (A. mutica) softshells, which are much smaller, and hybrids of A. ferox × A. spinifera are known in the pet trade. This card covers A. ferox only.",
-  "status_note": "体长-体重 1 条（L2）：Munscher et al. 2025, Hydrobiologia 853:1305–1318 为付费墙，故数字化其公开 Fig. 2A 后重拟合 a=7.527e-5, b=3.0433, range [46,566] mm；r² 与残差 SD 一律记 null（不给虚假精度）。年龄-体长：拒收——k 的性别归属在 Hydrobiologia 摘要与同组 Biology 14:1018 之间互相矛盾（♀0.08 / ♂0.19 无法定案），把归属不确定的曲线标成「野外·雌性」会误导用户。圈养数据完全未获取 → 圈养口径应拒答。已识破排除：Breckenridge 1955 的「Trionyx ferox」实为明尼苏达的 A. spinifera（Webb 1962 明写）——典型的「老文献物种误定」陷阱。"
- },
- "Boa_imperator": {
-  "zh": "红尾蚺",
-  "latin": "Boa imperator",
-  "en": "Central American Boa",
-  "taxon": "snake",
-  "py": "hongweiran",
-  "pyi": "hwr",
-  "alias": [
-   "红尾蚺",
-   "红尾蟒",
-   "BCI",
-   "中美红尾蚺",
-   "普通红尾蚺",
-   "博阿蟒"
-  ],
-  "alias_en": [
-   "Boa Constrictor",
-   "BCI",
-   "Common Boa",
-   "Central American Boa"
-  ],
-  "scope": "中美洲与墨西哥（伯利兹、洪都拉斯、危地马拉、墨西哥等）。⚠️ **原 *Boa constrictor* 复合体已拆分**：南美的 **`Boa constrictor`（BCB）是另一个种**。⚠️ 本种在伯利兹与洪都拉斯的外海岛屿上有**侏儒化种群**（Card et al. 2016 证明为独立起源的平行侏儒化），与大陆型**同长下体重差 22–28%**（1000 mm SVL：大陆 622 g vs 岛屿 486 g）。",
-  "scope_short": "⚠️ 本卡是 BCI = Boa imperator（中美红尾蚺），不是南美的 Boa constrictor（BCB）。⚠️ 卡内两条曲线分别是大陆型与岛屿侏儒型（两者不可互相外推）；宠物圈常见的是大陆型，请按你的个体来源选择。",
-  "scope_short_en": "⚠️ This card covers BCI (Boa imperator), not the South American Boa constrictor (BCB). ⚠️ The two curves are mainland and island-dwarf forms and must not be extrapolated to each other; the common pet form is the mainland one.",
-  "status_note": "体长-体重 2 条，均为一手个体级（L1），口径 SVL，来源为伯利兹与洪都拉斯多个产地的汇编：① 大陆型 n=38（SVL 440–2260 mm，b=3.3920，r²=0.9871）；② 岛屿侏儒型 n=194（SVL 391–1780 mm，b=2.9981，r²=0.9426）。两条均标注 gravid_females_not_identified（蚺科卵胎生，怀胎雌体偏重，见 spec §5.3）。拒收 2 条：\n· 大陆型+岛屿型合并的那条（n=232） —— 按 n 加权（岛屿 194 vs 大陆 38）后曲线被拉向岛屿型：1000 mm 处大陆 622 g / 合并 506 g / 岛屿 486 g。宠物圈主流是大陆型，用合并曲线会把它判成「偏重 23%」，正是本项目以误报率为标准要避免的。本项目有先例：泰加蜥的阿根廷原产群与佛罗里达入侵群并列而不合并。\n· Boa constrictor 那条（n=8） —— ① L3（Abuys 2003 是纸本书，只能经 Add-my-Pet 转引，原书那行核不到；本项目从未发布过 L3）；② AmP 对该体重列的原注为 g, wet weight (including eggs)，含卵，按 §5.3 会使同长体重显著偏高；③ 口径为 TL 而其余记录为 SVL（本批实测 TL/SVL 均值 1.1420）。\n年龄-体长：无可用数据 → 该层拒答（无已知年龄个体、无生长方程）。\n⚠️ 保留的大陆型那条 n=38 偏小，而它恰是宠物圈最需要的 —— 已如实标注 small_n，且 95% 带较宽（±54%）。\n未获取：圈养生长数据、年龄层、大陆型的更大样本。"
- },
- "Carettochelys_insculpta": {
-  "zh": "猪鼻龟（二爪鳖）",
-  "latin": "Carettochelys insculpta",
-  "en": "Pig-nosed Turtle",
-  "taxon": "turtle",
-  "py": "zhubigui",
-  "pyi": "zbg",
-  "alias": [
-   "二爪鳖",
-   "两爪鳖",
-   "猪鼻龟",
-   "飞河龟",
-   "New Guinea Plateless Turtle"
-  ],
-  "alias_en": [
-   "Pig-nosed Turtle",
-   "Fly River Turtle"
-  ],
-  "scope": "澳洲北部与新几内亚南部。**两爪鳖科（Carettochelyidae）唯一现存成员**，与鳖科 Trionychidae **不同科**。**IUCN 濒危、CITES 附录 II**",
-  "scope_short": "⚠️ 「两爪鳖」是科名与属名，不是另一个种——本种是该科属唯一现存成员，与「猪鼻龟」是同一个种。",
-  "scope_short_en": "⚠️ \"Two-clawed turtle\" is the family/genus name, not a separate species; this is the only living member of that family, and is the same animal as the pig-nosed turtle.",
-  "status_note": "体长-体重 1 条（L1）：Georges & Kennett 1989, Aust. Wildl. Res. 16:323–335 印刷页 331 逐字 WT = 1.63 CL^2.88 × 10^-4（r²=0.997, n=48；kg/cm）→ 已换算为 mm/g 口径。换算经三项自洽校验：32 只野生均值 −7%（正是陷阱 A2 均值效应的方向）、最大雄 −0.8%、孵化个体 23.4 g vs 实测 24.7 g。年龄-体长：无可用数据 → 该层拒答（TFTSG 2008 账户明写生长率基本未知；1989 仅 5 只重捕）。⚠️ 口径：原文只写 CL，未声明曲/直，故记 unspecified 并给不确定度（schema 虽有 CCL 档，但本条无法据此断定是曲甲长）。⚠️ 样本为复合来源（32 野生 + 16 圈养幼体）。"
- },
- "Centrochelys_sulcata": {
-  "zh": "苏卡达陆龟",
-  "latin": "Centrochelys sulcata",
-  "en": "African Spurred Tortoise",
-  "taxon": "turtle",
-  "py": "sukadaluogui",
-  "pyi": "skdlg",
-  "alias": [
-   "苏卡达",
-   "苏卡达陆龟",
-   "非洲盾臂龟",
-   "刺腿陆龟",
-   "Sulcata"
-  ],
-  "alias_en": [
-   "African Spurred Tortoise",
-   "Sulcata Tortoise"
-  ],
-  "scope": "非洲萨赫勒地带（塞内加尔至苏丹、埃塞俄比亚）。**IUCN 濒危、CITES 附录 II**。旧名 *Geochelone sulcata*",
-  "scope_short": "本卡数据来自**圈养种群**（幼体段与一组 n=3 个体），**不含野生个体的实测体长-体重**。",
-  "scope_short_en": "The data come from captive animals (juvenile length-weight and one small age series); no measured wild length-weight data are included.",
-  "status_note": "**体长-体重 1 条 + 年龄-体长 1 条**：\n· 圈养幼体体长-体重（**L1**，Merchán 2005）：n=31，SCL 61–124.7 mm，`M=1.44212e-3·SCL^2.593`，b 的 95%CI **2.491–2.695**（未跨 1–4 → 可辨识），r²=0.989，95% 带 ±13.2%。⚠️ **b 的置信区间不含 3.0**：该段为**出壳至亚成**，跨度内含个体发育中的甲壳形态变化，与「静态异速」不同 —— 本项目其它跨发育段的 L-W 卡同理（如三趾箱龟 75.5–157.4 mm）。\n· 圈养年龄-体长（**L1**，Ritz 2010）：**logistic** Linf=664.9 / k=0.3840 / ti=2.957，**n=3**。⚠️ 原文 logistic 拟合的是**体重**（公式经 600 dpi 渲染逐字核对），本卡按 Lambert 1993 异速式两步换算、并锚定渐近体长（自由拟合会漂到不可辨识）。n=3 极小，已带 `small_n` + `single_captive_population`；保留的理由是本项目方针「**显示数据的薄弱而非隐藏**」，且已有小 n 先例（鹰嘴龟 n=8）。\n**拒收 1 条**：野生年龄-体长（Ritz 2010 由气候变化重构的**合成个体**，**L3**）—— 既非真实观测、又属本项目从未发布过的 L3 等级。\n⚠️ **同名物种豹纹陆龟已正式拒答**：TFTSG 官方 TOC 明标 `Authors needed.`（账户不存在）；Hailey & Coulson 1999 / Hailey & Lambert 2002 / Kabigumila 2000 全闭源；Ritz 2010 的绿色 OA 副本只托管在 `zora.uzh.ch`，**该主机 80/443 全不可达**；CORE 被 Cloudflare 403。\n**未获取**：圈养成体体长-体重、野生体长-体重（Lambert 1993 式 `0.000922·SCL^2.755` 已取得，但**原文未报告 n**；n 为 schema 必填，**填一个未知的数就是编造**，故不入库）。"
- },
- "Ceratophrys_cranwelli": {
-  "zh": "绿角蛙",
-  "latin": "Ceratophrys cranwelli",
-  "en": "Chacoan Horned Frog",
-  "scope": "南美（阿根廷/巴拉圭/玻利维亚查科地区）。两栖类口径为 **SVL（吻肛长）**——蛙类不用 TL。本卡**仅家养**",
-  "status_note": "来自 Lappin et al. 2017 (Sci Rep 7:11968) 的 Supplementary Table S1：个体级体长+体重（8 个体 / 58 配对点），CAPTIVE、原文未报性别。未获取：野外层、年龄-体长（无年龄数据）。",
-  "py": "lujiaowa",
-  "pyi": "ljw",
-  "alias": [
-   "角蛙",
-   "南美角蛙",
-   "查科角蛙"
-  ],
-  "alias_en": [
-   "Horned Frog",
-   "Pacman Frog"
-  ],
-  "taxon": "amphibian"
- },
- "Ceratophrys_ornata": {
-  "zh": "钟角蛙",
-  "latin": "Ceratophrys ornata",
-  "en": "Argentine Horned Frog",
-  "scope": "南美（阿根廷/乌拉圭/巴西）。两栖类口径为 SVL（吻肛长）",
-  "status": "no_data",
-  "status_note": "无可用数据 → 拒答（2026-10-07 穷尽式检索后判定）。唯一野外数据 Ibáñez 2025 (HerpConBio 20(3)) 只有体重、无配对 SVL；SVL 区间全为二手转引（1921–1990）；AmphibiaWeb 仅均值（112.4±13.4 mm, n=34）；Europe PMC 75 条命中无一含可配对的 SVL–体重序列。翻盘线索：repository.si.edu 的 Deichmann 2008（36 种新热带蛙 SVL–体重回归）被机器人校验挡住，是最有希望的一处。",
-  "py": "zhongjiaowa",
-  "pyi": "zjw",
-  "refs": [
-   "Ibáñez 2025, Herpetological Conservation and Biology 20(3)（野生，仅体重）",
-   "AmphibiaWeb 物种条目（仅均值）",
-   "Deichmann 2008（36 种新热带蛙 SVL-体重回归，尚未取得）"
-  ],
-  "alias": [
-   "角蛙",
-   "阿根廷角蛙",
-   "钟角"
-  ],
-  "alias_en": [
-   "Horned Frog",
-   "Pacman Frog",
-   "Argentine Horned Frog"
-  ],
-  "taxon": "amphibian"
- },
- "Chamaeleo_calyptratus": {
-  "zh": "高冠变色龙",
-  "latin": "Chamaeleo calyptratus",
-  "en": "Veiled Chameleon",
-  "taxon": "lizard",
-  "py": "gaoguanbianselong",
-  "pyi": "ggbsl",
-  "alias": [
-   "高冠变色龙",
-   "也门变色龙",
-   "高冠避役",
-   "面纱变色龙"
-  ],
-  "alias_en": [
-   "Veiled Chameleon",
-   "Yemen Chameleon"
-  ],
-  "scope": "也门与沙特阿拉伯西南部。**已被引入美国佛罗里达与夏威夷**。宠物市场几乎全为人工繁育个体",
-  "scope_short": "⚠️ 本卡数据来自**圈养人工繁育个体**（且样本小：15 个体 / 26 次观测），**没有野生种群数据**。⚠️ **样本量远低于本项目其它卡**，请谨慎参考。",
-  "scope_short_en": "⚠️ Captive captive-bred animals only, with a small sample (15 individuals / 26 observations); no wild-population data. ⚠️ The sample is far smaller than other cards in this project.",
-  "status_note": "**体长-体重 3 条（均 L1，口径 SVL，圈养）**：\n· 混合 n=**26 次观测**（15 个体），SVL 43–230 mm / 2.0–197.3 g，b=**2.9127**（95%CI 2.717–3.109），r²=0.9751；\n· 雄性 n=16（9 个体），47–230 mm，b=**2.9802**（2.796–3.164），r²=0.9886；\n· 雌性 n=10（6 个体），43–179 mm，b=**3.0297**（2.618–3.441），r²=0.9730。\n**三条的 b 置信区间都不跨 1–4 全域 → 指数可辨识** ✓；雌雄体型差异 Δ=1.03–1.31，故按 §5.1 **分层**。\n**主来源**：Laslie 2018（Western Kentucky University **硕士论文** Table 1，个体级 SVL+体重）。⚠️ **该来源未经同行评审**（本项目有先例：*T. radix* 的决定性来源同样是硕士论文）。获取方式：digitalcommons 全站 Cloudflare 403 → 改走 **Wayback `if_` 直链**取得真 PDF；表为**嵌入位图**，以 **400 dpi 渲染后逐格核对**读数。\n**⚠️ 表内 3 点内部不一致**（CF3 疑怀卵 +1.85×、CFJ3 +2.09×、CMJ3 −0.61×）：**原样保留**（不静默剔除），并做了**敏感性分析** —— 剔后 b=2.9476，**CI 与原估计重叠**，说明 b **不由可疑点驱动**。怀卵个体未识别 → 已标 `gravid_females_not_identified`。\n**未入库的佐证**：Dryad Ligon & McGraw 2018（33 只成体雄）b=1.9637，95%CI **1.143–2.784** —— **指数几乎不可辨识**，故不采用。\n**⚠️ 覆盖度分母上限 300 mm 取自文献物种上限（L3、未回溯）**，而实测最大仅 230 mm。本卡**有意不用实测最大值**作分母：那样覆盖度会按构造接近 100%，失去「还差多少没覆盖」的含义。\n**未获取**：**年龄-体长（0 条 → 该层拒答）**、野生种群数据、出壳 SVL（未核实）、Add-my-Pet 条目（网络不可达，未能确认是否存在）。"
- },
- "Chelydra_serpentina": {
-  "zh": "北美拟鳄龟",
-  "latin": "Chelydra serpentina",
-  "en": "Common Snapping Turtle",
-  "scope": "**北美**（美国、加拿大）。学名 *Chelydra serpentina*。⚠️ 拟鳄龟属（*Chelydra*）有**三个种**，本卡**只覆盖北美这一个**：中美拟鳄龟 *C. rossignonii*（墨西哥至洪都拉斯）与南美拟鳄龟 *C. acutirostris*（尼加拉瓜至厄瓜多尔）是**另外的种，本卡不适用**。体长口径有 SCL / CLmax / midline CL 多种，不可互换。",
-  "py": "nieluogui",
-  "pyi": "nlg",
-  "alias": [
-   "鳄龟",
-   "小鳄龟",
-   "北美拟鳄龟",
-   "磕头龟",
-   "snapping turtle",
-   "拟鳄龟",
-   "北美小鳄龟"
-  ],
-  "alias_en": [
-   "Snapping Turtle",
-   "Common Snapping Turtle"
-  ],
-  "scope_short": "数据仅来自北美种群（C. serpentina）；中美拟鳄龟与南美拟鳄龟是另外的种，本卡不适用。",
-  "scope_short_en": "Data are from North American populations only (C. serpentina). The Central and South American snapping turtles are separate species and are not covered.",
-  "taxon": "turtle"
- },
- "Correlophus_ciliatus": {
-  "zh": "睫角守宫",
-  "latin": "Correlophus ciliatus",
-  "en": "Crested Gecko",
-  "scope": "新喀里多尼亚树栖守宫；旧名 *Rhacodactylus ciliatus*。**会断尾再生，断尾个体的 TL 不可用于体长-体重拟合**",
-  "status": "rejected",
-  "status_note": "按规则 §11.3 拒答（2026-10-07 穷尽式复查后二次判定，见 docs/38）。已取得 4 组数据但均不合规：唯一内部配对序列（Brundage 2024, n=60）体长跨度仅 ~7%，隐含指数在两组间相差 75%（3.28 vs 1.87），指数不可辨识；且为组均值对（违反 §6.2），自拟残差低估个体散度 2–4 倍（假精度）。年龄层全文献零模型参数，野外数据为 0。翻盘目标：figshare 10.6084/m9.figshare.14220098 的个体级原始数据（本轮被 AWS WAF 全阻）",
-  "py": "jiejiaoshougong",
-  "pyi": "jjsg",
-  "refs": [
-   "Brundage 2024（圈养配对序列，n=60）",
-   "figshare 10.6084/m9.figshare.14220098（个体级原始数据，尚未取得）"
-  ],
-  "alias": [
-   "睫角",
-   "睫毛守宫",
-   "冠角守宫"
-  ],
-  "alias_en": [
-   "Crested Gecko"
-  ],
-  "taxon": "lizard"
- },
- "Cuora_flavomarginata": {
-  "zh": "黄缘闭壳龟",
-  "latin": "Cuora flavomarginata",
-  "en": "Yellow-margined Box Turtle",
-  "taxon": "turtle",
-  "py": "huangyuanbihegui",
-  "pyi": "hybhg",
-  "alias": [
-   "黄缘",
-   "黄缘盒龟",
-   "食蛇龟",
-   "黄缘闭壳龟"
-  ],
-  "alias_en": [
-   "Yellow-margined Box Turtle",
-   "Chinese Box Turtle"
-  ],
-  "scope": "中国东部与南部、台湾。**IUCN 濒危、CITES 附录 II**。是**闭壳龟**，腹甲有韧带可动，**PL 量法特殊**。体长口径为 **SCL（直甲长）**",
-  "scope_short": "闭壳龟：腹甲有韧带可动，量体长时请与原文口径（SCL 直甲长）保持一致。",
-  "scope_short_en": "A box turtle with a hinged plastron; measure consistently with the stated method (SCL, straight carapace length).",
-  "status_note": "年龄-体长：张斯荷、付香斌 2013（信阳师范学院学报 26(1):76-79）华中种群 7–12 龄均值，口径明确为 SCL（颈盾至臀盾直线），L1。体长-体重：周贵谭等 2003（水产科学 22(1):32-33）W=0.1423·L(cm)^3.1678，仅稚龟段 41.5–50.7 mm。成体体长-体重无可用数据 → 该段拒答。拒收：经 Add-my-Pet 转引的 Chen & Lue 2002 两条分性别年龄记录 —— 除原文取不到（BioOne 拦截）、仅达 L3 外，AmP 的 tL_f/tL_m 前 34 条完全相同，即未辨性别的幼体被复制进两个性别数组，所谓分性别曲线并不真的分性别。"
- },
- "Eublepharis_macularius": {
-  "zh": "豹纹守宫",
-  "latin": "Eublepharis macularius",
-  "en": "Leopard Gecko",
-  "scope": "南亚地栖守宫；圈养极热门。注意 **SVL / TL 口径**（尾长占比大）",
-  "py": "baowenshougong",
-  "pyi": "bwsg",
-  "alias": [
-   "豹纹",
-   "豹守",
-   "豹纹蜥"
-  ],
-  "alias_en": [
-   "Leopard Gecko"
-  ],
-  "taxon": "lizard"
- },
- "Hemitheconyx_caudicinctus": {
-  "zh": "肥尾守宫",
-  "latin": "Hemitheconyx caudicinctus",
-  "en": "African Fat-tailed Gecko",
-  "taxon": "lizard",
-  "py": "feiweishougong",
-  "pyi": "fwsg",
-  "alias": [
-   "肥尾",
-   "非洲肥尾守宫",
-   "肥尾守宮"
-  ],
-  "alias_en": [
-   "Fat-tailed Gecko",
-   "AFT"
-  ],
-  "scope": "西非（尼日利亚、加纳、多哥等）。与豹纹守宫同科（Eublepharidae）但不同属。体长口径为 **SVL（吻肛长，不含尾）**",
-  "scope_short": "本卡只覆盖 Hemitheconyx caudicinctus；同科不同属的豹纹守宫 Eublepharis macularius 另有其卡。",
-  "scope_short_en": "This card covers Hemitheconyx caudicinctus only. The leopard gecko (Eublepharis macularius) is a different genus with its own card.",
-  "status_note": "年龄-体长：无可用数据 → 该层拒答（全渠道无生长参数或已知年龄配对；Kugler & Kugler 1984 是唯一圈养繁育生长线索，但原刊站失效、仅二手转引）。体长-体重只有野生一条：Spawls 2008 (Herpetological Bulletin 106:7–13) Fig. 3 的 16 点，本项目数字化所得（b=3.07，跨度 ×2.94，95% 带 ±93.7% —— 大散度主要来自8 只原尾 / 7 只再生尾，尾是脂肪器官，但口径为不含尾的 SVL）。另一条圈养记录已拒收：Hlubeň et al. 2021 (J Evol Biol 34:1290–1301) 的 Dryad 数据虽为个体级，但该数据集是失水/代谢生理实验——Lead 独立复核发现其中 13 个睑虎科物种的 b 从 −0.25 到 4.25、多数物理上不可能（如豹纹守宫 b=0.54），该数据集不支持估计体长-体重关系。"
- },
- "Heterodon_nasicus": {
-  "zh": "猪鼻蛇",
-  "latin": "Heterodon nasicus",
-  "en": "Plains Hognose Snake",
-  "scope": "北美大平原。⚠️ 本卡**两层口径不同**：体长-体重为 **TL（全长）**，年龄-体长为 **SVL（吻肛长）**——两者差约 8%，不可互相代入",
-  "py": "zhubishe",
-  "pyi": "zbs",
-  "alias": [
-   "猪鼻",
-   "西部猪鼻蛇",
-   "猪鼻蛇"
-  ],
-  "alias_en": [
-   "Hognose Snake",
-   "Western Hognose"
-  ],
-  "taxon": "snake"
- },
- "Iguana_iguana": {
-  "zh": "绿鬣蜥",
-  "latin": "Iguana iguana",
-  "en": "Green Iguana",
-  "taxon": "lizard",
-  "py": "lvliexi",
-  "pyi": "llx",
-  "alias": [
-   "绿鬣蜥",
-   "绿鬣",
-   "绿蜥",
-   "鬣蜥",
-   "IG"
-  ],
-  "alias_en": [
-   "Green Iguana",
-   "Common Green Iguana"
-  ],
-  "scope": "中美洲与南美洲（墨西哥至巴西、巴拉圭），并被广泛引入（美国佛罗里达、夏威夷、加勒比等）。⚠️ **不要与同科的刺尾鬣蜥 *Ctenosaura* 属混淆**。体长口径为 **SVL（吻肛长，不含尾）** —— 本种**尾部极长**（约为 SVL 的 2.3–2.4 倍）。",
-  "scope_short": "⚠️ 本卡的口径是 SVL（不含尾）；绿鬣蜥尾长约为 SVL 的 2.3–2.4 倍，若你量的是全长（TL），不能直接套用本卡。⚠️ 数据来自单一圈养种群。",
-  "scope_short_en": "⚠️ This card uses SVL (excluding the tail). A green iguana's tail is about 2.3–2.4x its SVL, so a total-length measurement cannot be compared directly. ⚠️ The data come from one captive population.",
-  "status_note": "体长-体重 2 条 + 年龄-体长 2 条，全部 L1 个体级、口径 SVL，来源为同一圈养种群（n=96/性别）：① ♂ 体长-体重 n=96，SVL 64.9–254.1 mm，b=2.5742（**95%CI 2.399–2.749**），r²=0.9954；② ♀ 体长-体重 n=96，SVL 64.3–265.0 mm，b=2.5083（**95%CI 2.332–2.684**），r²=0.9951；**两条 b 的 CI 都窄且远离 1–4 全域 → 指数可辨识**。③ ♂ 年龄-体长 Gompertz Linf=425.9 / k=0.8992 / ti=0.6793；④ ♀ 年龄-体长 Gompertz Linf=421.6 / k=0.9863 / ti=0.6323。b ≈ 2.51–2.57 偏低（蜥蜴等速生长应约 3）有生物学解释：鬣蜥科体形极度细长（本批实测尾长 ≈ SVL 的 2.36 倍），质量随体长的增长更接近长度²而非长度³ —— 与蛇类同理。故该值落在审计的软区间 [2.0, 4.0] 内，属可解释而非异常。口径已逐字核对：原文 Methods 明写「Snout-vent length (SVL) and body mass were measured at hatching.」，Table 1 列名即 SVL(mm) 与 MASS(g)。两条年龄曲线用 Gompertz（VBGF 对本数据不可辨识）。未获取：野生种群数据、圈养生长以外的来源。局限：单圈养种群（single_captive_population）、年龄层标 extrapolation_only。"
- },
- "Kinosternon_baurii": {
-  "zh": "果核蛋龟（果核泥龟）",
-  "latin": "Kinosternon baurii",
-  "en": "Striped Mud Turtle",
-  "scope": "北美东南部（佛罗里达、佐治亚等）。体长口径为 **PL（腹甲长）**",
-  "status_note": "来自 Iverson 1979 (Brimleyana 1:37-46)，以腹盾年轮反算 19 只的逐年平均 PL（第 1-7 冬）。原文另给线性式 Wt=3.36·PL−154.84（n=6♀）——线性式不能写成 M=a·L^b，故未转卡（陷阱 B8）。未获取：体长-体重。⚠️ 原文为雌性繁殖研究，年轮序列的性别未逐只标明（可能以雌性为主），故记 wild_mixed（§5.2）。",
-  "py": "guohedangui",
-  "pyi": "ghdg",
-  "alias": [
-   "蛋龟",
-   "果核",
-   "果核泥龟",
-   "三线蛋龟",
-   "条纹动胸龟"
-  ],
-  "alias_en": [
-   "Striped Mud Turtle",
-   "Egg Turtle"
-  ],
-  "taxon": "turtle"
- },
- "Lampropeltis_brooksi": {
-  "zh": "布鲁克王蛇",
-  "latin": "Lampropeltis brooksi",
-  "en": "Brook's Kingsnake",
-  "taxon": "snake",
-  "py": "bulukewangshe",
-  "pyi": "blkws",
-  "alias": [
-   "布鲁克王蛇",
-   "布鲁克",
-   "佛州王蛇",
-   "佛罗里达王蛇"
-  ],
-  "alias_en": [
-   "Brook's Kingsnake",
-   "Florida Kingsnake"
-  ],
-  "status": "no_data",
-  "scope": "美国佛罗里达州南部（模式产地 Dade Co.）。⚠️ **分类学地位有权威分歧**：**SSAR / ITIS（Crother 等，北美名录）** 视 *floridana* 与 *brooksi* 均为 *L. getula* 的次异名；而 **Krysko et al. 2017（*J Heredity* 108(3):226–238）** 将佛罗里达王蛇提升为独立种，**Reptile Database** 采纳之，列 ***Lampropeltis floridana*** 为有效种、`brooksi` 为其异名。本项目按用户指定的宠物圈名称登记为 `Lampropeltis_brooksi`，**并同时保留两派意见**。",
-  "scope_short": "⚠️ 本种（暂无数据）在分类上有分歧：可能应记作 Lampropeltis floridana 或列为 L. getula 的亚种/异名。「布鲁克王蛇」在宠物圈还常与东部王蛇 L. getula（即本项目已删除的复合体条目）混淆。",
-  "scope_short_en": "⚠️ Taxonomy is disputed: this may belong under Lampropeltis floridana, or be treated as a subspecies/synonym of L. getula. In the pet trade \"Brook's kingsnake\" is also often confused with the eastern kingsnake (L. getula).",
-  "status_note": "已核查不可用 → 暂不出卡（2026-10-07）。该单元的全部经典一手文献本轮已真正取得并逐页核过（Krysko 2001 论文 169 页、Blanchard 1921、Duellman & Schwartz 1958、Blaney 1977、Meshaka & Layne 2015 358 页），无一含幂函数、年龄或已知年龄个体。唯一含 SVL+质量配对数据的是 Godley et al. 2017（Rainey Slough, Glades Co., FL，地理上属 floridana 区，n=34 成体），但发表物只给均值 → 按本项目「均值序列不得拟合幂函数」的纪律不能出卡。🎯 唯一翻盘路径：向 Godley / Halstead 索取那 34 只的逐只表。 次选：馆际互借 Krysko 2002。分类学一手引文已核：Barbour 1919 正模 1,350 mm（模式产地 Dade Co. 佛罗里达最南）；Blanchard 1921:62 记最大 floridana 1,753 mm；Duellman & Schwartz 1958:305 与 Krysko 2001 p.39–40 均判 brooksi 为 floridana 的次异名；Reptile Database 采纳 Krysko 2017。⚠️ SSAR/ITIS 的单种观点系本项目早前查证，本轮未复核原文页码，引用前需补页码。受阻：Krysko 2002（BioOne 反爬 + JSTOR，OpenAlex 记 closed，本卡最大缺口）、Kaufman & Gibbons 1975、Krysko et al. 2017、Zootaxa 1193、Krysko & Franz 2003；Wright 1957 借阅锁定；Add-my-Pet TLS 阻断；GBIF 不认 brooksi 这个名。近失候选 6 条已逐条记明拒绝理由（含 Kaufman & Gibbons 1975 因 n 未知 —— 填 n 即等于编造，故不按 L3 入卡）。",
-  "refs": [
-   "Barbour 1919（*brooksi* 原始描述，正模 1,350 mm，模式产地 Dade Co.）",
-   "Blanchard 1921:62（最大 *floridana* 1,753 mm）",
-   "Duellman & Schwartz 1958:305（判 *brooksi* 为 *floridana* 次异名）",
-   "Krysko 2001 p.39–40（同判）",
-   "Krysko et al. 2017, J Heredity 108(3):226–238（提升 floridana 为独立种）",
-   "Godley et al. 2017（n=34 成体 SVL+质量，**只给均值**；索取逐只表是唯一翻盘路径）",
-   "Meshaka & Layne 2015（358 页，已核，无可用数据）"
-  ]
- },
- "Lampropeltis_californiae": {
-  "zh": "加州王蛇",
-  "latin": "Lampropeltis californiae",
-  "en": "California Kingsnake",
-  "scope": "北美王蛇；旧名 *Lampropeltis getula californiae*。注意 **TL / SVL 口径**",
-  "py": "jiazhouwangshen",
-  "pyi": "jzws",
-  "alias": [
-   "王蛇",
-   "加州王",
-   "加州蛇"
-  ],
-  "alias_en": [
-   "California Kingsnake",
-   "Kingsnake"
-  ],
-  "taxon": "snake"
- },
- "Lampropeltis_triangulum": {
-  "zh": "奶蛇",
-  "latin": "Lampropeltis triangulum",
-  "en": "Milk Snake",
-  "taxon": "snake",
-  "py": "naishe",
-  "pyi": "ns",
-  "alias": [
-   "奶蛇",
-   "牛奶蛇",
-   "东美奶蛇"
-  ],
-  "alias_en": [
-   "Milk Snake",
-   "Eastern Milk Snake"
-  ],
-  "scope": "北美东部与中西部。⚠️ **原 *L. triangulum* 复合体已被拆分**：西部各亚种现属 *L. gentilis*（西部奶蛇），红奶蛇属 *L. elapsoides*。本卡只覆盖拆分后的 *L. triangulum* s.s.",
-  "scope_short": "⚠️ 原「奶蛇」是复合体，已拆分：西部奶蛇 L. gentilis、红奶蛇 L. elapsoides 是另外的种，本卡只覆盖 L. triangulum s.s.（东部）。",
-  "scope_short_en": "⚠️ \"Milk snake\" was a species complex and has been split: the western milk snake (L. gentilis) and the scarlet kingsnake (L. elapsoides) are separate species. This card covers L. triangulum s.s. (eastern) only.",
-  "status_note": "年龄-体长 1 条：SVL，n=55，Gompertz 模型 Linf=1034.47 / k=0.2697 / ti=1.963，RMSE 9.2 mm，仅 4 个龄点（0 / 0.67 / 1.67 / 2.67 年），L2。本卡是项目第一条非 VBGF 曲线 —— VBGF 对 4 点不可辨识（Linf 无界漂移），logistic 的 Linf=680.7 mm 小于实测最大 SVL 797 mm，自相矛盾；Gompertz 五组初值均收敛且 Linf 大于实测最大值，故选 Gompertz。体长-体重：拒收。 唯一来源 Fitch & Fleet 1970（Herpetologica 26:387–396，Kansas 野外）只有 n=8 次观测 / 仅 4 个体，且与 3 条独立记录系统性偏差 +26~54%（我们的曲线在 505/530/764 mm 处为 38.1/44.0/132.1 g，而 MSB 与 MCZ 记录为 52.5/55.5/204 g）—— 而本卡 95% 带仅 ±18.8%，三条全部落在带外。按此发布会把正常奶蛇系统性判为「偏重」，故不发布。未获取：圈养数据（零）、n≥20 配对数据集、≥3 龄实测年龄、同批个体 TL+SVL 双口径。受阻：Add-my-Pet 无 Lampropeltis 条目（与玉米锦蛇不同）；VertNet 500 / iDigBio 400；LSU 直链 403（KHS 镜像可取 Williams 1970 全文但无体重）；Williams 1988 专著与 Fitch 1999 图书需馆际借阅。"
- },
- "Litoria_caerulea": {
-  "zh": "白氏树蛙",
-  "latin": "Litoria caerulea",
-  "en": "White's Tree Frog",
-  "taxon": "amphibian",
-  "py": "baishishuwa",
-  "pyi": "bssw",
-  "alias": [
-   "白氏树蛙",
-   "老爷蛙",
-   "白氏树蟾",
-   "澳洲绿树蛙",
-   "怀特树蛙"
-  ],
-  "alias_en": [
-   "White's Tree Frog",
-   "Australian Green Tree Frog",
-   "Dumpy Tree Frog"
-  ],
-  "scope": "澳洲北部与东部、新几内亚。⚠️ **本种的属名有四套、两派并存**：**AmphibiaWeb 与澳洲爬行学会（ASH）用 *Litoria***（刻意保留）；**Duellman et al. 2016 与 USGS 用 *Ranoidea***；另有 *Dryopsophus*（Dubois & Fretey 2016）与历史名 *Pelodryas*。⚠️ **科名亦有争议**：ASH 用 **Pelodryadidae**，传统用 **Hylidae（雨蛙科）**。本卡按用户最可能搜到的 **`Litoria caerulea`** 登记。",
-  "scope_short": "⚠️ 本卡**只有圈养个体的数据**，且样本很小（n=21 / n=42）。⚠️ 本种在文献中有 **四个属名**（*Litoria* / *Ranoidea* / *Dryopsophus* / *Pelodryas*）—— 都是**同一个种**。",
-  "scope_short_en": "⚠️ Captive data only, with small samples (n=21 / n=42). ⚠️ This species appears in the literature under four genus names (Litoria / Ranoidea / Dryopsophus / Pelodryas) - all the same species.",
-  "status_note": "**体长-体重 2 条（均 L1）**：\n· 口径 **SVL**，captive_mixed，n=21，61.93–80.2 mm，b=2.2599，r²=0.641；\n· 口径 **未声明（unspecified）**，captive_mixed，n=42，54.91–84.61 mm，b=2.6326，r²=0.7916。⚠️ 后者按 spec §3.1 的**孤立档**处理：**不与已知口径混算或换算**，并在界面显著标注 + 计入不确定度。\n⚠️ 第一条 **r²=0.641 偏低**（如实保留，不因难看而丢弃）。\n**年龄-体长：无可用数据 → 该层拒答。**\n**未获取**：野生个体级数据、年龄层、成体大样本。"
- },
- "Macrochelys_spp": {
-  "zh": "大鳄龟（属）",
-  "latin": "Macrochelys spp.",
-  "en": "Alligator Snapping Turtle (genus)",
-  "scope": "*Macrochelys* **属**（三种体型无显著分野，按裁定混合处理）；本卡为 **野生 + 圈养** 两带",
-  "alias_of": [
-   "Macrochelys_temminckii"
-  ],
-  "py": "daeluogui",
-  "pyi": "dlg",
-  "alias": [
-   "鳄龟",
-   "真鳄龟",
-   "大鳄",
-   "巨鳄龟"
-  ],
-  "alias_en": [
-   "Alligator Snapping Turtle"
-  ],
-  "scope_short": "属级条目，混合大鳄龟属的种；不区分到种。",
-  "scope_short_en": "Genus-level entry; pools the species of Macrochelys without splitting.",
-  "taxon": "turtle"
- },
- "Malaclemys_terrapin": {
-  "zh": "钻纹龟",
-  "latin": "Malaclemys terrapin",
-  "en": "Diamondback Terrapin",
-  "scope": "北美大西洋与墨西哥湾沿岸。体长口径为 **PL（腹甲直长）**——注意与背甲长（SCL/CLmax）不可互换（陷阱 B1）",
-  "status_note": "体长-体重：USGS 数据发布 doi:10.5066/P13UKAUV，656 只野生个体级 PL+体重（佛州红树林亚种）。年龄-体长：Tokash 2018 (Ohio Univ. 硕士论文) Table 3，野生♂ 与 head-start♀ 两条 VBGF。⚠️ 该表 N 为观测次数（同一批个体跨年重复测量）而非个体数，已在记录里标注 n_kind=observations。⚠️ 原文按「雌/雄 + 幼体」合并分组（幼体无法辨性别），group 为近似。未获取：背甲长口径、野生♀ 年龄层（其最佳模型为 Gompertz）。",
-  "py": "zuanwengui",
-  "pyi": "zwg",
-  "alias": [
-   "钻纹",
-   "菱斑龟",
-   "钻纹水龟"
-  ],
-  "alias_en": [
-   "Diamondback Terrapin",
-   "Terrapin"
-  ],
-  "taxon": "turtle"
- },
- "Mauremys_reevesii": {
-  "zh": "中华草龟",
-  "latin": "Mauremys reevesii",
-  "en": "Chinese Pond Turtle",
-  "scope": "东亚（中国、朝鲜半岛、日本）；旧名 *Chinemys reevesii*。**CITES 附录 III**、IUCN 濒危。体长口径为 **SCL（直甲长）**。本卡**仅圈养**——野外层未取得可拟合数据",
-  "status_note": "圈养层来自 Kang et al. 2026 (Ecol Evol 16:e73565, PMC13130340) 的补充 Data S1：131 只已知确切年龄的个体级 SCL+体重+年龄+性别（动物园自繁种群）。未获取：野生层（日本 Ishima 岛研究仅有均值，按规则不能拟合）。",
-  "py": "zhonghuacaogui",
-  "pyi": "zhcg",
-  "alias": [
-   "草龟",
-   "乌龟",
-   "金线龟",
-   "中华乌龟",
-   "长寿龟"
-  ],
-  "alias_en": [
-   "Chinese Pond Turtle",
-   "Reeves' Turtle"
-  ],
-  "taxon": "turtle"
- },
- "Mauremys_sinensis": {
-  "zh": "花龟",
-  "latin": "Mauremys sinensis",
-  "en": "Chinese Striped-necked Turtle",
-  "taxon": "turtle",
-  "py": "huagui",
-  "pyi": "hg",
-  "alias": [
-   "花龟",
-   "中华花龟",
-   "斑龟",
-   "珍珠龟"
-  ],
-  "alias_en": [
-   "Chinese Striped-necked Turtle",
-   "Chinese Pond Turtle"
-  ],
-  "status": "no_data",
-  "scope": "中国南方与台湾、越南。旧名 *Ocadia sinensis*",
-  "status_note": "已核查不可用 → 暂不出卡（2026-10-07）。体长-体重：穷尽渠道后全项目仅 5 个孤立 (CL, W) 点（意/波/台 4 个种群），其中 Di Blasio 2021 的「雌 111.10 mm / 68 g」与同表雄 162 mm / 840 g 内部不自洽（已渲染原表图像逐格核验），剔除后 n=4、最大对数残差 29% → 不达标。年龄-体长：唯一来源是经 Add-my-Pet 转引的 Chen & Lue 1998 (Copeia) 8 个龄组均值（L3），因同一 AmP 数据存在结构缺陷（见黄缘闭壳龟条目）而拒收；另 AmP 的雄性曲线 Linf=141 mm 小于其自身最大值，自相矛盾，已否决。翻盘路径：陳添喜碩士論文《臺灣北部地區斑龜及食蛇龜生活史之研究》（hdl.handle.net/11296/xng65c）同时覆盖花龟与黄缘闭壳龟，但 NDLTD 全文受校园网限；周贵谭等 2003 (水产科学) 的 PDF 字体编码错乱，方程需 500 dpi 渲染读图。有据可查的阴性：TFTSG 目录里 Mauremys sinensis 明标 Authors needed. —— 该物种账户不存在。",
-  "refs": [
-   "Chen & Lue 1998, Copeia 1998(4):944–952（经 Add-my-Pet 转引，L3）",
-   "Di Blasio 2021（意/波/台种群体尺，内部不自洽，已剔除）",
-   "陳添喜碩士論文（hdl.handle.net/11296/xng65c，同时覆盖花龟与黄缘闭壳龟，尚未取得）"
-  ]
- },
- "Nephrurus_spp": {
-  "zh": "瘤尾守宫（属）",
-  "latin": "Nephrurus spp.",
-  "en": "Knob-tailed Geckos",
-  "taxon": "lizard",
-  "py": "liuweishougong",
-  "pyi": "lwsg",
-  "alias": [
-   "瘤尾守宫",
-   "瘤尾",
-   "珠尾虎",
-   "珠尾虎属",
-   "细皮瘤尾守宫",
-   "粗糙瘤尾守宫",
-   "斑纹瘤尾守宫"
-  ],
-  "alias_en": [
-   "Knob-tailed Gecko",
-   "Knob-tailed Geckos"
-  ],
-  "status": "no_data",
-  "scope": "⚠️ **属级条目**。*Nephrurus*（瘤尾属／珠尾虎属）是**澳洲特有属，现有 11 个种**，另有亚种与地域型；中文宠物圈常把整个属统称「瘤尾守宫」。已按用户要求**逐种核查**（*N. levis* / *N. amyae* / *N. wheeleri* / *N. cinctus* / *N. laevissimus* / *N. stellatus* / *N. deleani* / *N. asper* / *N. sheai* / *N. vertebralis* / *N. eromanga*），**全部无可用数据**。⚠️ *N. cinctus* 已于 2020 年（Kealley et al.）由 *N. wheeleri* 的亚种**升为独立种**；⚠️ *Underwoodisaurus milii*（粗尾守宫）常被中文玩家与瘤尾混为一谈，但**是另一个属**，已排除。",
-  "scope_short": "⚠️ 属级条目（暂无可靠数据）：Nephrurus 属现有 11 个种，本条目不区分到种。另注：常被混称的 Underwoodisaurus milii（粗尾守宫）是另一个属。",
-  "scope_short_en": "⚠️ Genus-level entry (no reliable data). Nephrurus currently has 11 species; this entry does not split them. Note that Underwoodisaurus milii is a different genus and is often confused with it.",
-  "status_note": "已逐种核查 → 全属无可用数据（2026-10-07）。11 个种全部拒答，原因分三类：\n① 跨度不足：N. cinctus 只有 4 只出壳幼体的 SVL+体重配对（42–45 mm，跨度仅 7.1% < 10%）；同一文的 Fig.1 虽有个体级序列，但是体重-日龄（非体长）；N. deleani 只有 2 只成体（92/95 mm）。\n② 只有均值：N. levis n=27（17.2 g / 86.3 mm，62–112 mm）与 N. laevissimus n=52 仅给均值±SE/极差 —— 按本项目纪律「只有均值不得拟合幂函数」。\n③ 已测未公开：N. stellatus 的逐个体 SVL+体重确定存在但未发表（Springer ESM 仅含 4 张模型系数表）。\n年龄-体长：全属零（唯一的生长序列是体重轴，不是体长轴）。\n⚠️ 本批最大的坑（已入 docs/33 E9）：全球性状库（Feldman 2016 / Slavenko 2016 / Meiri 2021 / SquamBase）里 Nephrurus 的体重全是科级方程反算值（intercept −3.4445、slope 2.353），非实测 —— 已全部弃用。\n🎯 翻盘路径（两份数据确定存在）：向 Hays 等（N. levis，n=27）与 Annabel L. Smith（N. stellatus，capture 表）索取原始逐个体表。\n受阻：desertlizards.dev 全部数据文件 404（Pianka 声明有逐个体 SVL+体重但未上传）；biodiversitylibrary.org 全站 403；BioOne / JZWM 403；CSIRO 闭源；AmP 无条目；GBIF 无 mass 字段。",
-  "refs": [
-   "McGill 2015, British Herpetological Society 134（*N. cinctus*，4 只出壳幼体）",
-   "Harvey 1983（*N. deleani*，2 只成体）",
-   "Hays et al. 2019（*N. levis* n=27、*N. laevissimus* n=52，仅均值）",
-   "Smith 2018（*N. stellatus* 逐个体数据已测未公开）",
-   "Kealley et al. 2020（*N. cinctus* 提升为独立种）"
-  ]
- },
- "Pantherophis_guttatus": {
-  "zh": "玉米锦蛇",
-  "latin": "Pantherophis guttatus",
-  "en": "Corn Snake",
-  "scope": "北美游蛇科；旧名 *Elaphe guttata*。注意蛇类 **TL 与 SVL 口径差约 18%**",
-  "py": "yumijinshe",
-  "pyi": "ymjs",
-  "alias": [
-   "玉米蛇"
-  ],
-  "alias_en": [
-   "Corn Snake"
-  ],
-  "taxon": "snake"
- },
- "Pelodiscus_sinensis": {
-  "zh": "中华鳖",
-  "latin": "Pelodiscus sinensis",
-  "en": "Chinese Softshell Turtle",
-  "taxon": "turtle",
-  "py": "zhonghuabie",
-  "pyi": "zhb",
-  "alias": [
-   "中华鳖",
-   "甲鱼",
-   "团鱼",
-   "王八"
-  ],
-  "alias_en": [
-   "Chinese Softshell Turtle"
-  ],
-  "scope": "⚠️ **本卡按用户指示覆盖整个「中华鳖」复合体**：既含 *P. sinensis* s.s.（中国大陆南部与台湾），**也含黄河种群**。⚠️ 但黄河种群经 Zootaxa 5839.2.6 (2026) 的整合证据确认为 ***P. maackii* 的地理谱系**，东北中国、俄罗斯、朝鲜、日本的种群亦已独立为 *P. maackii*。**故本卡混含两个分类单元，使用时请注意。**",
-  "scope_short": "⚠️ 本卡混含两个分类单元：多数数据来自黄河种群，而该种群现已归入北方中华鳖 P. maackii；P. sinensis s.s.（中国大陆南部与台湾）本身暂无数据。",
-  "scope_short_en": "⚠️ This card pools two taxonomic units: the data come mainly from the Yellow River population, which is now assigned to Pelodiscus maackii. There is no data for P. sinensis s.s. proper.",
-  "status_note": "体长-体重 2 条，均为一手个体级（L1），来源都是陕西大荔黄河的同一野生种群：① Kong 2021（n=13，口径明确为 SCL，b=3.0207，r²=0.6516，CL 175–230 mm）；② Zhu 2025（n=22，口径未声明，按 unspecified 档 + 5% 长度不确定度，b=1.9286，r²=0.6584，CL 193–240 mm）。两条记录彼此孤立 —— 规范要求 unspecified 不得与已知口径混用，故未合并。「两批 b 互斥」实为误判：两者的 95%CI 在 1.72–2.54 处重叠，且在 CL=210 mm 处隐含体重仅差 5%（1145 vs 1203 g）；分歧只是各自跨度窄（19.6% / 23.9%）导致指数不精确。年龄-体长：无可用数据 → 该层拒答（本卡无任何已知年龄个体或生长参数）。s.s. 本身仍无数据：s.s. 养殖文献极多，但清一色只给群体均值 + 通径系数/线性多元回归，没有一条 W=aL^b、也没有个体级数据；唯一找到的 s.s. 均值仅 Ma 2013（100/300 日龄）与 Liang 2025 表 S2，按「均值序列不得拟合幂函数」的纪律不能出卡，且仅 2 个日龄点也无法定 VBGF。未获取：任何野生 P. sinensis s.s. 量度、s.s. 的 W=aL^b、≥3 年龄点序列、GB 21044-2007 正文、IUCN TFTSG 的 Pelodiscus 账户（疑似不存在）。"
- },
- "Pituophis_catenifer_sayi": {
-  "zh": "牛蛇",
-  "latin": "Pituophis catenifer sayi",
-  "en": "Bullsnake",
-  "scope": "北美大平原。体长口径为 **SVL（吻肛长，不含尾）**",
-  "py": "niushe",
-  "pyi": "ns",
-  "alias": [
-   "松蛇",
-   "牛蛇",
-   "草原松蛇"
-  ],
-  "alias_en": [
-   "Bullsnake",
-   "Gopher Snake"
-  ],
-  "taxon": "snake"
- },
- "Platysternon_megacephalum": {
-  "zh": "鹰嘴龟",
-  "latin": "Platysternon megacephalum",
-  "en": "Big-headed Turtle",
-  "scope": "中国南方与中南半岛山溪。**CITES 附录 I**、IUCN 濒危。甲壳扁平而头极大，多数研究用 **PL（腹甲长）**",
-  "status_note": "仅 Gong et al. 2019 (Ecol Evol 9:9869) Table 1 的 20 只 ex situ 个体（家养组 n=20/12/8，样本很小，覆盖度低）。年龄-体长：无可用数据 → 拒答（Sung 2015 J Herpetol 49:99-103 是唯一野外生长研究 n=218，但全文取不到参数）。同表的 Carapace length 因原文未说明直/曲、schema 无中性档，未入卡。",
-  "py": "yingzuigui",
-  "pyi": "yzg",
-  "alias": [
-   "大头龟",
-   "平胸龟",
-   "大头平胸龟",
-   "鹰嘴"
-  ],
-  "alias_en": [
-   "Big-headed Turtle"
-  ],
-  "taxon": "turtle"
- },
- "Pogona_vitticeps": {
-  "zh": "鬃狮蜥",
-  "latin": "Pogona vitticeps",
-  "en": "Central Bearded Dragon",
-  "scope": "澳洲中部鬃狮蜥；Valdez 2021 判为**过去十年全球最热门**的爬宠。本卡两层**口径均为 SVL（吻肛长，不含尾）**——是项目首个双带同口径的物种。⚠️ 本物种另有 TL（全长，含尾），**严禁与 SVL 互相代入**",
-  "status_note": "两层均为 L1 个体级原始数据：野生带来自 Wild et al. 2022 (Mol Ecol) 的 Dryad 数据集（n=53）；圈养带来自 Denommé Stauder 2026 Brock 博士论文的 Borealis 数据集（25 个体 / 145 配对点）。未获取：TL 口径的任何数据、野生年龄-体长、<0.49 年幼体、Henry 2026 个体数据。",
-  "py": "zongshixi",
-  "pyi": "zsx",
-  "alias": [
-   "鬃狮",
-   "胡须龙",
-   "中部鬃狮蜥"
-  ],
-  "alias_en": [
-   "Bearded Dragon",
-   "Beardie"
-  ],
-  "taxon": "lizard"
- },
- "Python_bivittatus": {
-  "zh": "缅甸蟒",
-  "latin": "Python bivittatus",
-  "en": "Burmese Python",
-  "taxon": "snake",
-  "py": "miandianmang",
-  "pyi": "mdm",
-  "alias": [
-   "缅甸蟒",
-   "缅甸岩蟒",
-   "缅蟒",
-   "burmese python"
-  ],
-  "alias_en": [
-   "Burmese Python"
-  ],
-  "scope": "东南亚（缅甸、泰国、越南、中国南部、印尼等）。⚠️ **已被引入美国佛罗里达并建立庞大入侵种群**（Everglades / Big Cypress），本卡的野生数据主要来自该入侵种群。⚠️ 与**印度蟒 *Python molurus*** 是**两个种**，历史上曾视为同种。⚠️ **CITES 附录 II**；在美国佛州等地饲养受管制。",
-  "scope_short": "⚠️ **本卡只有体长-体重，没有年龄-体长** —— 唯一可得的年龄数据来自**高投喂养殖场**，生长速度远快于宠物个体，发布会误导。⚠️ 野生数据来自**佛罗里达入侵种群**（非原产地），且**口径分 SVL 与 TL 两套，不可互换**。",
-  "scope_short_en": "⚠️ Length-weight only; no age-length (the only age data come from a high-feeding commercial farm and would mislead). ⚠️ Wild data are from the Florida invasive population, not the native range, and come in two separate calibers (SVL and TL) that must not be interchanged.",
-  "status_note": "**体长-体重 8 条（全 L1，n 最高 3986）**：\n· **SVL 三条**（Everglades 入侵种群）：混合 n=**3986**（396–4980 mm，b=**3.1485**，95%CI 3.137–3.160，r²=0.986）、♂ n=2091（b=3.1601）、♀ n=1772（b=3.1467）；\n· **TL 三条**（同种群，仅完整尾个体）：混合 n=2671（490–5570 mm，b=**3.1595**，CI 3.145–3.174）、♂ n=1375、♀ n=1196；\n· **Big Cypress 独立第二种群**：n=354（507–4775 mm，b=**3.0552**，CI 3.024–3.087）；\n· **圈养（越南蟒场）**：n=1093（560–2800 mm，b=**3.4611**，CI 3.432–3.490）。\n⚠️ **口径 B3 逐条核过**：实测 **TL/SVL = 1.1436** —— 既不是球蟒的 1.08、也不是项目通用记的 1.18；分 8 个长度档验证比值稳定（1.124–1.147），排除了「部分记录把 TL 填进 SVL」的怀疑。**SVL 与 TL 分列成 6 条卡，严禁互换。**\n**指数漂移检验的结论是「拒绝分段」**：连续断点回归给出幼体段 b1=1.65，但**个体自助 400 次的 b1 95%CI = [1.21, 3.26]，横跨 1–4 全域** → 不可辨识，故改用**全段单幂函数**；5 折交叉验证显示分段仅改善 RMSE **3.6%**（对比红耳龟那类 34–38% 的情形，改善不实质）。\n**拒收 1 条年龄-体长**：唯一可得数据来自**高投喂商业养殖场**，生长比佛州实验室幼体**快 4–6 倍**。按其参数算得 **1 岁体长 = 2189 mm**，而正常宠物缅甸蟒 1 岁约 900 mm → 会被报成 **约 −59% 偏差**。**59% 量级的系统性偏差不是「数据薄弱」**，发布即制造误报，故拒收。\n**未获取**：野生（原产地）体长-体重、宠物饲养的纵向生长数据。\n⚠️ **野生年龄-体长不可得**：佛罗里达的个体级数据**根本没有年龄字段**。"
- },
- "Python_regius": {
-  "zh": "球蟒",
-  "latin": "Python regius",
-  "en": "Ball Python",
-  "scope": "西非（贝宁/多哥/加纳/尼日利亚等）。Valdez 2021 判为过去十年**全球第 2 热门**的爬宠。体长口径有 TL（全长）与 SVL（吻肛长）之分，差约 8%，**严禁混用**",
-  "status_note": "口径未说明档：原文未声明量法，故单独成档，不与任何已知口径混用。波动带已按 §3.1 叠加口径不确定度。",
-  "py": "qiumang",
-  "pyi": "qm",
-  "alias": [
-   "皇室蟒",
-   "球蟒",
-   "皇蟒"
-  ],
-  "alias_en": [
-   "Ball Python",
-   "Royal Python"
-  ],
-  "taxon": "snake"
- },
- "Pyxicephalus_adspersus": {
-  "zh": "非洲牛蛙",
-  "latin": "Pyxicephalus adspersus",
-  "en": "African Bullfrog",
-  "scope": "撒哈拉以南非洲。两栖类口径为 **SVL（吻肛长）**。雌雄异型显著（雄远大于雌）",
-  "status_note": "来自 Yetman 2012 (Herpetol J 22:23–32)，野生，SVL 口径明确（钢卷尺 1 mm），♂n=46 / ♀n=30。⚠️ 原文印刷的幂函数方程单位不自洽：y=42.10x^2.465(♂) / y=26.05x^2.317(♀)，x 取 mm 或 cm 都与其自报实测差 2–5 个数量级（已 600 dpi 渲染原句确认印刷无误）。故改用数字化 Fig. 2A 回归线：♂M=9.618e-4·L^2.5741、♀M=3.227e-3·L^2.2921，并与原文独立数字交叉验证（♀@109 mm 给 151 g vs 原文均值 152 g；♂@163 mm 给 474 vs 512，−7%）。原文未报 r²/残差 SD → 该组散度在程序端为「—」。未获取：年龄-体长。",
-  "py": "feizhouniuwa",
-  "pyi": "fznw",
-  "alias": [
-   "牛蛙",
-   "非洲巨蛙",
-   "非洲牛蛙"
-  ],
-  "alias_en": [
-   "African Bullfrog",
-   "Pixie Frog"
-  ],
-  "taxon": "amphibian"
- },
- "Rhacodactylus_auriculatus": {
-  "zh": "盖勾亚守宫",
-  "latin": "Rhacodactylus auriculatus",
-  "en": "Gargoyle Gecko",
-  "taxon": "lizard",
-  "py": "gaigouyashougong",
-  "pyi": "ggysg",
-  "alias": [
-   "盖勾亚",
-   "石像鬼守宫",
-   "旋钮头巨型守宫",
-   "新喀里多尼亚凹凸守宫"
-  ],
-  "alias_en": [
-   "Gargoyle Gecko"
-  ],
-  "scope": "新喀里多尼亚岛南端特有种。该属六种中最小，全长约 125 mm。**IUCN 有评估**，CITES 正考虑列入。体长口径为 **SVL（吻肛长，不含尾）**",
-  "status_note": "唯一来源但极好：Snyder JP 2007《The Autecology of Rhacodactylus auriculatus》Villanova 硕士论文 Appendix 1 的逐个体表（捕获号/性别/尾况/SVL/体重，102 次捕获 = 88 个体），已用词坐标解析全部行，并与 Snyder, Snyder & Bauer 2010, Salamandra 46(1):37–47 的「102 captures / 88 specimens」互相印证。主卡 wild_mixed：n=88，SVL 48.25–126.18 mm（+162%），b=2.8761，r²=0.9691。漂移检验 Δb=0.104 → 单段成立。尾况干扰已实测排除（同 SVL 下原尾 vs 再生尾 −1.9%，t=−0.66，不显著）——这一点对守宫类很重要，因为尾是脂肪器官，但本卡口径为不含尾的 SVL。另出 wild_male(n=26, b=3.0600) / wild_female(n=35, b=2.9304) 两条子卡，性别 Δ=0.19–0.42 跨在 §5.1 的 0.3 门槛上（属「建议分层」档），故合并与分性别同时给出，但性别子集跨度仅 32%/53%，已标 small_n，日常使用建议优先 wild_mixed。未获取：年龄-体长（0 个生长模型）；圈养层（BGSU 2016 与 Grabar 2016 均被 Cloudflare/BioOne 403）。"
- },
- "Rhacodactylus_leachianus": {
-  "zh": "巨人守宫",
-  "latin": "Rhacodactylus leachianus",
-  "en": "New Caledonian Giant Gecko",
-  "taxon": "lizard",
-  "py": "jurenshougong",
-  "pyi": "jrsg",
-  "alias": [
-   "巨人",
-   "巨人守宮",
-   "新喀里多尼亚巨人守宫"
-  ],
-  "alias_en": [
-   "Leachianus Gecko",
-   "New Caledonian Giant Gecko"
-  ],
-  "status": "no_data",
-  "scope": "新喀里多尼亚。**现存体型最大的守宫**，全长可达 30–35 cm",
-  "scope_short": "⚠️ 亚种归属本身有争议：Reptile Database 仍分 R. l. leachianus 与 R. l. henkeli 两亚种，但 1997 与 2012 的研究都对 henkeli 的有效性表示审慎；2024 年 R. willihenkeli 被描述为新种，形态与本种极相似。将来出卡前必须先定调分类单元。",
-  "scope_short_en": "⚠️ Subspecies arrangement is itself disputed: Reptile Database still splits R. l. leachianus and R. l. henkeli, but studies in 1997 and 2012 expressed caution about henkeli, and R. willihenkeli was described as a new species in 2024. The taxonomic unit must be settled before any card is made.",
-  "status_note": "无可用数据 → 拒答（2026-10-07）。全渠道无个体级 SVL+体重：iDigBio 的 71 条馆藏无 mass 字段；Sound et al. 2018, Salamandra 54:117–122 有 23 只 PIT 标记活体，但未发表量度；Bauer et al. 2012 修订未重新描述本种；ReptTraits 只有物种级极值（max mass 478.63 g / max SVL 280 mm，来源为 Slavenko 2019 编译值，疑似由体长推算，且与 Heinicke 2023 / Caut 2013 的 255 mm 冲突）——单点无法拟合幂函数。翻盘目标：Cunkelman A 2005, M.S. thesis, Villanova（Villanova 数字馆藏 Cloudflare 403 全阻）。另一条线索：2024 年新描述的 R. willihenkeli 可能有独立的形态数据，但它是另一个种，不可计入本卡。",
-  "refs": [
-   "Sound et al. 2018, Salamandra 54:117–122（23 只 PIT 活体，未发表量度）",
-   "Bauer et al. 2012（修订，未重新描述本种）",
-   "Slavenko et al. 2019（ReptTraits 编译的物种级极值，疑由体长推算）",
-   "Cunkelman A 2005, M.S. thesis, Villanova（尚未取得，Cloudflare 403）",
-   "Grokipedia / Reptile Database（亚种归属核对）"
-  ]
- },
- "Salamandra_salamandra": {
-  "zh": "火蝾螈",
-  "latin": "Salamandra salamandra",
-  "en": "Fire Salamander",
-  "taxon": "amphibian",
-  "py": "huorongyuan",
-  "pyi": "hry",
-  "alias": [
-   "火蝾螈",
-   "真螈",
-   "火螈",
-   "沙罗曼蛇",
-   "fire salamander"
-  ],
-  "alias_en": [
-   "Fire Salamander",
-   "European Fire Salamander"
-  ],
-  "scope": "南欧与中欧。⚠️ 原 *S. salamandra* 复合体在 2018 年前后已被拆分：*S. algira*（北非）、*S. corsica*（科西嘉）、*S. longirostris*、*S. infraimmaculata*（近东）等已分出。**本卡为 *S. salamandra* s.s.**；⚠️ **旧文献里的「*S. salamandra*」往往涵盖这些已分出的种**（如德国数据多为 s.s.，但需逐篇核对）。",
-  "scope_short": "⚠️ **同一张卡里有两套体长口径**：**体长-体重用 TL（全长，含尾）**，而**年龄-体长用 SVL（吻肛长，不含尾）** —— **两者绝不能互换**（有尾目尾占比大）。⚠️ 体长-体重数据**只覆盖水栖幼体与变态期**，**不含陆生成体**。",
-  "scope_short_en": "⚠️ Two calibers coexist in this card: length-weight uses TL (total length, tail included), while age-length uses SVL (snout-vent length, tail excluded). They must not be interchanged. ⚠️ The length-weight data cover aquatic larvae and metamorphs only, not terrestrial adults.",
-  "status_note": "**年龄-体长 1 条（L1）**：Sinsch 2024, *Animals* 14:2869 补充表 S2，**192 只个体级 SVL + 骨龄（LAG）**，经 Europe PMC `supplementaryFiles` 取得。本项目用原始数据现拟合，**完全复现原文**：VBGF `Linf=96.18 / k=0.6531 每年 / L0=32.40 / t0=0`，R²=0.863（原文报 96.2、0.66、86.2%）✓ 满足项目「**禁止正 t0**」红线。⚠️ 补充表把该列写成 `SCL [mm]`，与原文方法学（'Snout–vent length (SVL)…'）矛盾 —— **有尾目不使用 SCL 一词，判定为笔误**，本项目按方法学记为 **SVL**。\n**体长-体重 2 条（均 L1，口径 TL）**：\n· 水栖幼体 wild_mixed：Băncilă 2023, *PeerJ* 补充材料 S4，n=195，TL 27.02–46.27 mm，b=2.2513，r²=0.6803；\n· 变态期 captive_mixed：同批野外采集的第 1 期幼体在洞穴实验室（13±1 °C、湿度近 100%）按 2×2 食物×光照设计饲养**至变态完成**时测量，n=195，TL 40.94–61.13 mm，b=2.0134，r²=0.6312。⚠️ 两条的 b 都明显低于 3：全是**幼体/变态期**，体重含尾与鳃（不计入 SVL 轴）→ 属**发育轨迹**。\n⚠️ **陆生成体段未获取** → 覆盖度仅 3/15 = 0.2（分母为物种完整 TL 范围 [25, 250] mm）。\n**未获取**：陆生成体的体长-体重、圈养生长曲线、s.s. 以外的已分出种（本卡不含）。"
- },
- "Salvator_merianae": {
-  "zh": "阿根廷黑白泰加蜥",
-  "latin": "Salvator merianae",
-  "en": "Argentine Black and White Tegu",
-  "scope": "南美（阿根廷、巴西、乌拉圭、巴拉圭）；旧名 *Tupinambis merianae*。Valdez 2021 判为「未来十年看涨」的热门爬宠。体长口径为 **SVL（吻肛长，不含尾）**。有强烈性二型（雄显著大于雌）",
-  "status_note": "两条独立野生种群，均为 L1 个体级原始数据：① Cole et al. 2026，阿根廷科尔多瓦省原产地野生种群（n=883，已剔除长期圈养个体与同属他种）；② McCaffrey et al. 2023，美国佛罗里达南部入侵（外来自由生活）种群（n=883）。两批都做了指数漂移检验（陷阱 A3），结果写在各记录 note。未获取：圈养层、年龄-体长。",
-  "py": "taijiaxi",
-  "pyi": "tjx",
-  "alias": [
-   "泰加",
-   "黑白泰加",
-   "阿根廷泰加",
-   "阿根廷黑白泰加"
-  ],
-  "alias_en": [
-   "Argentine Tegu",
-   "Black and White Tegu",
-   "Tegu"
-  ],
-  "taxon": "lizard"
- },
- "Staurotypus_triporcatus": {
-  "zh": "墨西哥蛋龟（大麝香龟）",
-  "latin": "Staurotypus triporcatus",
-  "en": "Northern Giant Musk Turtle",
-  "scope": "墨西哥南部与中美洲。蛋龟中体型最大，成体可达 ~40 cm。**CITES 附录 II**（2022 CoP19 新增）",
-  "status": "no_data",
-  "status_note": "无可用数据 → 拒答（2026-10-07）。可获得的只有均值对：McKnight et al. 2023 (Ecology 104(1):e3868) 的 straight midline CL 292.8±34.2 mm / 体重 3.2±1.1 kg，以及 CONABIO MM009（Reynoso et al. 2016，n=159 自采均值）——均值对不能用来拟合幂函数（§6.2 E[M] ≠ M(E[CL])，本项目已两次因此拒收）。TFTSG 官方物种账户 'In prep'、无 PDF。Zapletal et al. 2026 (doi:10.1002/jez.70059) 经 Unpaywall 核验为 hybrid OA 且 has_repository_copy: false（不存在任何仓储副本），唯一 OA 路径是出版商 pdfdirect（403）——且该文主题为咬合性能的运动学，很可能不含体重数据，故不再追。",
-  "py": "moxigedangui",
-  "pyi": "mxdg",
-  "refs": [
-   "McKnight et al. 2023, Ecology 104(1):e3868（伯利兹，仅均值）",
-   "Reynoso et al. 2016, CONABIO 项目 MM009（n=159，仅均值）",
-   "Zapletal et al. 2026, J Exp Zool A（doi 10.1002/jez.70059，尚未取得）"
-  ],
-  "alias": [
-   "蛋龟",
-   "墨蛋",
-   "巨蛋",
-   "墨西哥巨蛋龟",
-   "三棱麝香龟",
-   "三弦巨型鹰嘴泥龟",
-   "大麝香龟",
-   "墨西哥巨型麝香龟",
-   "墨西哥麝香龟"
-  ],
-  "alias_en": [
-   "Giant Musk Turtle",
-   "Mexican Giant Musk Turtle",
-   "Egg Turtle"
-  ],
-  "taxon": "turtle"
- },
- "Sternotherus_carinatus": {
-  "zh": "剃刀龟",
-  "latin": "Sternotherus carinatus",
-  "en": "Razor-backed Musk Turtle",
-  "scope": "北美南部（密西西比河下游流域）。体长口径为 **CLmax（最大直甲长）**——本科背甲有三条纵棱且高耸，CLmax 与 midline CL 差异不可忽略，严禁跨口径代入",
-  "status_note": "来自 Tinkle 1958 (Tulane Stud Zool 6(1):1-56) 的 Fig. 56：对 82 只按盾片年轮分组的平均甲长曲线。该文 p.34 逐字定义了口径（maximum straight line, nuchal→第 11 缘盾缝），故口径属明确而非推断。图版数字化不确定度约 ±2 mm。未获取：体长-体重（原文未称重）。",
-  "py": "tidaogui",
-  "pyi": "tdg",
-  "alias": [
-   "蛋龟",
-   "剃刀",
-   "刀背麝香龟",
-   "刀背蛋龟"
-  ],
-  "alias_en": [
-   "Razor-backed Musk Turtle",
-   "Egg Turtle"
-  ],
-  "taxon": "turtle"
- },
- "Sternotherus_odoratus": {
-  "zh": "麝香龟",
-  "latin": "Sternotherus odoratus",
-  "en": "Common Musk Turtle (Stinkpot)",
-  "scope": "北美东部。本科背甲有三条纵棱",
-  "status_note": "口径未说明档：原文未声明量法，故单独成档，不与任何已知口径混用。波动带已按 §3.1 叠加口径不确定度。",
-  "py": "shexianggui",
-  "pyi": "sxg",
-  "alias": [
-   "蛋龟",
-   "普通麝香龟",
-   "密西西比麝香龟",
-   "臭弹龟",
-   "小麝香龟",
-   "麝香龟"
-  ],
-  "alias_en": [
-   "Musk Turtle",
-   "Stinkpot",
-   "Egg Turtle"
-  ],
-  "scope_short": "本卡只覆盖普通麝香龟 S. odoratus；麝香龟属（Sternotherus）另几个种——剃刀龟 S. carinatus、巨头麝香龟 S. minor、平背麝香龟 S. depressus——是另外的种，本卡不适用。",
-  "scope_short_en": "This card covers the common musk turtle (S. odoratus) only. The other species of Sternotherus - razor-backed musk turtle (S. carinatus), loggerhead musk turtle (S. minor) and flattened musk turtle (S. depressus) - are separate species and are not covered.",
-  "taxon": "turtle"
- },
- "Terrapene_carolina_carolina": {
-  "zh": "东部箱龟",
-  "latin": "Terrapene carolina carolina",
-  "en": "Eastern Box Turtle",
-  "taxon": "turtle",
-  "py": "dongbuxianggui",
-  "pyi": "dbxg",
-  "alias": [
-   "箱龟",
-   "东箱",
-   "东部箱龟",
-   "卡罗莱纳箱龟"
-  ],
-  "alias_en": [
-   "Box Turtle",
-   "Eastern Box Turtle"
-  ],
-  "scope": "北美东部（美国东半部）。*Terrapene carolina* 的指名义亚种。是**闭壳龟**，腹甲有韧带可完全闭合，**PL 量法特殊**",
-  "scope_short": "「箱龟」是Terrapene 属的统称，属下多个亚种；本卡只覆盖东部箱龟 T. c. carolina。三趾箱龟 T. c. triunguis 另有其卡。",
-  "scope_short_en": "\"Box turtle\" is a collective name for the genus Terrapene. This card covers the eastern box turtle (T. c. carolina) only; the three-toed box turtle (T. c. triunguis) has its own card.",
-  "status_note": "年龄-体长 3 条：Edmonds 2020 Fig.3 数字化（♂ Linf=142.18 / ♀ 134.53，均复现原文 t=30 报告区间，L2）；Vitek 2018 (PLOS ONE) S1 的 SCL n=51（L1，R²=0.42，覆盖度 53%）。体长-体重：圈养组 SCL n=9（Colbert 2022 head-start，b=3.398，R²=0.904，样本小）。拒收 3 条野生体长-体重（Warren & Klukowski 2025 的 Dryad 3ffbg79v5）：n=28 / 18 / 10，b=1.79 / 1.91 / 1.84 —— 龟类应约 2.8–3.2，b 生物学上不合理；r²=0.29 / 0.45 / 0.28 极低；且全为成体（跨度仅 13–17%）。属「跨度勉强够、但指数不可辨识」一类，与肥尾守宫圈养那条同一处理。"
- },
- "Terrapene_carolina_triunguis": {
-  "zh": "三趾箱龟",
-  "latin": "Terrapene carolina triunguis",
-  "en": "Three-toed Box Turtle",
-  "taxon": "turtle",
-  "py": "sanzhixianggui",
-  "pyi": "szxg",
-  "alias": [
-   "箱龟",
-   "三趾",
-   "三趾箱龟"
-  ],
-  "alias_en": [
-   "Box Turtle",
-   "Three-toed Box Turtle"
-  ],
-  "scope": "美国中南部（密苏里、德州、路易斯安那等）。*Terrapene carolina* 的一个亚种。**闭壳龟**，PL 量法特殊",
-  "scope_short": "「箱龟」是Terrapene 属的统称；本卡只覆盖三趾箱龟 T. c. triunguis。东部箱龟 T. c. carolina 另有其卡。",
-  "scope_short_en": "\"Box turtle\" is a collective name for the genus Terrapene. This card covers the three-toed box turtle (T. c. triunguis) only; the eastern box turtle (T. c. carolina) has its own card.",
-  "status_note": "本卡是箱龟组里数据最好的一条。体长-体重：n=104，M=1.955e-4·CLmax^3.0075，r²=0.956（PeerJ 1256 补充材料 s001.xlsx，密苏里 2007，个体级 L1）。年龄-体长：n=90，VBGF Linf=151.4 / k=0.2198（年龄由轮纹推定为下限，R²=0.79）；Linf=151.4 与 McCallum 2009 独立报告的终末 SCL 151.59 mm 吻合，互校通过。未获取：其余亚种、圈养层。"
- },
- "Testudo_hermanni": {
-  "zh": "赫尔曼陆龟",
-  "latin": "Testudo hermanni",
-  "en": "Hermann's Tortoise",
-  "scope": "含西部亚种 *T. h. hermanni* 与东部亚种 *T. h. boettgeri*；本卡为 **野生 + 圈养** 两带",
-  "py": "heermanlugu",
-  "pyi": "helg",
-  "alias": [
-   "赫曼陆龟",
-   "赫尔曼氏陆龟",
-   "西部赫曼"
-  ],
-  "alias_en": [
-   "Hermann's Tortoise"
-  ],
-  "taxon": "turtle"
- },
- "Thamnophis_elegans": {
-  "zh": "束带蛇（西部）",
-  "latin": "Thamnophis elegans",
-  "en": "Western Terrestrial Garter Snake",
-  "taxon": "snake",
-  "py": "shudaishexibu",
-  "pyi": "sdsxb",
-  "alias": [
-   "束带蛇",
-   "西部束带蛇",
-   "陆生束带蛇",
-   "山地束带蛇"
-  ],
-  "alias_en": [
-   "Garter Snake",
-   "Western Terrestrial Garter Snake"
-  ],
-  "scope": "北美西部（加拿大不列颠哥伦比亚至美国西南部）。**亚种众多**，含沿海与山地种群。",
-  "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
-  "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
-  "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 2 条（均 L1，口径 SVL）**：野生混合 n=116（416–765 mm，b=2.9004，r²=0.8605，覆盖 10/15）、圈养混合 n=**754**（145–350 mm，b=2.7864，r²=0.9121，覆盖 6/15）。\n⚠️ 圈养那条**只有幼体段**（145–350 mm），而野生那条**只有成体段**（416–765 mm）—— **两条互补但不可互相外推**，覆盖度分别只有 6/15 与 10/15 就是如实反映。**年龄-体长：无可用数据。**\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
- },
- "Thamnophis_marcianus": {
-  "zh": "束带蛇（格纹）",
-  "latin": "Thamnophis marcianus",
-  "en": "Checkered Garter Snake",
-  "taxon": "snake",
-  "py": "shudaishewenge",
-  "pyi": "sdswg",
-  "alias": [
-   "束带蛇",
-   "格纹束带蛇",
-   "棋盘束带蛇",
-   "方格束带蛇"
-  ],
-  "alias_en": [
-   "Garter Snake",
-   "Checkered Garter Snake"
-  ],
-  "scope": "美国西南部至墨西哥北部。性情温和、人工繁殖个体在宠物圈常见。",
-  "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
-  "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
-  "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 3 条（均 L1，口径 SVL，全部圈养）**：混合 n=**756**（115–685 mm，b=2.8037，r²=0.9726，覆盖 14/15）、♂ n=422（127–580 mm，b=2.6772）、♀ n=334（115–685 mm，b=2.8748）。\n**年龄-体长 1 条（L1，Gompertz）**：Linf=689.63 / k=1.9908 / ti=0.2514，n=756，覆盖 9/15。⚠️ 已标 `extrapolation_only` —— 数据只到 0.769 年而 t95 为 1.505 年，**其后全为外推**。\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
- },
- "Thamnophis_radix": {
-  "zh": "束带蛇（草原）",
-  "latin": "Thamnophis radix",
-  "en": "Plains Garter Snake",
-  "taxon": "snake",
-  "py": "shudaishecaoyuan",
-  "pyi": "sdscy",
-  "alias": [
-   "束带蛇",
-   "草原束带蛇",
-   "草原袜带蛇",
-   "平原束带蛇"
-  ],
-  "alias_en": [
-   "Garter Snake",
-   "Plains Garter Snake"
-  ],
-  "scope": "北美中北部大平原（加拿大中部至美国中西部）。⚠️ 「束带蛇」是一个属（*Thamnophis*），北美有 30 余种，本卡只含这一个种。",
-  "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要套到其它束带蛇上。",
-  "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
-  "status_note": "**体长-体重 2 条（均 L2，口径 SVL）**：野生♂ n=156（176–635 mm，b=2.9840）、野生♀ n=122（151–760 mm，b=3.0400）。\n⚠️ **证据等级 L2**（有方程与样本量，但非逐个体原始数据）；且**原文未报告 r²** —— 如实标注为缺失，**不编造**。\n**年龄-体长：无可用数据。**\n⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（草原）**」形式，**取自英文俗名、不是既有中文定名**。"
- },
- "Thamnophis_sirtalis": {
-  "zh": "束带蛇（普通）",
-  "latin": "Thamnophis sirtalis",
-  "en": "Common Garter Snake",
-  "taxon": "snake",
-  "py": "shudaisheputong",
-  "pyi": "sdsp",
-  "alias": [
-   "束带蛇",
-   "普通束带蛇",
-   "东部束带蛇",
-   "袜带蛇",
-   "园丁蛇"
-  ],
-  "alias_en": [
-   "Garter Snake",
-   "Common Garter Snake",
-   "Eastern Garter Snake"
-  ],
-  "scope": "北美东部与中部（加拿大南部至美国），是分布最广的束带蛇。**亚种众多**。",
-  "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
-  "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
-  "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 2 条（均 L1，口径 SVL）**：野生♂ n=349（354–646 mm，b=2.8549，r²=0.8694）、野生♀ n=92（367–745 mm，b=3.2211，r²=0.9109）。**⚠️ 拒收 1 条**：原本还有一条野生混合 n=1419 的**两段拟合**记录 —— 它在**交界处不连续**（335 mm 处两段相差 58.6%：17.9 g vs 9.8 g），`data_ranges` 为 `[[115,335],[354,745]]` 说明是**两个数据集的拼接而非同一条曲线的分段**。用户量到交界附近的个体会因落在不同段而得到相差约 50% 的参照值 —— **会制造误报**，故拒收。⚠️ 雌雄差异明显（♀ 的 b 更高），本卡已分层。**年龄-体长：无可用数据。**\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
- },
- "Tiliqua_scincoides": {
-  "zh": "蓝舌石龙子（东部蓝舌石龙子）",
-  "latin": "Tiliqua scincoides",
-  "en": "Eastern Blue-tongued Skink",
-  "scope": "澳洲东部；亚种 *T. s. scincoides*（墨尔本/悉尼种群）。体长口径为 **SVL（吻肚长）**；注意原文 `TL` 既可能是**尾长**也可能是**含尾全长**，严禁混用",
-  "status_note": "三条记录口径全部为 SVL：Turner 2010（墨尔本野生，n=57，L2）、Koenig 2001（悉尼野生，n=17，L1，逐只配对现拟合）、McKenzie 2022（圈养，n=20，L1，逐只配对现拟合）。年龄-体长：未获取——唯一线索 Shea 1981 Fig.1 为折线图、无表格值、且口径为含尾全长，600dpi 数字化后标记点无法在项目精度下复现，故不采用。",
-  "py": "lansheshilongzi",
-  "pyi": "lslz",
-  "alias": [
-   "蓝舌",
-   "蓝舌蜥",
-   "蓝舌石龙"
-  ],
-  "alias_en": [
-   "Blue-tongued Skink",
-   "Bluey"
-  ],
-  "taxon": "lizard"
- },
- "Timon_lepidus": {
-  "zh": "珠宝蜥",
-  "latin": "Timon lepidus",
-  "en": "Ocellated Lizard",
-  "taxon": "lizard",
-  "py": "zhubaoxi",
-  "pyi": "zbx",
-  "alias": [
-   "珠宝蜥",
-   "珠蜥",
-   "眼斑蜥",
-   "欧西蜥"
-  ],
-  "alias_en": [
-   "Jewelled Lizard",
-   "Ocellated Lizard"
-  ],
-  "scope": "伊比利亚半岛与法国南部（西班牙、葡萄牙、直布罗陀、安道尔、南法、意大利西北）。**IUCN 近危（NT）**。旧名 *Lacerta lepida* / *L. ocellata*",
-  "scope_short": "⚠️ 原 Timon lepidus 复合体中，内华达珠宝蜥 T. nevadensis 现为独立种；本卡只覆盖 T. lepidus s.s.。",
-  "scope_short_en": "⚠️ Within the former Timon lepidus complex, Timon nevadensis is now a separate species; this card covers T. lepidus s.s. only.",
-  "status_note": "体长-体重 3 条，全部 L1 个体级配对（口径 SVL，野生）：wild_mixed n=20（b=3.0689，95%CI 2.690–3.447，r²=0.9416）、wild_male n=10（b=3.1524，r²=0.9847）、wild_female n=10（b=2.9355，r²=0.8816）；SVL 103–167 mm、体重 26.7–120 g，跨度 +62%。来源 Megía-Palma et al. 2024, J Anim Ecol（doi 10.1111/1365-2656.14154）的 Mendeley 开放数据 doi:10.17632/py4vr4wv2j.1（CC BY 4.0）；样本自洽性已核：该表 T. lepidus 20 行的均值 SVL=127.35 mm 与原文「127±4.7 mm」吻合。指数可辨识性检验通过：b 的 bootstrap 95% 区间 2.79–3.43，未跨 1–4 全域 （与项目另一例因 CI 0.03–3.72 被拒收的数据形成对照）。年龄-体长：拒收——Castilla & Castanet 1986 原刊 Fig.8 的 y 轴不可标定（11 个等距标签无法与 0–220 线性自洽；唯一自洽读法会让幼体落到 14 mm SVL，低于孵化 26 mm），改用 Add-my-Pet 重绘图数字化也只是二手转绘，故不出卡。翻盘路径：Cheylan 1984, Bull Mus Hist Nat Marseille 44:29–37（本种唯一的专门生长/年龄论文）—— 原 PDF 链接已 404、Wayback 无存档，建议走馆际互借。另已识破排除：前一位下载的「Böhme & Esser 2015」4.5 KB PDF 实为 ZOBODAT 的 Anubis 反爬验证页，不是论文（陷阱 §17.1）；ZOBODAT 全站受 Anubis 保护。未获取：圈养曲线、已发表的 M=a·Lᵇ 方程（全域检索确认不存在）。"
- },
- "Trachemys_scripta_elegans": {
-  "zh": "红耳龟",
-  "latin": "Trachemys scripta elegans",
-  "en": "Red-eared Slider",
-  "scope": "亚种 *T. s. elegans*；本卡为 **野生** 带",
-  "py": "hongergui",
-  "pyi": "heg",
-  "alias": [
-   "巴西龟",
-   "巴西彩龟",
-   "红耳彩龟",
-   "巴西红耳龟"
-  ],
-  "alias_en": [
-   "Red-eared Slider",
-   "Slider"
-  ],
-  "taxon": "turtle"
- },
- "Xenopus_laevis": {
-  "zh": "非洲爪蟾",
-  "latin": "Xenopus laevis",
-  "en": "African Clawed Frog",
-  "taxon": "amphibian",
-  "py": "feizhouzhanchan",
-  "pyi": "fzzc",
-  "alias": [
-   "非洲爪蟾",
-   "爪蟾",
-   "非洲爪蛙",
-   "水蟾",
-   "ACF"
-  ],
-  "alias_en": [
-   "African Clawed Frog",
-   "Xenopus"
-  ],
-  "scope": "撒哈拉以南非洲；作为模式生物被引入全球，并在多地建立入侵种群。⚠️ 近缘的 *Xenopus tropicalis* 是**另一个种**，不可混入",
-  "scope_short": "⚠️ 本卡数据**全部为雌性**，**不得用于雄性**；且散度很大（±63%）—— 原始数据未区分是否怀卵（卵巢占体重约 19%）。",
-  "scope_short_en": "⚠️ All data are from females and must not be used for males. Scatter is large (±63%): the source did not record whether females were gravid (ovaries are about 19% of body mass).",
-  "status_note": "**体长-体重 1 条**（**L2**，Böswald et al. 2024, *Sci Rep* 14:9517 / PMC11045782，一手 OA）：captive_female，**口径 SVL**，n=38，SVL 71–134 mm（跨度 47%），`M=1.7151e-3·SVL^2.469`，b 的 95%CI **≈1.92–3.02**（三种反推法一致，未跨 1–4 → 可辨识），r²=0.70。⚠️ 散度 **±63%** 很大，**已如实标注 `gravid_females_not_identified`** —— 原文报卵巢占体重 18.7–19.9%，这正是 spec §5.3「繁殖状态必须分层」的实例。⚠️ **全部为雌性，不得用于雄性**。口径 SVL 由被引 2022 论文逐字核到。独立印证：Tix 2023（另一实验室 n=61）线性式等价 b≈3.07，**未入表**（线性式禁用于端点外延，陷阱 B8）。\n**年龄-体长：无可用数据 → 该层拒答**。唯一权威 Hilken et al. 1995（*Lab Anim* 29:152–162）被 SAGE **403** 全挡（curl / urllib / Googlebot / jina 皆败；Xenbase 为 reCAPTCHA；scholar.archive 为挑战页）。Add-my-Pet 条目仅为 **L3 转录**，**明确不入表**。\n**未获取**：雄性体长-体重、野生体长-体重（Pauwels 2023 有野生 SVL 但无体重）、成体年龄层、2024 年个体级原始数据（作者不公开）。"
- }
+  "_说明": "物种展示名元数据。新增物种时在此登记中文名/拉丁名/英文名；两个生成器（gen_cards.py / build_miniprogram_data.py）都读这里。缺项时回退为拉丁名。",
+  "Ambystoma_mavortium": {
+    "zh": "虎纹钝口螈",
+    "latin": "Ambystoma mavortium",
+    "en": "Barred Tiger Salamander",
+    "taxon": "amphibian",
+    "py": "huwendunkouyuan",
+    "pyi": "hwdky",
+    "alias": [
+      "虎纹蝾螈",
+      "虎斑蝾螈",
+      "横带虎纹钝口螈",
+      "虎纹钝口螈",
+      "tiger salamander"
+    ],
+    "alias_en": [
+      "Tiger Salamander",
+      "Barred Tiger Salamander"
+    ],
+    "scope": "北美大平原（美国中西部至墨西哥北部）。⚠️ **「虎纹蝾螈」原是一个复合体，现已被拆分为两个独立种**：本卡为**横带虎纹钝口螈 *A. mavortium***；东部的**虎纹钝口螈 *A. tigrinum*** 是**另一个种**（本项目暂无其数据）。另有加州虎纹钝口螈 *A. californiense*。",
+    "scope_short": "⚠️ **本卡只有幼体（有外鳃）的数据**（SVL 17–26 mm），**不含陆生成体**。⚠️ 「虎纹蝾螈」是复合体：本卡是 ***A. mavortium***（横带），***A. tigrinum***（东部）是另一个种、本卡不适用。",
+    "scope_short_en": "⚠️ Larval (externally gilled) data only (SVL 17-26 mm); adult terrestrial animals are not covered. ⚠️ \"Tiger salamander\" is a complex: this card is A. mavortium; the eastern A. tigrinum is a separate species and is not covered.",
+    "status_note": "**体长-体重 1 条（幼体 only）**：PANGAEA 913841（L1，美国北达科他州野外采集的**水栖幼体**，用于 96 h 急性毒性实验），n=56，**口径 SVL**，17.4–26.29 mm，b=1.8579，r²=0.7542，95% 带 ±23.7%。**覆盖度仅 3/15 = 0.2** —— 分母是物种完整体型范围 [17, 98] mm SVL，而数据只落在最幼小的那一小段。\n⚠️ **b≈1.86 明显低于等速生长的 3**：这批全是**幼体**，其体重**包含尾与鳃**（二者都不计入 SVL 轴），加上卵黄吸收期的成分变化，故 b 偏低属**发育轨迹**而非静态异速。**不得外推到陆生成体。**\n**年龄-体长：无可用数据 → 该层拒答**（未获取任何已知年龄个体或生长方程）。\n**未获取**：陆生成体的体长-体重、年龄层、*A. tigrinum* 的全部数据。\n**🎯 翻盘路径（Lead 已核实可用）**：**Dryad 的 Whiteman/Lackey 长期种群数据**（标记重捕 + 骨龄学，最可能同时含 SVL + 体重 + 年龄）：`10.5061/dryad.z612jm6h9`（version **240229**）、`10.5061/dryad.52kd8tg`（version **26246**）等，经 `/api/v2/versions/{id}/download` **200、免凭据**可取（**前一位曾误报其不可用**，见 docs/33 E11）。已另派 task-32 专门去取。"
+  },
+  "Ambystoma_mexicanum": {
+    "zh": "墨西哥钝口螈",
+    "latin": "Ambystoma mexicanum",
+    "en": "Axolotl",
+    "taxon": "amphibian",
+    "py": "moxigedunkouyuan",
+    "pyi": "mxgdky",
+    "alias": [
+      "六角恐龙",
+      "墨西哥钝口螈",
+      "美西螈",
+      "六角龙",
+      "axolotl"
+    ],
+    "alias_en": [
+      "Axolotl",
+      "Mexican Axolotl"
+    ],
+    "scope": "墨西哥城霍奇米尔科（Xochimilco）湖区**特有**。**IUCN 极危**、CITES 附录 II。野外几近灭绝，全球宠物与实验室个体数量极大（几乎全为人工繁育品系）。",
+    "scope_short": "⚠️ 该种的生长是**两段线性**：年龄-体长按两段线性拟合，**没有渐近线，t95 无定义**（界面显示为「—」）；数据来自**单一实验室群体**。",
+    "scope_short_en": "⚠️ This species grows in two linear phases: age-length is fitted with a two-segment linear model, so it has no asymptote and **t95 is undefined** (shown as a dash). Data come from a **single laboratory population**.",
+    "status_note": "**体长-体重 1 条**（**L1**，Vieu et al. 2024, *Sci Rep* 14:11787 Table 1 逐个体，宠物群体）：captive_mixed，**口径 TL（全长，含尾）**，n=27，TL 175–300 mm / 39–190 g，`M=0.0021792·TL^1.9147`，r²=0.7003，95% 带 ±45.3%。b 的 95%CI = **1.399–2.431**（bootstrap 1.185–2.478）—— ⚠️ **偏宽**，但**未跨 1–4 全域**，按项目既定判据可用。⚠️ b≈1.91 低于等速生长的 3：**本种体形细长且尾极长**（TL/SVL ≈ 2.0），而口径是 **TL（含尾）**，尾部质量占比大 → b 偏低属**真实生物学**。\n**年龄-体长：拒答（模型不可表达）—— 本项目当前最重要的未决技术问题**。\n原文 Riquelme-Guzmán et al. 2022（*Dev Dyn* 251(6):1015–1034）用 **n=220** 只实验室个体（0–250 月，德累斯顿 CRTD，20–22 °C）给出**两段线性**模型（TL: m1=1.144 cm/月、m2=0.0325、断点 19.87 月；SVL: 0.618 / 0.0202 / 19.00 月，L0≈0）。\n**⚠️ 关键**：把它重拟合为项目支持的模型，**RMSE 看似可接受**（VBGF 1.70 cm、Gompertz 1.84、logistic 1.93），**但在数据最密的 19–20 月处系统性偏低 14–21%** —— **一只正常的 19 月龄个体会被报成约 +18% 偏差**。而 19 月龄**正是宠物六角恐龙的常见年龄段**，影响面很大。本项目以**误报率**为判定标准，故**不予发布**。\n→ **待用户拍板**：是否新增 `two_segment_linear`（两段线性 + 断点）模型？若新增，必须**同时定义它如何求 t95、以及覆盖度分母取什么** —— **两段线性没有渐近线，`t95` 在数学上无定义**，而现行覆盖度分母 `ln(20)/k` 依赖 k。\n⚠️ **口径警告**：本种 **TL/SVL ≈ 2.0**，两条口径**严禁互算**。\n**未获取**：陆生/野生个体的体长-体重、野生年龄层。**线索被证伪**：任务简报里的 McIntyre 2019（Bridgewater 荣誉项目）**正文拿不到**（CF 403 → bepress 302 到 login；Wayback 3 个快照亦为 302；OAI-PMH 找到直链但 live 与快照都 403），落盘的 `bw_1000.pdf` 经渲染确认是 **249 kB 的申请表扫描件、不是 646 KB 正文**（C1/D5 陷阱复现）。另：**Nieuwkoop & Faber 是 *Xenopus* 的正常表，不是 axolotl**（任务简报该条有误）。"
+  },
+  "Apalone_ferox": {
+    "zh": "佛罗里达鳖",
+    "latin": "Apalone ferox",
+    "en": "Florida Softshell Turtle",
+    "taxon": "turtle",
+    "py": "foluolidabie",
+    "pyi": "flldb",
+    "alias": [
+      "佛罗里达鳖",
+      "佛鳖",
+      "佛罗里达软壳龟"
+    ],
+    "alias_en": [
+      "Florida Softshell Turtle"
+    ],
+    "scope": "美国东南部（佛罗里达、佐治亚等）。**CITES 附录 III**（2016 年与拟鳄龟、*A. mutica*、*A. spinifera* 一并列入）",
+    "scope_short": "⚠️ 同属还有孔雀鳖 A. spinifera 与光滑鳖 A. mutica（体型小得多）；且宠物圈已知有 A. ferox × A. spinifera 杂交个体在流通。本卡只覆盖 A. ferox。",
+    "scope_short_en": "⚠️ The genus also includes the spiny (A. spinifera) and smooth (A. mutica) softshells, which are much smaller, and hybrids of A. ferox × A. spinifera are known in the pet trade. This card covers A. ferox only.",
+    "status_note": "体长-体重 1 条（L2）：Munscher et al. 2025, Hydrobiologia 853:1305–1318 为付费墙，故数字化其公开 Fig. 2A 后重拟合 a=7.527e-5, b=3.0433, range [46,566] mm；r² 与残差 SD 一律记 null（不给虚假精度）。年龄-体长：拒收——k 的性别归属在 Hydrobiologia 摘要与同组 Biology 14:1018 之间互相矛盾（♀0.08 / ♂0.19 无法定案），把归属不确定的曲线标成「野外·雌性」会误导用户。圈养数据完全未获取 → 圈养口径应拒答。已识破排除：Breckenridge 1955 的「Trionyx ferox」实为明尼苏达的 A. spinifera（Webb 1962 明写）——典型的「老文献物种误定」陷阱。"
+  },
+  "Boa_imperator": {
+    "zh": "红尾蚺",
+    "latin": "Boa imperator",
+    "en": "Central American Boa",
+    "taxon": "snake",
+    "py": "hongweiran",
+    "pyi": "hwr",
+    "alias": [
+      "红尾蚺",
+      "红尾蟒",
+      "BCI",
+      "中美红尾蚺",
+      "普通红尾蚺",
+      "博阿蟒"
+    ],
+    "alias_en": [
+      "Boa Constrictor",
+      "BCI",
+      "Common Boa",
+      "Central American Boa"
+    ],
+    "scope": "中美洲与墨西哥（伯利兹、洪都拉斯、危地马拉、墨西哥等）。⚠️ **原 *Boa constrictor* 复合体已拆分**：南美的 **`Boa constrictor`（BCB）是另一个种**。⚠️ 本种在伯利兹与洪都拉斯的外海岛屿上有**侏儒化种群**（Card et al. 2016 证明为独立起源的平行侏儒化），与大陆型**同长下体重差 22–28%**（1000 mm SVL：大陆 622 g vs 岛屿 486 g）。",
+    "scope_short": "⚠️ 本卡是 BCI = Boa imperator（中美红尾蚺），不是南美的 Boa constrictor（BCB）。⚠️ 卡内两条曲线分别是大陆型与岛屿侏儒型（两者不可互相外推）；宠物圈常见的是大陆型，请按你的个体来源选择。",
+    "scope_short_en": "⚠️ This card covers BCI (Boa imperator), not the South American Boa constrictor (BCB). ⚠️ The two curves are mainland and island-dwarf forms and must not be extrapolated to each other; the common pet form is the mainland one.",
+    "status_note": "体长-体重 2 条，均为一手个体级（L1），口径 SVL，来源为伯利兹与洪都拉斯多个产地的汇编：① 大陆型 n=38（SVL 440–2260 mm，b=3.3920，r²=0.9871）；② 岛屿侏儒型 n=194（SVL 391–1780 mm，b=2.9981，r²=0.9426）。两条均标注 gravid_females_not_identified（蚺科卵胎生，怀胎雌体偏重，见 spec §5.3）。拒收 2 条：\n· 大陆型+岛屿型合并的那条（n=232） —— 按 n 加权（岛屿 194 vs 大陆 38）后曲线被拉向岛屿型：1000 mm 处大陆 622 g / 合并 506 g / 岛屿 486 g。宠物圈主流是大陆型，用合并曲线会把它判成「偏重 23%」，正是本项目以误报率为标准要避免的。本项目有先例：泰加蜥的阿根廷原产群与佛罗里达入侵群并列而不合并。\n· Boa constrictor 那条（n=8） —— ① L3（Abuys 2003 是纸本书，只能经 Add-my-Pet 转引，原书那行核不到；本项目从未发布过 L3）；② AmP 对该体重列的原注为 g, wet weight (including eggs)，含卵，按 §5.3 会使同长体重显著偏高；③ 口径为 TL 而其余记录为 SVL（本批实测 TL/SVL 均值 1.1420）。\n年龄-体长：无可用数据 → 该层拒答（无已知年龄个体、无生长方程）。\n⚠️ 保留的大陆型那条 n=38 偏小，而它恰是宠物圈最需要的 —— 已如实标注 small_n，且 95% 带较宽（±54%）。\n未获取：圈养生长数据、年龄层、大陆型的更大样本。"
+  },
+  "Carettochelys_insculpta": {
+    "zh": "猪鼻龟（二爪鳖）",
+    "latin": "Carettochelys insculpta",
+    "en": "Pig-nosed Turtle",
+    "taxon": "turtle",
+    "py": "zhubigui",
+    "pyi": "zbg",
+    "alias": [
+      "二爪鳖",
+      "两爪鳖",
+      "猪鼻龟",
+      "飞河龟",
+      "New Guinea Plateless Turtle"
+    ],
+    "alias_en": [
+      "Pig-nosed Turtle",
+      "Fly River Turtle"
+    ],
+    "scope": "澳洲北部与新几内亚南部。**两爪鳖科（Carettochelyidae）唯一现存成员**，与鳖科 Trionychidae **不同科**。**IUCN 濒危、CITES 附录 II**",
+    "scope_short": "⚠️ 「两爪鳖」是科名与属名，不是另一个种——本种是该科属唯一现存成员，与「猪鼻龟」是同一个种。",
+    "scope_short_en": "⚠️ \"Two-clawed turtle\" is the family/genus name, not a separate species; this is the only living member of that family, and is the same animal as the pig-nosed turtle.",
+    "status_note": "体长-体重 1 条（L1）：Georges & Kennett 1989, Aust. Wildl. Res. 16:323–335 印刷页 331 逐字 WT = 1.63 CL^2.88 × 10^-4（r²=0.997, n=48；kg/cm）→ 已换算为 mm/g 口径。换算经三项自洽校验：32 只野生均值 −7%（正是陷阱 A2 均值效应的方向）、最大雄 −0.8%、孵化个体 23.4 g vs 实测 24.7 g。年龄-体长：无可用数据 → 该层拒答（TFTSG 2008 账户明写生长率基本未知；1989 仅 5 只重捕）。⚠️ 口径：原文只写 CL，未声明曲/直，故记 unspecified 并给不确定度（schema 虽有 CCL 档，但本条无法据此断定是曲甲长）。⚠️ 样本为复合来源（32 野生 + 16 圈养幼体）。"
+  },
+  "Centrochelys_sulcata": {
+    "zh": "苏卡达陆龟",
+    "latin": "Centrochelys sulcata",
+    "en": "African Spurred Tortoise",
+    "taxon": "turtle",
+    "py": "sukadaluogui",
+    "pyi": "skdlg",
+    "alias": [
+      "苏卡达",
+      "苏卡达陆龟",
+      "非洲盾臂龟",
+      "刺腿陆龟",
+      "Sulcata"
+    ],
+    "alias_en": [
+      "African Spurred Tortoise",
+      "Sulcata Tortoise"
+    ],
+    "scope": "非洲萨赫勒地带（塞内加尔至苏丹、埃塞俄比亚）。**IUCN 濒危、CITES 附录 II**。旧名 *Geochelone sulcata*",
+    "scope_short": "本卡数据来自**圈养种群**（幼体段与一组 n=3 个体），**不含野生个体的实测体长-体重**。",
+    "scope_short_en": "The data come from captive animals (juvenile length-weight and one small age series); no measured wild length-weight data are included.",
+    "status_note": "**体长-体重 1 条 + 年龄-体长 1 条**：\n· 圈养幼体体长-体重（**L1**，Merchán 2005）：n=31，SCL 61–124.7 mm，`M=1.44212e-3·SCL^2.593`，b 的 95%CI **2.491–2.695**（未跨 1–4 → 可辨识），r²=0.989，95% 带 ±13.2%。⚠️ **b 的置信区间不含 3.0**：该段为**出壳至亚成**，跨度内含个体发育中的甲壳形态变化，与「静态异速」不同 —— 本项目其它跨发育段的 L-W 卡同理（如三趾箱龟 75.5–157.4 mm）。\n· 圈养年龄-体长（**L1**，Ritz 2010）：**logistic** Linf=664.9 / k=0.3840 / ti=2.957，**n=3**。⚠️ 原文 logistic 拟合的是**体重**（公式经 600 dpi 渲染逐字核对），本卡按 Lambert 1993 异速式两步换算、并锚定渐近体长（自由拟合会漂到不可辨识）。n=3 极小，已带 `small_n` + `single_captive_population`；保留的理由是本项目方针「**显示数据的薄弱而非隐藏**」，且已有小 n 先例（鹰嘴龟 n=8）。\n**拒收 1 条**：野生年龄-体长（Ritz 2010 由气候变化重构的**合成个体**，**L3**）—— 既非真实观测、又属本项目从未发布过的 L3 等级。\n⚠️ **同名物种豹纹陆龟已正式拒答**：TFTSG 官方 TOC 明标 `Authors needed.`（账户不存在）；Hailey & Coulson 1999 / Hailey & Lambert 2002 / Kabigumila 2000 全闭源；Ritz 2010 的绿色 OA 副本只托管在 `zora.uzh.ch`，**该主机 80/443 全不可达**；CORE 被 Cloudflare 403。\n**未获取**：圈养成体体长-体重、野生体长-体重（Lambert 1993 式 `0.000922·SCL^2.755` 已取得，但**原文未报告 n**；n 为 schema 必填，**填一个未知的数就是编造**，故不入库）。"
+  },
+  "Ceratophrys_cranwelli": {
+    "zh": "绿角蛙",
+    "latin": "Ceratophrys cranwelli",
+    "en": "Chacoan Horned Frog",
+    "scope": "南美（阿根廷/巴拉圭/玻利维亚查科地区）。两栖类口径为 **SVL（吻肛长）**——蛙类不用 TL。本卡**仅家养**",
+    "status_note": "来自 Lappin et al. 2017 (Sci Rep 7:11968) 的 Supplementary Table S1：个体级体长+体重（8 个体 / 58 配对点），CAPTIVE、原文未报性别。未获取：野外层、年龄-体长（无年龄数据）。",
+    "py": "lujiaowa",
+    "pyi": "ljw",
+    "alias": [
+      "角蛙",
+      "南美角蛙",
+      "查科角蛙"
+    ],
+    "alias_en": [
+      "Horned Frog",
+      "Pacman Frog"
+    ],
+    "taxon": "amphibian"
+  },
+  "Ceratophrys_ornata": {
+    "zh": "钟角蛙",
+    "latin": "Ceratophrys ornata",
+    "en": "Argentine Horned Frog",
+    "scope": "南美（阿根廷/乌拉圭/巴西）。两栖类口径为 SVL（吻肛长）",
+    "status": "no_data",
+    "status_note": "无可用数据 → 拒答（2026-10-07 穷尽式检索后判定）。唯一野外数据 Ibáñez 2025 (HerpConBio 20(3)) 只有体重、无配对 SVL；SVL 区间全为二手转引（1921–1990）；AmphibiaWeb 仅均值（112.4±13.4 mm, n=34）；Europe PMC 75 条命中无一含可配对的 SVL–体重序列。翻盘线索：repository.si.edu 的 Deichmann 2008（36 种新热带蛙 SVL–体重回归）被机器人校验挡住，是最有希望的一处。",
+    "py": "zhongjiaowa",
+    "pyi": "zjw",
+    "refs": [
+      "Ibáñez 2025, Herpetological Conservation and Biology 20(3)（野生，仅体重）",
+      "AmphibiaWeb 物种条目（仅均值）",
+      "Deichmann 2008（36 种新热带蛙 SVL-体重回归，尚未取得）"
+    ],
+    "alias": [
+      "角蛙",
+      "阿根廷角蛙",
+      "钟角"
+    ],
+    "alias_en": [
+      "Horned Frog",
+      "Pacman Frog",
+      "Argentine Horned Frog"
+    ],
+    "taxon": "amphibian"
+  },
+  "Chamaeleo_calyptratus": {
+    "zh": "高冠变色龙",
+    "latin": "Chamaeleo calyptratus",
+    "en": "Veiled Chameleon",
+    "taxon": "lizard",
+    "py": "gaoguanbianselong",
+    "pyi": "ggbsl",
+    "alias": [
+      "高冠变色龙",
+      "也门变色龙",
+      "高冠避役",
+      "面纱变色龙"
+    ],
+    "alias_en": [
+      "Veiled Chameleon",
+      "Yemen Chameleon"
+    ],
+    "scope": "也门与沙特阿拉伯西南部。**已被引入美国佛罗里达与夏威夷**。宠物市场几乎全为人工繁育个体",
+    "scope_short": "⚠️ 本卡数据来自**圈养人工繁育个体**（且样本小：15 个体 / 26 次观测），**没有野生种群数据**。⚠️ **样本量远低于本项目其它卡**，请谨慎参考。",
+    "scope_short_en": "⚠️ Captive captive-bred animals only, with a small sample (15 individuals / 26 observations); no wild-population data. ⚠️ The sample is far smaller than other cards in this project.",
+    "status_note": "**体长-体重 3 条（均 L1，口径 SVL，圈养）**：\n· 混合 n=**26 次观测**（15 个体），SVL 43–230 mm / 2.0–197.3 g，b=**2.9127**（95%CI 2.717–3.109），r²=0.9751；\n· 雄性 n=16（9 个体），47–230 mm，b=**2.9802**（2.796–3.164），r²=0.9886；\n· 雌性 n=10（6 个体），43–179 mm，b=**3.0297**（2.618–3.441），r²=0.9730。\n**三条的 b 置信区间都不跨 1–4 全域 → 指数可辨识** ✓；雌雄体型差异 Δ=1.03–1.31，故按 §5.1 **分层**。\n**主来源**：Laslie 2018（Western Kentucky University **硕士论文** Table 1，个体级 SVL+体重）。⚠️ **该来源未经同行评审**（本项目有先例：*T. radix* 的决定性来源同样是硕士论文）。获取方式：digitalcommons 全站 Cloudflare 403 → 改走 **Wayback `if_` 直链**取得真 PDF；表为**嵌入位图**，以 **400 dpi 渲染后逐格核对**读数。\n**⚠️ 表内 3 点内部不一致**（CF3 疑怀卵 +1.85×、CFJ3 +2.09×、CMJ3 −0.61×）：**原样保留**（不静默剔除），并做了**敏感性分析** —— 剔后 b=2.9476，**CI 与原估计重叠**，说明 b **不由可疑点驱动**。怀卵个体未识别 → 已标 `gravid_females_not_identified`。\n**未入库的佐证**：Dryad Ligon & McGraw 2018（33 只成体雄）b=1.9637，95%CI **1.143–2.784** —— **指数几乎不可辨识**，故不采用。\n**⚠️ 覆盖度分母上限 300 mm 取自文献物种上限（L3、未回溯）**，而实测最大仅 230 mm。本卡**有意不用实测最大值**作分母：那样覆盖度会按构造接近 100%，失去「还差多少没覆盖」的含义。\n**未获取**：**年龄-体长（0 条 → 该层拒答）**、野生种群数据、出壳 SVL（未核实）、Add-my-Pet 条目（网络不可达，未能确认是否存在）。"
+  },
+  "Chelydra_serpentina": {
+    "zh": "北美拟鳄龟",
+    "latin": "Chelydra serpentina",
+    "en": "Common Snapping Turtle",
+    "scope": "**北美**（美国、加拿大）。学名 *Chelydra serpentina*。⚠️ 拟鳄龟属（*Chelydra*）有**三个种**，本卡**只覆盖北美这一个**：中美拟鳄龟 *C. rossignonii*（墨西哥至洪都拉斯）与南美拟鳄龟 *C. acutirostris*（尼加拉瓜至厄瓜多尔）是**另外的种，本卡不适用**。体长口径有 SCL / CLmax / midline CL 多种，不可互换。",
+    "py": "nieluogui",
+    "pyi": "nlg",
+    "alias": [
+      "鳄龟",
+      "小鳄龟",
+      "北美拟鳄龟",
+      "磕头龟",
+      "snapping turtle",
+      "拟鳄龟",
+      "北美小鳄龟"
+    ],
+    "alias_en": [
+      "Snapping Turtle",
+      "Common Snapping Turtle"
+    ],
+    "scope_short": "数据仅来自北美种群（C. serpentina）；中美拟鳄龟与南美拟鳄龟是另外的种，本卡不适用。",
+    "scope_short_en": "Data are from North American populations only (C. serpentina). The Central and South American snapping turtles are separate species and are not covered.",
+    "taxon": "turtle"
+  },
+  "Correlophus_ciliatus": {
+    "zh": "睫角守宫",
+    "latin": "Correlophus ciliatus",
+    "en": "Crested Gecko",
+    "scope": "新喀里多尼亚树栖守宫；旧名 *Rhacodactylus ciliatus*。**会断尾再生，断尾个体的 TL 不可用于体长-体重拟合**",
+    "status": "rejected",
+    "status_note": "按规则 §11.3 拒答（2026-10-07 穷尽式复查后二次判定，见 docs/38）。已取得 4 组数据但均不合规：唯一内部配对序列（Brundage 2024, n=60）体长跨度仅 ~7%，隐含指数在两组间相差 75%（3.28 vs 1.87），指数不可辨识；且为组均值对（违反 §6.2），自拟残差低估个体散度 2–4 倍（假精度）。年龄层全文献零模型参数，野外数据为 0。翻盘目标：figshare 10.6084/m9.figshare.14220098 的个体级原始数据（本轮被 AWS WAF 全阻）",
+    "py": "jiejiaoshougong",
+    "pyi": "jjsg",
+    "refs": [
+      "Brundage 2024（圈养配对序列，n=60）",
+      "figshare 10.6084/m9.figshare.14220098（个体级原始数据，尚未取得）"
+    ],
+    "alias": [
+      "睫角",
+      "睫毛守宫",
+      "冠角守宫"
+    ],
+    "alias_en": [
+      "Crested Gecko"
+    ],
+    "taxon": "lizard"
+  },
+  "Cuora_flavomarginata": {
+    "zh": "黄缘闭壳龟",
+    "latin": "Cuora flavomarginata",
+    "en": "Yellow-margined Box Turtle",
+    "taxon": "turtle",
+    "py": "huangyuanbihegui",
+    "pyi": "hybhg",
+    "alias": [
+      "黄缘",
+      "黄缘盒龟",
+      "食蛇龟",
+      "黄缘闭壳龟"
+    ],
+    "alias_en": [
+      "Yellow-margined Box Turtle",
+      "Chinese Box Turtle"
+    ],
+    "scope": "中国东部与南部、台湾。**IUCN 濒危、CITES 附录 II**。是**闭壳龟**，腹甲有韧带可动，**PL 量法特殊**。体长口径为 **SCL（直甲长）**",
+    "scope_short": "闭壳龟：腹甲有韧带可动，量体长时请与原文口径（SCL 直甲长）保持一致。",
+    "scope_short_en": "A box turtle with a hinged plastron; measure consistently with the stated method (SCL, straight carapace length).",
+    "status_note": "年龄-体长：张斯荷、付香斌 2013（信阳师范学院学报 26(1):76-79）华中种群 7–12 龄均值，口径明确为 SCL（颈盾至臀盾直线），L1。体长-体重：周贵谭等 2003（水产科学 22(1):32-33）W=0.1423·L(cm)^3.1678，仅稚龟段 41.5–50.7 mm。成体体长-体重无可用数据 → 该段拒答。拒收：经 Add-my-Pet 转引的 Chen & Lue 2002 两条分性别年龄记录 —— 除原文取不到（BioOne 拦截）、仅达 L3 外，AmP 的 tL_f/tL_m 前 34 条完全相同，即未辨性别的幼体被复制进两个性别数组，所谓分性别曲线并不真的分性别。"
+  },
+  "Eublepharis_macularius": {
+    "zh": "豹纹守宫",
+    "latin": "Eublepharis macularius",
+    "en": "Leopard Gecko",
+    "scope": "南亚地栖守宫；圈养极热门。注意 **SVL / TL 口径**（尾长占比大）",
+    "py": "baowenshougong",
+    "pyi": "bwsg",
+    "alias": [
+      "豹纹",
+      "豹守",
+      "豹纹蜥"
+    ],
+    "alias_en": [
+      "Leopard Gecko"
+    ],
+    "taxon": "lizard"
+  },
+  "Hemitheconyx_caudicinctus": {
+    "zh": "肥尾守宫",
+    "latin": "Hemitheconyx caudicinctus",
+    "en": "African Fat-tailed Gecko",
+    "taxon": "lizard",
+    "py": "feiweishougong",
+    "pyi": "fwsg",
+    "alias": [
+      "肥尾",
+      "非洲肥尾守宫",
+      "肥尾守宮"
+    ],
+    "alias_en": [
+      "Fat-tailed Gecko",
+      "AFT"
+    ],
+    "scope": "西非（尼日利亚、加纳、多哥等）。与豹纹守宫同科（Eublepharidae）但不同属。体长口径为 **SVL（吻肛长，不含尾）**",
+    "scope_short": "本卡只覆盖 Hemitheconyx caudicinctus；同科不同属的豹纹守宫 Eublepharis macularius 另有其卡。",
+    "scope_short_en": "This card covers Hemitheconyx caudicinctus only. The leopard gecko (Eublepharis macularius) is a different genus with its own card.",
+    "status_note": "年龄-体长：无可用数据 → 该层拒答（全渠道无生长参数或已知年龄配对；Kugler & Kugler 1984 是唯一圈养繁育生长线索，但原刊站失效、仅二手转引）。体长-体重只有野生一条：Spawls 2008 (Herpetological Bulletin 106:7–13) Fig. 3 的 16 点，本项目数字化所得（b=3.07，跨度 ×2.94，95% 带 ±93.7% —— 大散度主要来自8 只原尾 / 7 只再生尾，尾是脂肪器官，但口径为不含尾的 SVL）。另一条圈养记录已拒收：Hlubeň et al. 2021 (J Evol Biol 34:1290–1301) 的 Dryad 数据虽为个体级，但该数据集是失水/代谢生理实验——Lead 独立复核发现其中 13 个睑虎科物种的 b 从 −0.25 到 4.25、多数物理上不可能（如豹纹守宫 b=0.54），该数据集不支持估计体长-体重关系。"
+  },
+  "Heterodon_nasicus": {
+    "zh": "猪鼻蛇",
+    "latin": "Heterodon nasicus",
+    "en": "Plains Hognose Snake",
+    "scope": "北美大平原。⚠️ 本卡**两层口径不同**：体长-体重为 **TL（全长）**，年龄-体长为 **SVL（吻肛长）**——两者差约 8%，不可互相代入",
+    "py": "zhubishe",
+    "pyi": "zbs",
+    "alias": [
+      "猪鼻",
+      "西部猪鼻蛇",
+      "猪鼻蛇"
+    ],
+    "alias_en": [
+      "Hognose Snake",
+      "Western Hognose"
+    ],
+    "taxon": "snake"
+  },
+  "Iguana_iguana": {
+    "zh": "绿鬣蜥",
+    "latin": "Iguana iguana",
+    "en": "Green Iguana",
+    "taxon": "lizard",
+    "py": "lvliexi",
+    "pyi": "llx",
+    "alias": [
+      "绿鬣蜥",
+      "绿鬣",
+      "绿蜥",
+      "鬣蜥",
+      "IG"
+    ],
+    "alias_en": [
+      "Green Iguana",
+      "Common Green Iguana"
+    ],
+    "scope": "中美洲与南美洲（墨西哥至巴西、巴拉圭），并被广泛引入（美国佛罗里达、夏威夷、加勒比等）。⚠️ **不要与同科的刺尾鬣蜥 *Ctenosaura* 属混淆**。体长口径为 **SVL（吻肛长，不含尾）** —— 本种**尾部极长**（约为 SVL 的 2.3–2.4 倍）。",
+    "scope_short": "⚠️ 本卡的口径是 SVL（不含尾）；绿鬣蜥尾长约为 SVL 的 2.3–2.4 倍，若你量的是全长（TL），不能直接套用本卡。⚠️ 数据来自单一圈养种群。",
+    "scope_short_en": "⚠️ This card uses SVL (excluding the tail). A green iguana's tail is about 2.3–2.4x its SVL, so a total-length measurement cannot be compared directly. ⚠️ The data come from one captive population.",
+    "status_note": "体长-体重 2 条 + 年龄-体长 2 条，全部 L1 个体级、口径 SVL，来源为同一圈养种群（n=96/性别）：① ♂ 体长-体重 n=96，SVL 64.9–254.1 mm，b=2.5742（**95%CI 2.399–2.749**），r²=0.9954；② ♀ 体长-体重 n=96，SVL 64.3–265.0 mm，b=2.5083（**95%CI 2.332–2.684**），r²=0.9951；**两条 b 的 CI 都窄且远离 1–4 全域 → 指数可辨识**。③ ♂ 年龄-体长 Gompertz Linf=425.9 / k=0.8992 / ti=0.6793；④ ♀ 年龄-体长 Gompertz Linf=421.6 / k=0.9863 / ti=0.6323。b ≈ 2.51–2.57 偏低（蜥蜴等速生长应约 3）有生物学解释：鬣蜥科体形极度细长（本批实测尾长 ≈ SVL 的 2.36 倍），质量随体长的增长更接近长度²而非长度³ —— 与蛇类同理。故该值落在审计的软区间 [2.0, 4.0] 内，属可解释而非异常。口径已逐字核对：原文 Methods 明写「Snout-vent length (SVL) and body mass were measured at hatching.」，Table 1 列名即 SVL(mm) 与 MASS(g)。两条年龄曲线用 Gompertz（VBGF 对本数据不可辨识）。未获取：野生种群数据、圈养生长以外的来源。局限：单圈养种群（single_captive_population）、年龄层标 extrapolation_only。"
+  },
+  "Kinosternon_baurii": {
+    "zh": "果核蛋龟（果核泥龟）",
+    "latin": "Kinosternon baurii",
+    "en": "Striped Mud Turtle",
+    "scope": "北美东南部（佛罗里达、佐治亚等）。体长口径为 **PL（腹甲长）**",
+    "status_note": "来自 Iverson 1979 (Brimleyana 1:37-46)，以腹盾年轮反算 19 只的逐年平均 PL（第 1-7 冬）。原文另给线性式 Wt=3.36·PL−154.84（n=6♀）——线性式不能写成 M=a·L^b，故未转卡（陷阱 B8）。未获取：体长-体重。⚠️ 原文为雌性繁殖研究，年轮序列的性别未逐只标明（可能以雌性为主），故记 wild_mixed（§5.2）。",
+    "py": "guohedangui",
+    "pyi": "ghdg",
+    "alias": [
+      "蛋龟",
+      "果核",
+      "果核泥龟",
+      "三线蛋龟",
+      "条纹动胸龟"
+    ],
+    "alias_en": [
+      "Striped Mud Turtle",
+      "Egg Turtle"
+    ],
+    "taxon": "turtle"
+  },
+  "Lampropeltis_brooksi": {
+    "zh": "布鲁克王蛇",
+    "latin": "Lampropeltis brooksi",
+    "en": "Brook's Kingsnake",
+    "taxon": "snake",
+    "py": "bulukewangshe",
+    "pyi": "blkws",
+    "alias": [
+      "布鲁克王蛇",
+      "布鲁克",
+      "佛州王蛇",
+      "佛罗里达王蛇"
+    ],
+    "alias_en": [
+      "Brook's Kingsnake",
+      "Florida Kingsnake"
+    ],
+    "status": "no_data",
+    "scope": "美国佛罗里达州南部（模式产地 Dade Co.）。⚠️ **分类学地位有权威分歧**：**SSAR / ITIS（Crother 等，北美名录）** 视 *floridana* 与 *brooksi* 均为 *L. getula* 的次异名；而 **Krysko et al. 2017（*J Heredity* 108(3):226–238）** 将佛罗里达王蛇提升为独立种，**Reptile Database** 采纳之，列 ***Lampropeltis floridana*** 为有效种、`brooksi` 为其异名。本项目按用户指定的宠物圈名称登记为 `Lampropeltis_brooksi`，**并同时保留两派意见**。",
+    "scope_short": "⚠️ 本种（暂无数据）在分类上有分歧：可能应记作 Lampropeltis floridana 或列为 L. getula 的亚种/异名。「布鲁克王蛇」在宠物圈还常与东部王蛇 L. getula（即本项目已删除的复合体条目）混淆。",
+    "scope_short_en": "⚠️ Taxonomy is disputed: this may belong under Lampropeltis floridana, or be treated as a subspecies/synonym of L. getula. In the pet trade \"Brook's kingsnake\" is also often confused with the eastern kingsnake (L. getula).",
+    "status_note": "已核查不可用 → 暂不出卡（2026-10-07）。该单元的全部经典一手文献本轮已真正取得并逐页核过（Krysko 2001 论文 169 页、Blanchard 1921、Duellman & Schwartz 1958、Blaney 1977、Meshaka & Layne 2015 358 页），无一含幂函数、年龄或已知年龄个体。唯一含 SVL+质量配对数据的是 Godley et al. 2017（Rainey Slough, Glades Co., FL，地理上属 floridana 区，n=34 成体），但发表物只给均值 → 按本项目「均值序列不得拟合幂函数」的纪律不能出卡。🎯 唯一翻盘路径：向 Godley / Halstead 索取那 34 只的逐只表。 次选：馆际互借 Krysko 2002。分类学一手引文已核：Barbour 1919 正模 1,350 mm（模式产地 Dade Co. 佛罗里达最南）；Blanchard 1921:62 记最大 floridana 1,753 mm；Duellman & Schwartz 1958:305 与 Krysko 2001 p.39–40 均判 brooksi 为 floridana 的次异名；Reptile Database 采纳 Krysko 2017。⚠️ SSAR/ITIS 的单种观点系本项目早前查证，本轮未复核原文页码，引用前需补页码。受阻：Krysko 2002（BioOne 反爬 + JSTOR，OpenAlex 记 closed，本卡最大缺口）、Kaufman & Gibbons 1975、Krysko et al. 2017、Zootaxa 1193、Krysko & Franz 2003；Wright 1957 借阅锁定；Add-my-Pet TLS 阻断；GBIF 不认 brooksi 这个名。近失候选 6 条已逐条记明拒绝理由（含 Kaufman & Gibbons 1975 因 n 未知 —— 填 n 即等于编造，故不按 L3 入卡）。",
+    "refs": [
+      "Barbour 1919（*brooksi* 原始描述，正模 1,350 mm，模式产地 Dade Co.）",
+      "Blanchard 1921:62（最大 *floridana* 1,753 mm）",
+      "Duellman & Schwartz 1958:305（判 *brooksi* 为 *floridana* 次异名）",
+      "Krysko 2001 p.39–40（同判）",
+      "Krysko et al. 2017, J Heredity 108(3):226–238（提升 floridana 为独立种）",
+      "Godley et al. 2017（n=34 成体 SVL+质量，**只给均值**；索取逐只表是唯一翻盘路径）",
+      "Meshaka & Layne 2015（358 页，已核，无可用数据）"
+    ]
+  },
+  "Lampropeltis_californiae": {
+    "zh": "加州王蛇",
+    "latin": "Lampropeltis californiae",
+    "en": "California Kingsnake",
+    "scope": "北美王蛇；旧名 *Lampropeltis getula californiae*。注意 **TL / SVL 口径**",
+    "py": "jiazhouwangshen",
+    "pyi": "jzws",
+    "alias": [
+      "王蛇",
+      "加州王",
+      "加州蛇"
+    ],
+    "alias_en": [
+      "California Kingsnake",
+      "Kingsnake"
+    ],
+    "taxon": "snake"
+  },
+  "Lampropeltis_triangulum": {
+    "zh": "奶蛇",
+    "latin": "Lampropeltis triangulum",
+    "en": "Milk Snake",
+    "taxon": "snake",
+    "py": "naishe",
+    "pyi": "ns",
+    "alias": [
+      "奶蛇",
+      "牛奶蛇",
+      "东美奶蛇"
+    ],
+    "alias_en": [
+      "Milk Snake",
+      "Eastern Milk Snake"
+    ],
+    "scope": "北美东部与中西部。⚠️ **原 *L. triangulum* 复合体已被拆分**：西部各亚种现属 *L. gentilis*（西部奶蛇），红奶蛇属 *L. elapsoides*。本卡只覆盖拆分后的 *L. triangulum* s.s.",
+    "scope_short": "⚠️ 原「奶蛇」是复合体，已拆分：西部奶蛇 L. gentilis、红奶蛇 L. elapsoides 是另外的种，本卡只覆盖 L. triangulum s.s.（东部）。",
+    "scope_short_en": "⚠️ \"Milk snake\" was a species complex and has been split: the western milk snake (L. gentilis) and the scarlet kingsnake (L. elapsoides) are separate species. This card covers L. triangulum s.s. (eastern) only.",
+    "status_note": "年龄-体长 1 条：SVL，n=55，Gompertz 模型 Linf=1034.47 / k=0.2697 / ti=1.963，RMSE 9.2 mm，仅 4 个龄点（0 / 0.67 / 1.67 / 2.67 年），L2。本卡是项目第一条非 VBGF 曲线 —— VBGF 对 4 点不可辨识（Linf 无界漂移），logistic 的 Linf=680.7 mm 小于实测最大 SVL 797 mm，自相矛盾；Gompertz 五组初值均收敛且 Linf 大于实测最大值，故选 Gompertz。体长-体重：拒收。 唯一来源 Fitch & Fleet 1970（Herpetologica 26:387–396，Kansas 野外）只有 n=8 次观测 / 仅 4 个体，且与 3 条独立记录系统性偏差 +26~54%（我们的曲线在 505/530/764 mm 处为 38.1/44.0/132.1 g，而 MSB 与 MCZ 记录为 52.5/55.5/204 g）—— 而本卡 95% 带仅 ±18.8%，三条全部落在带外。按此发布会把正常奶蛇系统性判为「偏重」，故不发布。未获取：圈养数据（零）、n≥20 配对数据集、≥3 龄实测年龄、同批个体 TL+SVL 双口径。受阻：Add-my-Pet 无 Lampropeltis 条目（与玉米锦蛇不同）；VertNet 500 / iDigBio 400；LSU 直链 403（KHS 镜像可取 Williams 1970 全文但无体重）；Williams 1988 专著与 Fitch 1999 图书需馆际借阅。"
+  },
+  "Litoria_caerulea": {
+    "zh": "白氏树蛙",
+    "latin": "Litoria caerulea",
+    "en": "White's Tree Frog",
+    "taxon": "amphibian",
+    "py": "baishishuwa",
+    "pyi": "bssw",
+    "alias": [
+      "白氏树蛙",
+      "老爷蛙",
+      "白氏树蟾",
+      "澳洲绿树蛙",
+      "怀特树蛙"
+    ],
+    "alias_en": [
+      "White's Tree Frog",
+      "Australian Green Tree Frog",
+      "Dumpy Tree Frog"
+    ],
+    "scope": "澳洲北部与东部、新几内亚。⚠️ **本种的属名有四套、两派并存**：**AmphibiaWeb 与澳洲爬行学会（ASH）用 *Litoria***（刻意保留）；**Duellman et al. 2016 与 USGS 用 *Ranoidea***；另有 *Dryopsophus*（Dubois & Fretey 2016）与历史名 *Pelodryas*。⚠️ **科名亦有争议**：ASH 用 **Pelodryadidae**，传统用 **Hylidae（雨蛙科）**。本卡按用户最可能搜到的 **`Litoria caerulea`** 登记。",
+    "scope_short": "⚠️ 本卡**只有圈养个体的数据**，且样本很小（n=21 / n=42）。⚠️ 本种在文献中有 **四个属名**（*Litoria* / *Ranoidea* / *Dryopsophus* / *Pelodryas*）—— 都是**同一个种**。",
+    "scope_short_en": "⚠️ Captive data only, with small samples (n=21 / n=42). ⚠️ This species appears in the literature under four genus names (Litoria / Ranoidea / Dryopsophus / Pelodryas) - all the same species.",
+    "status_note": "**体长-体重 2 条（均 L1）**：\n· 口径 **SVL**，captive_mixed，n=21，61.93–80.2 mm，b=2.2599，r²=0.641；\n· 口径 **未声明（unspecified）**，captive_mixed，n=42，54.91–84.61 mm，b=2.6326，r²=0.7916。⚠️ 后者按 spec §3.1 的**孤立档**处理：**不与已知口径混算或换算**，并在界面显著标注 + 计入不确定度。\n⚠️ 第一条 **r²=0.641 偏低**（如实保留，不因难看而丢弃）。\n**年龄-体长：无可用数据 → 该层拒答。**\n**未获取**：野生个体级数据、年龄层、成体大样本。"
+  },
+  "Macrochelys_spp": {
+    "zh": "大鳄龟（属）",
+    "latin": "Macrochelys spp.",
+    "en": "Alligator Snapping Turtle (genus)",
+    "scope": "*Macrochelys* **属**（三种体型无显著分野，按裁定混合处理）；本卡为 **野生 + 圈养** 两带",
+    "alias_of": [
+      "Macrochelys_temminckii"
+    ],
+    "py": "daeluogui",
+    "pyi": "dlg",
+    "alias": [
+      "鳄龟",
+      "真鳄龟",
+      "大鳄",
+      "巨鳄龟"
+    ],
+    "alias_en": [
+      "Alligator Snapping Turtle"
+    ],
+    "scope_short": "属级条目，混合大鳄龟属的种；不区分到种。",
+    "scope_short_en": "Genus-level entry; pools the species of Macrochelys without splitting.",
+    "taxon": "turtle"
+  },
+  "Malaclemys_terrapin": {
+    "zh": "钻纹龟",
+    "latin": "Malaclemys terrapin",
+    "en": "Diamondback Terrapin",
+    "scope": "北美大西洋与墨西哥湾沿岸。体长口径为 **PL（腹甲直长）**——注意与背甲长（SCL/CLmax）不可互换（陷阱 B1）",
+    "status_note": "体长-体重：USGS 数据发布 doi:10.5066/P13UKAUV，656 只野生个体级 PL+体重（佛州红树林亚种）。年龄-体长：Tokash 2018 (Ohio Univ. 硕士论文) Table 3，野生♂ 与 head-start♀ 两条 VBGF。⚠️ 该表 N 为观测次数（同一批个体跨年重复测量）而非个体数，已在记录里标注 n_kind=observations。⚠️ 原文按「雌/雄 + 幼体」合并分组（幼体无法辨性别），group 为近似。未获取：背甲长口径、野生♀ 年龄层（其最佳模型为 Gompertz）。",
+    "py": "zuanwengui",
+    "pyi": "zwg",
+    "alias": [
+      "钻纹",
+      "菱斑龟",
+      "钻纹水龟"
+    ],
+    "alias_en": [
+      "Diamondback Terrapin",
+      "Terrapin"
+    ],
+    "taxon": "turtle"
+  },
+  "Mauremys_reevesii": {
+    "zh": "中华草龟",
+    "latin": "Mauremys reevesii",
+    "en": "Chinese Pond Turtle",
+    "scope": "东亚（中国、朝鲜半岛、日本）；旧名 *Chinemys reevesii*。**CITES 附录 III**、IUCN 濒危。体长口径为 **SCL（直甲长）**。本卡**仅圈养**——野外层未取得可拟合数据",
+    "status_note": "圈养层来自 Kang et al. 2026 (Ecol Evol 16:e73565, PMC13130340) 的补充 Data S1：131 只已知确切年龄的个体级 SCL+体重+年龄+性别（动物园自繁种群）。未获取：野生层（日本 Ishima 岛研究仅有均值，按规则不能拟合）。",
+    "py": "zhonghuacaogui",
+    "pyi": "zhcg",
+    "alias": [
+      "草龟",
+      "乌龟",
+      "金线龟",
+      "中华乌龟",
+      "长寿龟"
+    ],
+    "alias_en": [
+      "Chinese Pond Turtle",
+      "Reeves' Turtle"
+    ],
+    "taxon": "turtle"
+  },
+  "Mauremys_sinensis": {
+    "zh": "花龟",
+    "latin": "Mauremys sinensis",
+    "en": "Chinese Striped-necked Turtle",
+    "taxon": "turtle",
+    "py": "huagui",
+    "pyi": "hg",
+    "alias": [
+      "花龟",
+      "中华花龟",
+      "斑龟",
+      "珍珠龟"
+    ],
+    "alias_en": [
+      "Chinese Striped-necked Turtle",
+      "Chinese Pond Turtle"
+    ],
+    "status": "no_data",
+    "scope": "中国南方与台湾、越南。旧名 *Ocadia sinensis*",
+    "status_note": "已核查不可用 → 暂不出卡（2026-10-07）。体长-体重：穷尽渠道后全项目仅 5 个孤立 (CL, W) 点（意/波/台 4 个种群），其中 Di Blasio 2021 的「雌 111.10 mm / 68 g」与同表雄 162 mm / 840 g 内部不自洽（已渲染原表图像逐格核验），剔除后 n=4、最大对数残差 29% → 不达标。年龄-体长：唯一来源是经 Add-my-Pet 转引的 Chen & Lue 1998 (Copeia) 8 个龄组均值（L3），因同一 AmP 数据存在结构缺陷（见黄缘闭壳龟条目）而拒收；另 AmP 的雄性曲线 Linf=141 mm 小于其自身最大值，自相矛盾，已否决。翻盘路径：陳添喜碩士論文《臺灣北部地區斑龜及食蛇龜生活史之研究》（hdl.handle.net/11296/xng65c）同时覆盖花龟与黄缘闭壳龟，但 NDLTD 全文受校园网限；周贵谭等 2003 (水产科学) 的 PDF 字体编码错乱，方程需 500 dpi 渲染读图。有据可查的阴性：TFTSG 目录里 Mauremys sinensis 明标 Authors needed. —— 该物种账户不存在。",
+    "refs": [
+      "Chen & Lue 1998, Copeia 1998(4):944–952（经 Add-my-Pet 转引，L3）",
+      "Di Blasio 2021（意/波/台种群体尺，内部不自洽，已剔除）",
+      "陳添喜碩士論文（hdl.handle.net/11296/xng65c，同时覆盖花龟与黄缘闭壳龟，尚未取得）"
+    ]
+  },
+  "Nephrurus_spp": {
+    "zh": "瘤尾守宫（属）",
+    "latin": "Nephrurus spp.",
+    "en": "Knob-tailed Geckos",
+    "taxon": "lizard",
+    "py": "liuweishougong",
+    "pyi": "lwsg",
+    "alias": [
+      "瘤尾守宫",
+      "瘤尾",
+      "珠尾虎",
+      "珠尾虎属",
+      "细皮瘤尾守宫",
+      "粗糙瘤尾守宫",
+      "斑纹瘤尾守宫"
+    ],
+    "alias_en": [
+      "Knob-tailed Gecko",
+      "Knob-tailed Geckos"
+    ],
+    "status": "no_data",
+    "scope": "⚠️ **属级条目**。*Nephrurus*（瘤尾属／珠尾虎属）是**澳洲特有属，现有 11 个种**，另有亚种与地域型；中文宠物圈常把整个属统称「瘤尾守宫」。已按用户要求**逐种核查**（*N. levis* / *N. amyae* / *N. wheeleri* / *N. cinctus* / *N. laevissimus* / *N. stellatus* / *N. deleani* / *N. asper* / *N. sheai* / *N. vertebralis* / *N. eromanga*），**全部无可用数据**。⚠️ *N. cinctus* 已于 2020 年（Kealley et al.）由 *N. wheeleri* 的亚种**升为独立种**；⚠️ *Underwoodisaurus milii*（粗尾守宫）常被中文玩家与瘤尾混为一谈，但**是另一个属**，已排除。",
+    "scope_short": "⚠️ 属级条目（暂无可靠数据）：Nephrurus 属现有 11 个种，本条目不区分到种。另注：常被混称的 Underwoodisaurus milii（粗尾守宫）是另一个属。",
+    "scope_short_en": "⚠️ Genus-level entry (no reliable data). Nephrurus currently has 11 species; this entry does not split them. Note that Underwoodisaurus milii is a different genus and is often confused with it.",
+    "status_note": "已逐种核查 → 全属无可用数据（2026-10-07）。11 个种全部拒答，原因分三类：\n① 跨度不足：N. cinctus 只有 4 只出壳幼体的 SVL+体重配对（42–45 mm，跨度仅 7.1% < 10%）；同一文的 Fig.1 虽有个体级序列，但是体重-日龄（非体长）；N. deleani 只有 2 只成体（92/95 mm）。\n② 只有均值：N. levis n=27（17.2 g / 86.3 mm，62–112 mm）与 N. laevissimus n=52 仅给均值±SE/极差 —— 按本项目纪律「只有均值不得拟合幂函数」。\n③ 已测未公开：N. stellatus 的逐个体 SVL+体重确定存在但未发表（Springer ESM 仅含 4 张模型系数表）。\n年龄-体长：全属零（唯一的生长序列是体重轴，不是体长轴）。\n⚠️ 本批最大的坑（已入 docs/33 E9）：全球性状库（Feldman 2016 / Slavenko 2016 / Meiri 2021 / SquamBase）里 Nephrurus 的体重全是科级方程反算值（intercept −3.4445、slope 2.353），非实测 —— 已全部弃用。\n🎯 翻盘路径（两份数据确定存在）：向 Hays 等（N. levis，n=27）与 Annabel L. Smith（N. stellatus，capture 表）索取原始逐个体表。\n受阻：desertlizards.dev 全部数据文件 404（Pianka 声明有逐个体 SVL+体重但未上传）；biodiversitylibrary.org 全站 403；BioOne / JZWM 403；CSIRO 闭源；AmP 无条目；GBIF 无 mass 字段。",
+    "refs": [
+      "McGill 2015, British Herpetological Society 134（*N. cinctus*，4 只出壳幼体）",
+      "Harvey 1983（*N. deleani*，2 只成体）",
+      "Hays et al. 2019（*N. levis* n=27、*N. laevissimus* n=52，仅均值）",
+      "Smith 2018（*N. stellatus* 逐个体数据已测未公开）",
+      "Kealley et al. 2020（*N. cinctus* 提升为独立种）"
+    ]
+  },
+  "Pantherophis_guttatus": {
+    "zh": "玉米锦蛇",
+    "latin": "Pantherophis guttatus",
+    "en": "Corn Snake",
+    "scope": "北美游蛇科；旧名 *Elaphe guttata*。注意蛇类 **TL 与 SVL 口径差约 18%**",
+    "py": "yumijinshe",
+    "pyi": "ymjs",
+    "alias": [
+      "玉米蛇"
+    ],
+    "alias_en": [
+      "Corn Snake"
+    ],
+    "taxon": "snake"
+  },
+  "Pelodiscus_sinensis": {
+    "zh": "中华鳖",
+    "latin": "Pelodiscus sinensis",
+    "en": "Chinese Softshell Turtle",
+    "taxon": "turtle",
+    "py": "zhonghuabie",
+    "pyi": "zhb",
+    "alias": [
+      "中华鳖",
+      "甲鱼",
+      "团鱼",
+      "王八"
+    ],
+    "alias_en": [
+      "Chinese Softshell Turtle"
+    ],
+    "scope": "⚠️ **本卡按用户指示覆盖整个「中华鳖」复合体**：既含 *P. sinensis* s.s.（中国大陆南部与台湾），**也含黄河种群**。⚠️ 但黄河种群经 Zootaxa 5839.2.6 (2026) 的整合证据确认为 ***P. maackii* 的地理谱系**，东北中国、俄罗斯、朝鲜、日本的种群亦已独立为 *P. maackii*。**故本卡混含两个分类单元，使用时请注意。**",
+    "scope_short": "⚠️ 本卡混含两个分类单元：多数数据来自黄河种群，而该种群现已归入北方中华鳖 P. maackii；P. sinensis s.s.（中国大陆南部与台湾）本身暂无数据。",
+    "scope_short_en": "⚠️ This card pools two taxonomic units: the data come mainly from the Yellow River population, which is now assigned to Pelodiscus maackii. There is no data for P. sinensis s.s. proper.",
+    "status_note": "体长-体重 2 条，均为一手个体级（L1），来源都是陕西大荔黄河的同一野生种群：① Kong 2021（n=13，口径明确为 SCL，b=3.0207，r²=0.6516，CL 175–230 mm）；② Zhu 2025（n=22，口径未声明，按 unspecified 档 + 5% 长度不确定度，b=1.9286，r²=0.6584，CL 193–240 mm）。两条记录彼此孤立 —— 规范要求 unspecified 不得与已知口径混用，故未合并。「两批 b 互斥」实为误判：两者的 95%CI 在 1.72–2.54 处重叠，且在 CL=210 mm 处隐含体重仅差 5%（1145 vs 1203 g）；分歧只是各自跨度窄（19.6% / 23.9%）导致指数不精确。年龄-体长：无可用数据 → 该层拒答（本卡无任何已知年龄个体或生长参数）。s.s. 本身仍无数据：s.s. 养殖文献极多，但清一色只给群体均值 + 通径系数/线性多元回归，没有一条 W=aL^b、也没有个体级数据；唯一找到的 s.s. 均值仅 Ma 2013（100/300 日龄）与 Liang 2025 表 S2，按「均值序列不得拟合幂函数」的纪律不能出卡，且仅 2 个日龄点也无法定 VBGF。未获取：任何野生 P. sinensis s.s. 量度、s.s. 的 W=aL^b、≥3 年龄点序列、GB 21044-2007 正文、IUCN TFTSG 的 Pelodiscus 账户（疑似不存在）。"
+  },
+  "Pituophis_catenifer_sayi": {
+    "zh": "牛蛇",
+    "latin": "Pituophis catenifer sayi",
+    "en": "Bullsnake",
+    "scope": "北美大平原。体长口径为 **SVL（吻肛长，不含尾）**",
+    "py": "niushe",
+    "pyi": "ns",
+    "alias": [
+      "松蛇",
+      "牛蛇",
+      "草原松蛇"
+    ],
+    "alias_en": [
+      "Bullsnake",
+      "Gopher Snake"
+    ],
+    "taxon": "snake"
+  },
+  "Platysternon_megacephalum": {
+    "zh": "鹰嘴龟",
+    "latin": "Platysternon megacephalum",
+    "en": "Big-headed Turtle",
+    "scope": "中国南方与中南半岛山溪。**CITES 附录 I**、IUCN 濒危。甲壳扁平而头极大，多数研究用 **PL（腹甲长）**",
+    "status_note": "仅 Gong et al. 2019 (Ecol Evol 9:9869) Table 1 的 20 只 ex situ 个体（家养组 n=20/12/8，样本很小，覆盖度低）。年龄-体长：无可用数据 → 拒答（Sung 2015 J Herpetol 49:99-103 是唯一野外生长研究 n=218，但全文取不到参数）。同表的 Carapace length 因原文未说明直/曲、schema 无中性档，未入卡。",
+    "py": "yingzuigui",
+    "pyi": "yzg",
+    "alias": [
+      "大头龟",
+      "平胸龟",
+      "大头平胸龟",
+      "鹰嘴"
+    ],
+    "alias_en": [
+      "Big-headed Turtle"
+    ],
+    "taxon": "turtle"
+  },
+  "Pogona_vitticeps": {
+    "zh": "鬃狮蜥",
+    "latin": "Pogona vitticeps",
+    "en": "Central Bearded Dragon",
+    "scope": "澳洲中部鬃狮蜥；Valdez 2021 判为**过去十年全球最热门**的爬宠。本卡两层**口径均为 SVL（吻肛长，不含尾）**——是项目首个双带同口径的物种。⚠️ 本物种另有 TL（全长，含尾），**严禁与 SVL 互相代入**",
+    "status_note": "两层均为 L1 个体级原始数据：野生带来自 Wild et al. 2022 (Mol Ecol) 的 Dryad 数据集（n=53）；圈养带来自 Denommé Stauder 2026 Brock 博士论文的 Borealis 数据集（25 个体 / 145 配对点）。未获取：TL 口径的任何数据、野生年龄-体长、<0.49 年幼体、Henry 2026 个体数据。",
+    "py": "zongshixi",
+    "pyi": "zsx",
+    "alias": [
+      "鬃狮",
+      "胡须龙",
+      "中部鬃狮蜥"
+    ],
+    "alias_en": [
+      "Bearded Dragon",
+      "Beardie"
+    ],
+    "taxon": "lizard"
+  },
+  "Python_bivittatus": {
+    "zh": "缅甸蟒",
+    "latin": "Python bivittatus",
+    "en": "Burmese Python",
+    "taxon": "snake",
+    "py": "miandianmang",
+    "pyi": "mdm",
+    "alias": [
+      "缅甸蟒",
+      "缅甸岩蟒",
+      "缅蟒",
+      "burmese python"
+    ],
+    "alias_en": [
+      "Burmese Python"
+    ],
+    "scope": "东南亚（缅甸、泰国、越南、中国南部、印尼等）。⚠️ **已被引入美国佛罗里达并建立庞大入侵种群**（Everglades / Big Cypress），本卡的野生数据主要来自该入侵种群。⚠️ 与**印度蟒 *Python molurus*** 是**两个种**，历史上曾视为同种。⚠️ **CITES 附录 II**；在美国佛州等地饲养受管制。",
+    "scope_short": "⚠️ 年龄-体长来自**圈养群体**（Taggart et al. 2021，L1，n=200），且**实测只覆盖出生后约 1 年**（覆盖度 3/15），更长部分是**外推**，请谨慎使用。⚠️ 野生数据来自**佛罗里达入侵种群**（非原产地），且**口径分 SVL 与 TL 两套，不可互换**。",
+    "scope_short_en": "⚠️ Age-length comes from a **captive population** (Taggart et al. 2021, L1, n=200) and the measurements cover only about the first year (coverage 3/15); longer ages are **extrapolated**. ⚠️ Wild data come from the **Florida invasive population** (not the native range), and calibers come in two sets (SVL and TL) that must not be interchanged.",
+    "status_note": "**体长-体重 8 条（全 L1，n 最高 3986）**：\n· **SVL 三条**（Everglades 入侵种群）：混合 n=**3986**（396–4980 mm，b=**3.1485**，95%CI 3.137–3.160，r²=0.986）、♂ n=2091（b=3.1601）、♀ n=1772（b=3.1467）；\n· **TL 三条**（同种群，仅完整尾个体）：混合 n=2671（490–5570 mm，b=**3.1595**，CI 3.145–3.174）、♂ n=1375、♀ n=1196；\n· **Big Cypress 独立第二种群**：n=354（507–4775 mm，b=**3.0552**，CI 3.024–3.087）；\n· **圈养（越南蟒场）**：n=1093（560–2800 mm，b=**3.4611**，CI 3.432–3.490）。\n⚠️ **口径 B3 逐条核过**：实测 **TL/SVL = 1.1436** —— 既不是球蟒的 1.08、也不是项目通用记的 1.18；分 8 个长度档验证比值稳定（1.124–1.147），排除了「部分记录把 TL 填进 SVL」的怀疑。**SVL 与 TL 分列成 6 条卡，严禁互换。**\n**指数漂移检验的结论是「拒绝分段」**：连续断点回归给出幼体段 b1=1.65，但**个体自助 400 次的 b1 95%CI = [1.21, 3.26]，横跨 1–4 全域** → 不可辨识，故改用**全段单幂函数**；5 折交叉验证显示分段仅改善 RMSE **3.6%**（对比红耳龟那类 34–38% 的情形，改善不实质）。\n**拒收 1 条年龄-体长**：唯一可得数据来自**高投喂商业养殖场**，生长比佛州实验室幼体**快 4–6 倍**。按其参数算得 **1 岁体长 = 2189 mm**，而正常宠物缅甸蟒 1 岁约 900 mm → 会被报成 **约 −59% 偏差**。**59% 量级的系统性偏差不是「数据薄弱」**，发布即制造误报，故拒收。\n**未获取**：野生（原产地）体长-体重、宠物饲养的纵向生长数据。\n⚠️ **野生年龄-体长不可得**：佛罗里达的个体级数据**根本没有年龄字段**。"
+  },
+  "Python_regius": {
+    "zh": "球蟒",
+    "latin": "Python regius",
+    "en": "Ball Python",
+    "scope": "西非（贝宁/多哥/加纳/尼日利亚等）。Valdez 2021 判为过去十年**全球第 2 热门**的爬宠。体长口径有 TL（全长）与 SVL（吻肛长）之分，差约 8%，**严禁混用**",
+    "status_note": "口径未说明档：原文未声明量法，故单独成档，不与任何已知口径混用。波动带已按 §3.1 叠加口径不确定度。",
+    "py": "qiumang",
+    "pyi": "qm",
+    "alias": [
+      "皇室蟒",
+      "球蟒",
+      "皇蟒"
+    ],
+    "alias_en": [
+      "Ball Python",
+      "Royal Python"
+    ],
+    "taxon": "snake"
+  },
+  "Pyxicephalus_adspersus": {
+    "zh": "非洲牛蛙",
+    "latin": "Pyxicephalus adspersus",
+    "en": "African Bullfrog",
+    "scope": "撒哈拉以南非洲。两栖类口径为 **SVL（吻肛长）**。雌雄异型显著（雄远大于雌）",
+    "status_note": "来自 Yetman 2012 (Herpetol J 22:23–32)，野生，SVL 口径明确（钢卷尺 1 mm），♂n=46 / ♀n=30。⚠️ 原文印刷的幂函数方程单位不自洽：y=42.10x^2.465(♂) / y=26.05x^2.317(♀)，x 取 mm 或 cm 都与其自报实测差 2–5 个数量级（已 600 dpi 渲染原句确认印刷无误）。故改用数字化 Fig. 2A 回归线：♂M=9.618e-4·L^2.5741、♀M=3.227e-3·L^2.2921，并与原文独立数字交叉验证（♀@109 mm 给 151 g vs 原文均值 152 g；♂@163 mm 给 474 vs 512，−7%）。原文未报 r²/残差 SD → 该组散度在程序端为「—」。未获取：年龄-体长。",
+    "py": "feizhouniuwa",
+    "pyi": "fznw",
+    "alias": [
+      "牛蛙",
+      "非洲巨蛙",
+      "非洲牛蛙"
+    ],
+    "alias_en": [
+      "African Bullfrog",
+      "Pixie Frog"
+    ],
+    "taxon": "amphibian"
+  },
+  "Rhacodactylus_auriculatus": {
+    "zh": "盖勾亚守宫",
+    "latin": "Rhacodactylus auriculatus",
+    "en": "Gargoyle Gecko",
+    "taxon": "lizard",
+    "py": "gaigouyashougong",
+    "pyi": "ggysg",
+    "alias": [
+      "盖勾亚",
+      "石像鬼守宫",
+      "旋钮头巨型守宫",
+      "新喀里多尼亚凹凸守宫"
+    ],
+    "alias_en": [
+      "Gargoyle Gecko"
+    ],
+    "scope": "新喀里多尼亚岛南端特有种。该属六种中最小，全长约 125 mm。**IUCN 有评估**，CITES 正考虑列入。体长口径为 **SVL（吻肛长，不含尾）**",
+    "status_note": "唯一来源但极好：Snyder JP 2007《The Autecology of Rhacodactylus auriculatus》Villanova 硕士论文 Appendix 1 的逐个体表（捕获号/性别/尾况/SVL/体重，102 次捕获 = 88 个体），已用词坐标解析全部行，并与 Snyder, Snyder & Bauer 2010, Salamandra 46(1):37–47 的「102 captures / 88 specimens」互相印证。主卡 wild_mixed：n=88，SVL 48.25–126.18 mm（+162%），b=2.8761，r²=0.9691。漂移检验 Δb=0.104 → 单段成立。尾况干扰已实测排除（同 SVL 下原尾 vs 再生尾 −1.9%，t=−0.66，不显著）——这一点对守宫类很重要，因为尾是脂肪器官，但本卡口径为不含尾的 SVL。另出 wild_male(n=26, b=3.0600) / wild_female(n=35, b=2.9304) 两条子卡，性别 Δ=0.19–0.42 跨在 §5.1 的 0.3 门槛上（属「建议分层」档），故合并与分性别同时给出，但性别子集跨度仅 32%/53%，已标 small_n，日常使用建议优先 wild_mixed。未获取：年龄-体长（0 个生长模型）；圈养层（BGSU 2016 与 Grabar 2016 均被 Cloudflare/BioOne 403）。"
+  },
+  "Rhacodactylus_leachianus": {
+    "zh": "巨人守宫",
+    "latin": "Rhacodactylus leachianus",
+    "en": "New Caledonian Giant Gecko",
+    "taxon": "lizard",
+    "py": "jurenshougong",
+    "pyi": "jrsg",
+    "alias": [
+      "巨人",
+      "巨人守宮",
+      "新喀里多尼亚巨人守宫"
+    ],
+    "alias_en": [
+      "Leachianus Gecko",
+      "New Caledonian Giant Gecko"
+    ],
+    "status": "no_data",
+    "scope": "新喀里多尼亚。**现存体型最大的守宫**，全长可达 30–35 cm",
+    "scope_short": "⚠️ 亚种归属本身有争议：Reptile Database 仍分 R. l. leachianus 与 R. l. henkeli 两亚种，但 1997 与 2012 的研究都对 henkeli 的有效性表示审慎；2024 年 R. willihenkeli 被描述为新种，形态与本种极相似。将来出卡前必须先定调分类单元。",
+    "scope_short_en": "⚠️ Subspecies arrangement is itself disputed: Reptile Database still splits R. l. leachianus and R. l. henkeli, but studies in 1997 and 2012 expressed caution about henkeli, and R. willihenkeli was described as a new species in 2024. The taxonomic unit must be settled before any card is made.",
+    "status_note": "无可用数据 → 拒答（2026-10-07）。全渠道无个体级 SVL+体重：iDigBio 的 71 条馆藏无 mass 字段；Sound et al. 2018, Salamandra 54:117–122 有 23 只 PIT 标记活体，但未发表量度；Bauer et al. 2012 修订未重新描述本种；ReptTraits 只有物种级极值（max mass 478.63 g / max SVL 280 mm，来源为 Slavenko 2019 编译值，疑似由体长推算，且与 Heinicke 2023 / Caut 2013 的 255 mm 冲突）——单点无法拟合幂函数。翻盘目标：Cunkelman A 2005, M.S. thesis, Villanova（Villanova 数字馆藏 Cloudflare 403 全阻）。另一条线索：2024 年新描述的 R. willihenkeli 可能有独立的形态数据，但它是另一个种，不可计入本卡。",
+    "refs": [
+      "Sound et al. 2018, Salamandra 54:117–122（23 只 PIT 活体，未发表量度）",
+      "Bauer et al. 2012（修订，未重新描述本种）",
+      "Slavenko et al. 2019（ReptTraits 编译的物种级极值，疑由体长推算）",
+      "Cunkelman A 2005, M.S. thesis, Villanova（尚未取得，Cloudflare 403）",
+      "Grokipedia / Reptile Database（亚种归属核对）"
+    ]
+  },
+  "Salamandra_salamandra": {
+    "zh": "火蝾螈",
+    "latin": "Salamandra salamandra",
+    "en": "Fire Salamander",
+    "taxon": "amphibian",
+    "py": "huorongyuan",
+    "pyi": "hry",
+    "alias": [
+      "火蝾螈",
+      "真螈",
+      "火螈",
+      "沙罗曼蛇",
+      "fire salamander"
+    ],
+    "alias_en": [
+      "Fire Salamander",
+      "European Fire Salamander"
+    ],
+    "scope": "南欧与中欧。⚠️ 原 *S. salamandra* 复合体在 2018 年前后已被拆分：*S. algira*（北非）、*S. corsica*（科西嘉）、*S. longirostris*、*S. infraimmaculata*（近东）等已分出。**本卡为 *S. salamandra* s.s.**；⚠️ **旧文献里的「*S. salamandra*」往往涵盖这些已分出的种**（如德国数据多为 s.s.，但需逐篇核对）。",
+    "scope_short": "⚠️ **同一张卡里有两套体长口径**：**体长-体重用 TL（全长，含尾）**，而**年龄-体长用 SVL（吻肛长，不含尾）** —— **两者绝不能互换**（有尾目尾占比大）。⚠️ 体长-体重数据**只覆盖水栖幼体与变态期**，**不含陆生成体**。",
+    "scope_short_en": "⚠️ Two calibers coexist in this card: length-weight uses TL (total length, tail included), while age-length uses SVL (snout-vent length, tail excluded). They must not be interchanged. ⚠️ The length-weight data cover aquatic larvae and metamorphs only, not terrestrial adults.",
+    "status_note": "**年龄-体长 1 条（L1）**：Sinsch 2024, *Animals* 14:2869 补充表 S2，**192 只个体级 SVL + 骨龄（LAG）**，经 Europe PMC `supplementaryFiles` 取得。本项目用原始数据现拟合，**完全复现原文**：VBGF `Linf=96.18 / k=0.6531 每年 / L0=32.40 / t0=0`，R²=0.863（原文报 96.2、0.66、86.2%）✓ 满足项目「**禁止正 t0**」红线。⚠️ 补充表把该列写成 `SCL [mm]`，与原文方法学（'Snout–vent length (SVL)…'）矛盾 —— **有尾目不使用 SCL 一词，判定为笔误**，本项目按方法学记为 **SVL**。\n**体长-体重 2 条（均 L1，口径 TL）**：\n· 水栖幼体 wild_mixed：Băncilă 2023, *PeerJ* 补充材料 S4，n=195，TL 27.02–46.27 mm，b=2.2513，r²=0.6803；\n· 变态期 captive_mixed：同批野外采集的第 1 期幼体在洞穴实验室（13±1 °C、湿度近 100%）按 2×2 食物×光照设计饲养**至变态完成**时测量，n=195，TL 40.94–61.13 mm，b=2.0134，r²=0.6312。⚠️ 两条的 b 都明显低于 3：全是**幼体/变态期**，体重含尾与鳃（不计入 SVL 轴）→ 属**发育轨迹**。\n⚠️ **陆生成体段未获取** → 覆盖度仅 3/15 = 0.2（分母为物种完整 TL 范围 [25, 250] mm）。\n**未获取**：陆生成体的体长-体重、圈养生长曲线、s.s. 以外的已分出种（本卡不含）。"
+  },
+  "Salvator_merianae": {
+    "zh": "阿根廷黑白泰加蜥",
+    "latin": "Salvator merianae",
+    "en": "Argentine Black and White Tegu",
+    "scope": "南美（阿根廷、巴西、乌拉圭、巴拉圭）；旧名 *Tupinambis merianae*。Valdez 2021 判为「未来十年看涨」的热门爬宠。体长口径为 **SVL（吻肛长，不含尾）**。有强烈性二型（雄显著大于雌）",
+    "status_note": "两条独立野生种群，均为 L1 个体级原始数据：① Cole et al. 2026，阿根廷科尔多瓦省原产地野生种群（n=883，已剔除长期圈养个体与同属他种）；② McCaffrey et al. 2023，美国佛罗里达南部入侵（外来自由生活）种群（n=883）。两批都做了指数漂移检验（陷阱 A3），结果写在各记录 note。未获取：圈养层、年龄-体长。",
+    "py": "taijiaxi",
+    "pyi": "tjx",
+    "alias": [
+      "泰加",
+      "黑白泰加",
+      "阿根廷泰加",
+      "阿根廷黑白泰加"
+    ],
+    "alias_en": [
+      "Argentine Tegu",
+      "Black and White Tegu",
+      "Tegu"
+    ],
+    "taxon": "lizard"
+  },
+  "Staurotypus_triporcatus": {
+    "zh": "墨西哥蛋龟（大麝香龟）",
+    "latin": "Staurotypus triporcatus",
+    "en": "Northern Giant Musk Turtle",
+    "scope": "墨西哥南部与中美洲。蛋龟中体型最大，成体可达 ~40 cm。**CITES 附录 II**（2022 CoP19 新增）",
+    "status": "no_data",
+    "status_note": "无可用数据 → 拒答（2026-10-07）。可获得的只有均值对：McKnight et al. 2023 (Ecology 104(1):e3868) 的 straight midline CL 292.8±34.2 mm / 体重 3.2±1.1 kg，以及 CONABIO MM009（Reynoso et al. 2016，n=159 自采均值）——均值对不能用来拟合幂函数（§6.2 E[M] ≠ M(E[CL])，本项目已两次因此拒收）。TFTSG 官方物种账户 'In prep'、无 PDF。Zapletal et al. 2026 (doi:10.1002/jez.70059) 经 Unpaywall 核验为 hybrid OA 且 has_repository_copy: false（不存在任何仓储副本），唯一 OA 路径是出版商 pdfdirect（403）——且该文主题为咬合性能的运动学，很可能不含体重数据，故不再追。",
+    "py": "moxigedangui",
+    "pyi": "mxdg",
+    "refs": [
+      "McKnight et al. 2023, Ecology 104(1):e3868（伯利兹，仅均值）",
+      "Reynoso et al. 2016, CONABIO 项目 MM009（n=159，仅均值）",
+      "Zapletal et al. 2026, J Exp Zool A（doi 10.1002/jez.70059，尚未取得）"
+    ],
+    "alias": [
+      "蛋龟",
+      "墨蛋",
+      "巨蛋",
+      "墨西哥巨蛋龟",
+      "三棱麝香龟",
+      "三弦巨型鹰嘴泥龟",
+      "大麝香龟",
+      "墨西哥巨型麝香龟",
+      "墨西哥麝香龟"
+    ],
+    "alias_en": [
+      "Giant Musk Turtle",
+      "Mexican Giant Musk Turtle",
+      "Egg Turtle"
+    ],
+    "taxon": "turtle"
+  },
+  "Sternotherus_carinatus": {
+    "zh": "剃刀龟",
+    "latin": "Sternotherus carinatus",
+    "en": "Razor-backed Musk Turtle",
+    "scope": "北美南部（密西西比河下游流域）。体长口径为 **CLmax（最大直甲长）**——本科背甲有三条纵棱且高耸，CLmax 与 midline CL 差异不可忽略，严禁跨口径代入",
+    "status_note": "来自 Tinkle 1958 (Tulane Stud Zool 6(1):1-56) 的 Fig. 56：对 82 只按盾片年轮分组的平均甲长曲线。该文 p.34 逐字定义了口径（maximum straight line, nuchal→第 11 缘盾缝），故口径属明确而非推断。图版数字化不确定度约 ±2 mm。未获取：体长-体重（原文未称重）。",
+    "py": "tidaogui",
+    "pyi": "tdg",
+    "alias": [
+      "蛋龟",
+      "剃刀",
+      "刀背麝香龟",
+      "刀背蛋龟"
+    ],
+    "alias_en": [
+      "Razor-backed Musk Turtle",
+      "Egg Turtle"
+    ],
+    "taxon": "turtle"
+  },
+  "Sternotherus_odoratus": {
+    "zh": "麝香龟",
+    "latin": "Sternotherus odoratus",
+    "en": "Common Musk Turtle (Stinkpot)",
+    "scope": "北美东部。本科背甲有三条纵棱",
+    "status_note": "口径未说明档：原文未声明量法，故单独成档，不与任何已知口径混用。波动带已按 §3.1 叠加口径不确定度。",
+    "py": "shexianggui",
+    "pyi": "sxg",
+    "alias": [
+      "蛋龟",
+      "普通麝香龟",
+      "密西西比麝香龟",
+      "臭弹龟",
+      "小麝香龟",
+      "麝香龟"
+    ],
+    "alias_en": [
+      "Musk Turtle",
+      "Stinkpot",
+      "Egg Turtle"
+    ],
+    "scope_short": "本卡只覆盖普通麝香龟 S. odoratus；麝香龟属（Sternotherus）另几个种——剃刀龟 S. carinatus、巨头麝香龟 S. minor、平背麝香龟 S. depressus——是另外的种，本卡不适用。",
+    "scope_short_en": "This card covers the common musk turtle (S. odoratus) only. The other species of Sternotherus - razor-backed musk turtle (S. carinatus), loggerhead musk turtle (S. minor) and flattened musk turtle (S. depressus) - are separate species and are not covered.",
+    "taxon": "turtle"
+  },
+  "Terrapene_carolina_carolina": {
+    "zh": "东部箱龟",
+    "latin": "Terrapene carolina carolina",
+    "en": "Eastern Box Turtle",
+    "taxon": "turtle",
+    "py": "dongbuxianggui",
+    "pyi": "dbxg",
+    "alias": [
+      "箱龟",
+      "东箱",
+      "东部箱龟",
+      "卡罗莱纳箱龟"
+    ],
+    "alias_en": [
+      "Box Turtle",
+      "Eastern Box Turtle"
+    ],
+    "scope": "北美东部（美国东半部）。*Terrapene carolina* 的指名义亚种。是**闭壳龟**，腹甲有韧带可完全闭合，**PL 量法特殊**",
+    "scope_short": "「箱龟」是Terrapene 属的统称，属下多个亚种；本卡只覆盖东部箱龟 T. c. carolina。三趾箱龟 T. c. triunguis 另有其卡。",
+    "scope_short_en": "\"Box turtle\" is a collective name for the genus Terrapene. This card covers the eastern box turtle (T. c. carolina) only; the three-toed box turtle (T. c. triunguis) has its own card.",
+    "status_note": "年龄-体长 3 条：Edmonds 2020 Fig.3 数字化（♂ Linf=142.18 / ♀ 134.53，均复现原文 t=30 报告区间，L2）；Vitek 2018 (PLOS ONE) S1 的 SCL n=51（L1，R²=0.42，覆盖度 53%）。体长-体重：圈养组 SCL n=9（Colbert 2022 head-start，b=3.398，R²=0.904，样本小）。拒收 3 条野生体长-体重（Warren & Klukowski 2025 的 Dryad 3ffbg79v5）：n=28 / 18 / 10，b=1.79 / 1.91 / 1.84 —— 龟类应约 2.8–3.2，b 生物学上不合理；r²=0.29 / 0.45 / 0.28 极低；且全为成体（跨度仅 13–17%）。属「跨度勉强够、但指数不可辨识」一类，与肥尾守宫圈养那条同一处理。"
+  },
+  "Terrapene_carolina_triunguis": {
+    "zh": "三趾箱龟",
+    "latin": "Terrapene carolina triunguis",
+    "en": "Three-toed Box Turtle",
+    "taxon": "turtle",
+    "py": "sanzhixianggui",
+    "pyi": "szxg",
+    "alias": [
+      "箱龟",
+      "三趾",
+      "三趾箱龟"
+    ],
+    "alias_en": [
+      "Box Turtle",
+      "Three-toed Box Turtle"
+    ],
+    "scope": "美国中南部（密苏里、德州、路易斯安那等）。*Terrapene carolina* 的一个亚种。**闭壳龟**，PL 量法特殊",
+    "scope_short": "「箱龟」是Terrapene 属的统称；本卡只覆盖三趾箱龟 T. c. triunguis。东部箱龟 T. c. carolina 另有其卡。",
+    "scope_short_en": "\"Box turtle\" is a collective name for the genus Terrapene. This card covers the three-toed box turtle (T. c. triunguis) only; the eastern box turtle (T. c. carolina) has its own card.",
+    "status_note": "本卡是箱龟组里数据最好的一条。体长-体重：n=104，M=1.955e-4·CLmax^3.0075，r²=0.956（PeerJ 1256 补充材料 s001.xlsx，密苏里 2007，个体级 L1）。年龄-体长：n=90，VBGF Linf=151.4 / k=0.2198（年龄由轮纹推定为下限，R²=0.79）；Linf=151.4 与 McCallum 2009 独立报告的终末 SCL 151.59 mm 吻合，互校通过。未获取：其余亚种、圈养层。"
+  },
+  "Testudo_hermanni": {
+    "zh": "赫尔曼陆龟",
+    "latin": "Testudo hermanni",
+    "en": "Hermann's Tortoise",
+    "scope": "含西部亚种 *T. h. hermanni* 与东部亚种 *T. h. boettgeri*；本卡为 **野生 + 圈养** 两带",
+    "py": "heermanlugu",
+    "pyi": "helg",
+    "alias": [
+      "赫曼陆龟",
+      "赫尔曼氏陆龟",
+      "西部赫曼"
+    ],
+    "alias_en": [
+      "Hermann's Tortoise"
+    ],
+    "taxon": "turtle"
+  },
+  "Thamnophis_elegans": {
+    "zh": "束带蛇（西部）",
+    "latin": "Thamnophis elegans",
+    "en": "Western Terrestrial Garter Snake",
+    "taxon": "snake",
+    "py": "shudaishexibu",
+    "pyi": "sdsxb",
+    "alias": [
+      "束带蛇",
+      "西部束带蛇",
+      "陆生束带蛇",
+      "山地束带蛇"
+    ],
+    "alias_en": [
+      "Garter Snake",
+      "Western Terrestrial Garter Snake"
+    ],
+    "scope": "北美西部（加拿大不列颠哥伦比亚至美国西南部）。**亚种众多**，含沿海与山地种群。",
+    "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
+    "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
+    "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 2 条（均 L1，口径 SVL）**：野生混合 n=116（416–765 mm，b=2.9004，r²=0.8605，覆盖 10/15）、圈养混合 n=**754**（145–350 mm，b=2.7864，r²=0.9121，覆盖 6/15）。\n⚠️ 圈养那条**只有幼体段**（145–350 mm），而野生那条**只有成体段**（416–765 mm）—— **两条互补但不可互相外推**，覆盖度分别只有 6/15 与 10/15 就是如实反映。**年龄-体长：无可用数据。**\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
+  },
+  "Thamnophis_marcianus": {
+    "zh": "束带蛇（格纹）",
+    "latin": "Thamnophis marcianus",
+    "en": "Checkered Garter Snake",
+    "taxon": "snake",
+    "py": "shudaishewenge",
+    "pyi": "sdswg",
+    "alias": [
+      "束带蛇",
+      "格纹束带蛇",
+      "棋盘束带蛇",
+      "方格束带蛇"
+    ],
+    "alias_en": [
+      "Garter Snake",
+      "Checkered Garter Snake"
+    ],
+    "scope": "美国西南部至墨西哥北部。性情温和、人工繁殖个体在宠物圈常见。",
+    "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
+    "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
+    "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 3 条（均 L1，口径 SVL，全部圈养）**：混合 n=**756**（115–685 mm，b=2.8037，r²=0.9726，覆盖 14/15）、♂ n=422（127–580 mm，b=2.6772）、♀ n=334（115–685 mm，b=2.8748）。\n**年龄-体长 1 条（L1，Gompertz）**：Linf=689.63 / k=1.9908 / ti=0.2514，n=756，覆盖 9/15。⚠️ 已标 `extrapolation_only` —— 数据只到 0.769 年而 t95 为 1.505 年，**其后全为外推**。\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
+  },
+  "Thamnophis_radix": {
+    "zh": "束带蛇（草原）",
+    "latin": "Thamnophis radix",
+    "en": "Plains Garter Snake",
+    "taxon": "snake",
+    "py": "shudaishecaoyuan",
+    "pyi": "sdscy",
+    "alias": [
+      "束带蛇",
+      "草原束带蛇",
+      "草原袜带蛇",
+      "平原束带蛇"
+    ],
+    "alias_en": [
+      "Garter Snake",
+      "Plains Garter Snake"
+    ],
+    "scope": "北美中北部大平原（加拿大中部至美国中西部）。⚠️ 「束带蛇」是一个属（*Thamnophis*），北美有 30 余种，本卡只含这一个种。",
+    "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要套到其它束带蛇上。",
+    "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
+    "status_note": "**体长-体重 2 条（均 L2，口径 SVL）**：野生♂ n=156（176–635 mm，b=2.9840）、野生♀ n=122（151–760 mm，b=3.0400）。\n⚠️ **证据等级 L2**（有方程与样本量，但非逐个体原始数据）；且**原文未报告 r²** —— 如实标注为缺失，**不编造**。\n**年龄-体长：无可用数据。**\n⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（草原）**」形式，**取自英文俗名、不是既有中文定名**。"
+  },
+  "Thamnophis_sirtalis": {
+    "zh": "束带蛇（普通）",
+    "latin": "Thamnophis sirtalis",
+    "en": "Common Garter Snake",
+    "taxon": "snake",
+    "py": "shudaisheputong",
+    "pyi": "sdsp",
+    "alias": [
+      "束带蛇",
+      "普通束带蛇",
+      "东部束带蛇",
+      "袜带蛇",
+      "园丁蛇"
+    ],
+    "alias_en": [
+      "Garter Snake",
+      "Common Garter Snake",
+      "Eastern Garter Snake"
+    ],
+    "scope": "北美东部与中部（加拿大南部至美国），是分布最广的束带蛇。**亚种众多**。",
+    "scope_short": "⚠️ 本卡只覆盖「束带蛇」属（*Thamnophis*）中的**这一个种**，不要把结果套到其它束带蛇上。",
+    "scope_short_en": "⚠️ This card covers only this one species within the genus Thamnophis (30+ species); do not apply it to other garter snakes.",
+    "status_note": "⚠️ **「束带蛇」是一个属（*Thamnophis*），北美有 30 余种**；本卡只含其中 3 个种，**不要把本卡的结果套到其它束带蛇上**。⚠️ 中文名在公开资料中不统一，本卡采用「**束带蛇（X）**」形式，**X 取自英文俗名**、不是既有中文定名 —— 请以学名为准。\n\n**体长-体重 2 条（均 L1，口径 SVL）**：野生♂ n=349（354–646 mm，b=2.8549，r²=0.8694）、野生♀ n=92（367–745 mm，b=3.2211，r²=0.9109）。**⚠️ 拒收 1 条**：原本还有一条野生混合 n=1419 的**两段拟合**记录 —— 它在**交界处不连续**（335 mm 处两段相差 58.6%：17.9 g vs 9.8 g），`data_ranges` 为 `[[115,335],[354,745]]` 说明是**两个数据集的拼接而非同一条曲线的分段**。用户量到交界附近的个体会因落在不同段而得到相差约 50% 的参照值 —— **会制造误报**，故拒收。⚠️ 雌雄差异明显（♀ 的 b 更高），本卡已分层。**年龄-体长：无可用数据。**\n\n**数据来源**：本批由子代理从个体级一手数据拟合（L1），口径全部 SVL。**尚未获取**：其余 20 余种束带蛇、多数种的年龄-体长。"
+  },
+  "Tiliqua_scincoides": {
+    "zh": "蓝舌石龙子（东部蓝舌石龙子）",
+    "latin": "Tiliqua scincoides",
+    "en": "Eastern Blue-tongued Skink",
+    "scope": "澳洲东部；亚种 *T. s. scincoides*（墨尔本/悉尼种群）。体长口径为 **SVL（吻肚长）**；注意原文 `TL` 既可能是**尾长**也可能是**含尾全长**，严禁混用",
+    "status_note": "三条记录口径全部为 SVL：Turner 2010（墨尔本野生，n=57，L2）、Koenig 2001（悉尼野生，n=17，L1，逐只配对现拟合）、McKenzie 2022（圈养，n=20，L1，逐只配对现拟合）。年龄-体长：未获取——唯一线索 Shea 1981 Fig.1 为折线图、无表格值、且口径为含尾全长，600dpi 数字化后标记点无法在项目精度下复现，故不采用。",
+    "py": "lansheshilongzi",
+    "pyi": "lslz",
+    "alias": [
+      "蓝舌",
+      "蓝舌蜥",
+      "蓝舌石龙"
+    ],
+    "alias_en": [
+      "Blue-tongued Skink",
+      "Bluey"
+    ],
+    "taxon": "lizard"
+  },
+  "Timon_lepidus": {
+    "zh": "珠宝蜥",
+    "latin": "Timon lepidus",
+    "en": "Ocellated Lizard",
+    "taxon": "lizard",
+    "py": "zhubaoxi",
+    "pyi": "zbx",
+    "alias": [
+      "珠宝蜥",
+      "珠蜥",
+      "眼斑蜥",
+      "欧西蜥"
+    ],
+    "alias_en": [
+      "Jewelled Lizard",
+      "Ocellated Lizard"
+    ],
+    "scope": "伊比利亚半岛与法国南部（西班牙、葡萄牙、直布罗陀、安道尔、南法、意大利西北）。**IUCN 近危（NT）**。旧名 *Lacerta lepida* / *L. ocellata*",
+    "scope_short": "⚠️ 原 Timon lepidus 复合体中，内华达珠宝蜥 T. nevadensis 现为独立种；本卡只覆盖 T. lepidus s.s.。",
+    "scope_short_en": "⚠️ Within the former Timon lepidus complex, Timon nevadensis is now a separate species; this card covers T. lepidus s.s. only.",
+    "status_note": "体长-体重 3 条，全部 L1 个体级配对（口径 SVL，野生）：wild_mixed n=20（b=3.0689，95%CI 2.690–3.447，r²=0.9416）、wild_male n=10（b=3.1524，r²=0.9847）、wild_female n=10（b=2.9355，r²=0.8816）；SVL 103–167 mm、体重 26.7–120 g，跨度 +62%。来源 Megía-Palma et al. 2024, J Anim Ecol（doi 10.1111/1365-2656.14154）的 Mendeley 开放数据 doi:10.17632/py4vr4wv2j.1（CC BY 4.0）；样本自洽性已核：该表 T. lepidus 20 行的均值 SVL=127.35 mm 与原文「127±4.7 mm」吻合。指数可辨识性检验通过：b 的 bootstrap 95% 区间 2.79–3.43，未跨 1–4 全域 （与项目另一例因 CI 0.03–3.72 被拒收的数据形成对照）。年龄-体长：拒收——Castilla & Castanet 1986 原刊 Fig.8 的 y 轴不可标定（11 个等距标签无法与 0–220 线性自洽；唯一自洽读法会让幼体落到 14 mm SVL，低于孵化 26 mm），改用 Add-my-Pet 重绘图数字化也只是二手转绘，故不出卡。翻盘路径：Cheylan 1984, Bull Mus Hist Nat Marseille 44:29–37（本种唯一的专门生长/年龄论文）—— 原 PDF 链接已 404、Wayback 无存档，建议走馆际互借。另已识破排除：前一位下载的「Böhme & Esser 2015」4.5 KB PDF 实为 ZOBODAT 的 Anubis 反爬验证页，不是论文（陷阱 §17.1）；ZOBODAT 全站受 Anubis 保护。未获取：圈养曲线、已发表的 M=a·Lᵇ 方程（全域检索确认不存在）。"
+  },
+  "Trachemys_scripta_elegans": {
+    "zh": "红耳龟",
+    "latin": "Trachemys scripta elegans",
+    "en": "Red-eared Slider",
+    "scope": "亚种 *T. s. elegans*；本卡为 **野生** 带",
+    "py": "hongergui",
+    "pyi": "heg",
+    "alias": [
+      "巴西龟",
+      "巴西彩龟",
+      "红耳彩龟",
+      "巴西红耳龟"
+    ],
+    "alias_en": [
+      "Red-eared Slider",
+      "Slider"
+    ],
+    "taxon": "turtle"
+  },
+  "Xenopus_laevis": {
+    "zh": "非洲爪蟾",
+    "latin": "Xenopus laevis",
+    "en": "African Clawed Frog",
+    "taxon": "amphibian",
+    "py": "feizhouzhanchan",
+    "pyi": "fzzc",
+    "alias": [
+      "非洲爪蟾",
+      "爪蟾",
+      "非洲爪蛙",
+      "水蟾",
+      "ACF"
+    ],
+    "alias_en": [
+      "African Clawed Frog",
+      "Xenopus"
+    ],
+    "scope": "撒哈拉以南非洲；作为模式生物被引入全球，并在多地建立入侵种群。⚠️ 近缘的 *Xenopus tropicalis* 是**另一个种**，不可混入",
+    "scope_short": "⚠️ 本卡数据**全部为雌性**，**不得用于雄性**；且散度很大（±63%）—— 原始数据未区分是否怀卵（卵巢占体重约 19%）。",
+    "scope_short_en": "⚠️ All data are from females and must not be used for males. Scatter is large (±63%): the source did not record whether females were gravid (ovaries are about 19% of body mass).",
+    "status_note": "**体长-体重 1 条**（**L2**，Böswald et al. 2024, *Sci Rep* 14:9517 / PMC11045782，一手 OA）：captive_female，**口径 SVL**，n=38，SVL 71–134 mm（跨度 47%），`M=1.7151e-3·SVL^2.469`，b 的 95%CI **≈1.92–3.02**（三种反推法一致，未跨 1–4 → 可辨识），r²=0.70。⚠️ 散度 **±63%** 很大，**已如实标注 `gravid_females_not_identified`** —— 原文报卵巢占体重 18.7–19.9%，这正是 spec §5.3「繁殖状态必须分层」的实例。⚠️ **全部为雌性，不得用于雄性**。口径 SVL 由被引 2022 论文逐字核到。独立印证：Tix 2023（另一实验室 n=61）线性式等价 b≈3.07，**未入表**（线性式禁用于端点外延，陷阱 B8）。\n**年龄-体长：无可用数据 → 该层拒答**。唯一权威 Hilken et al. 1995（*Lab Anim* 29:152–162）被 SAGE **403** 全挡（curl / urllib / Googlebot / jina 皆败；Xenbase 为 reCAPTCHA；scholar.archive 为挑战页）。Add-my-Pet 条目仅为 **L3 转录**，**明确不入表**。\n**未获取**：雄性体长-体重、野生体长-体重（Pauwels 2023 有野生 SVL 但无体重）、成体年龄层、2024 年个体级原始数据（作者不公开）。"
+  }
 }

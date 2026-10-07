@@ -405,8 +405,8 @@ module.exports = [
    "Axolotl",
    "Mexican Axolotl"
   ],
-  "scopeShort": "⚠️ 本卡只有体长-体重；年龄-体长暂不提供 —— 该种的生长是两段线性，项目现有模型在此数据上有约 ±18% 的系统误差，会误报。",
-  "scopeShortEn": "⚠️ Length-weight only. Age-length is withheld: this species grows in two linear phases, and the standard growth models carry about ±18% systematic error here, which would produce false deviations.",
+  "scopeShort": "⚠️ 该种的生长是两段线性：年龄-体长按两段线性拟合，没有渐近线，t95 无定义（界面显示为「—」）；数据来自单一实验室群体。",
+  "scopeShortEn": "⚠️ This species grows in two linear phases: age-length is fitted with a two-segment linear model, so it has no asymptote and t95 is undefined (shown as a dash). Data come from a single laboratory population.",
   "taxon": "amphibian",
   "refs": [],
   "curves": [
@@ -4692,8 +4692,8 @@ module.exports = [
   "aliasEn": [
    "Burmese Python"
   ],
-  "scopeShort": "⚠️ 本卡只有体长-体重，没有年龄-体长 —— 唯一可得的年龄数据来自高投喂养殖场，生长速度远快于宠物个体，发布会误导。⚠️ 野生数据来自佛罗里达入侵种群（非原产地），且口径分 SVL 与 TL 两套，不可互换。",
-  "scopeShortEn": "⚠️ Length-weight only; no age-length (the only age data come from a high-feeding commercial farm and would mislead). ⚠️ Wild data are from the Florida invasive population, not the native range, and come in two separate calibers (SVL and TL) that must not be interchanged.",
+  "scopeShort": "⚠️ 年龄-体长来自圈养群体（Taggart et al. 2021，L1，n=200），且实测只覆盖出生后约 1 年（覆盖度 3/15），更长部分是外推，请谨慎使用。⚠️ 野生数据来自佛罗里达入侵种群（非原产地），且口径分 SVL 与 TL 两套，不可互换。",
+  "scopeShortEn": "⚠️ Age-length comes from a captive population (Taggart et al. 2021, L1, n=200) and the measurements cover only about the first year (coverage 3/15); longer ages are extrapolated. ⚠️ Wild data come from the Florida invasive population (not the native range), and calibers come in two sets (SVL and TL) that must not be interchanged.",
   "taxon": "snake",
   "refs": [],
   "curves": [

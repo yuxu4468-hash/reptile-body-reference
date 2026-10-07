@@ -90,7 +90,11 @@
   // ---------------- 状态 ----------------
   // lowOpen：低可靠区块（U1 未发表数据）是否展开。
   // ⚠️ **默认 false** —— 用户必须主动点开才看得到（红线 R2，见 docs/42 §3）。
-  var S = { q: '', taxon: '', cmp: null, lowOpen: false };
+  // tab: 当前页签（对齐小程序：曲线类型 + 查询对照）
+  // gi:  当前选中的分组下标
+  // docCaliber / docTerms: 页尾两个可展开说明
+  var S = { q: '', taxon: '', cmp: null, lowOpen: false,
+            tab: 'length_weight', gi: 0, docCaliber: false, docTerms: false };
 
   function cur() {
     var hash = location.hash || '#/';
@@ -420,77 +424,266 @@
     o.push('</div>');
     return o.join('');
   }
-  function viewDetail(sp) {
-    if (!sp) return '<div class="card"><div class="box err">' + h(t().notFound || '找不到该物种') + '</div><a href="#/">← ' + h(t().appTitle || '返回') + '</a></div>';
+  // ================= 详情页 =================
+  // ⚠️ 这里刻意**对齐微信小程序详情页的结构**，不自己发明：
+  //      上方页签（体长-体重 / 年龄-体长 / 查询对照）
+  //      → 曲线页签下：分组选择器 + **只显示选中的那一条曲线**
+  //      → 查询对照页签下：对照表
+  //      → 页尾两个可展开说明（测量口径 / 其他术语）
+  //    之前这里是"把所有曲线一次堆出来"，既没法筛选，也没有口径与术语说明。
+
+  /** 把一条曲线补齐成"可直接渲染"的形态（等价于小程序里的 decorate()）。 */
+  function decorateCurve(c) {
+    var o = {};
+    var k;
+    for (k in c) if (Object.prototype.hasOwnProperty.call(c, k)) o[k] = c[k];
+    o.groupText = groupText(c);
+    o.caliberTextX = calText(c);
+    o.nTextX = (locale === 'en' ? c.nTextEn : c.nText) || '';
+    o.tagClass = String(c.group).indexOf('wild') === 0 ? 'tag-wild' : 'tag-captive';
+    o.coverageTextX = c.coverageText || '';
+    o.coverageBasisX = (locale === 'en' ? c.coverageBasisEn : c.coverageBasis) || '';
+    o.band95Text = (c.band95 === null || c.band95 === undefined) ? '' : ('±' + num(c.band95, 1) + '%');
+    o.modelTextX = (locale === 'en' ? c.modelTextEn : c.modelText) || c.model || '';
+    o.t95TextX = c.t95Text || '—';
+    o.caveatTexts = caveatTexts(c);
+    if (c.segments) {
+      o.segments = c.segments.map(function (s) {
+        return {
+          // ⚠️⚠️ **数值字段必须原样带下去** —— 下游 chartLW() 要用 a 与 b 画曲线
+          //     （M = a × L^b）。上一版只复制了展示字段，把 a/b 丢了 →
+          //      图表 y 轴全是 NaN。6577 项测试全绿，是截图抓出来的。
+          a: s.a, b: s.b, r2: s.r2, sd: s.sd, interp: !!s.interp,
+          lo: s.lo, hi: s.hi,
+          typeText: s.interp ? (t().interpolated || '插值') : (t().measured || '实测'),
+          typeClass: s.interp ? 'tag-interp' : 'tag-wild',
+          // ⚠️ 展示串必须在这里算好 —— 与小程序同一条规矩（那边是因为 WXML 不能调方法）
+          eqText: 'M = ' + Number(s.a).toExponential(3) + ' × L^' + Number(s.b).toFixed(4),
+          metricText: (s.r2 === null || s.r2 === undefined)
+            ? (t().noMetrics || '')
+            : (t().thR2 + ' ' + Number(s.r2).toFixed(4) + ' · ' + t().thSD + ' ' + Number(s.sd).toFixed(4)),
+        };
+      });
+    }
+    return o;
+  }
+
+  /** 当前物种在当前页签下可选的分组（每条曲线一组）。 */
+  function groupsFor(sp, kind) {
+    return (sp.curves || []).filter(function (c) { return c.kind === kind; })
+      .map(function (c) { return decorateCurve(c); });
+  }
+
+  function tabsFor(sp) {
     var o = [];
+    if ((sp.curves || []).some(function (c) { return c.kind === 'length_weight'; })) {
+      o.push({ key: 'length_weight', label: t().tabLW || '体长-体重' });
+    }
+    if ((sp.curves || []).some(function (c) { return c.kind === 'age_length'; })) {
+      o.push({ key: 'age_length', label: t().tabAL || '年龄-体长' });
+    }
+    o.push({ key: 'compare', label: t().tabCompare || '查询对照' });
+    return o;
+  }
+
+  function curveCardView(cu, withChart) {
+    var o = [];
+    o.push('<div class="card">');
+    o.push('<h2>' + h(t().curve || '曲线') + '</h2>');
+    if (withChart) {
+      o.push(cu.kind === 'length_weight' ? chartLW(cu) : chartAge(cu));
+    }
+    if (cu.coverage) {
+      o.push('<div class="tiny" style="margin-top:8px">' +
+        '<span class="tag ' + h(cu.tagClass) + '">' + h(t().coverage || '数据覆盖度') + ' ' +
+        h(cu.coverageTextX) + '</span></div>');
+      if (cu.coverageBasisX) o.push('<div class="tiny">' + h(cu.coverageBasisX) + '</div>');
+    }
+    if (cu.segments && cu.segments.length) {
+      o.push('<div class="muted" style="margin-top:12px">' + h(t().lwEquationTitle || '') + '</div>');
+      cu.segments.forEach(function (sg) {
+        o.push('<div class="seg-body">');
+        o.push('<div><span class="tag ' + h(sg.typeClass) + '">' + h(sg.typeText) + '</span>' +
+          '<span class="seg-range">' + sg.lo + ' – ' + sg.hi + ' mm</span></div>');
+        o.push('<div class="mono seg-eq">' + h(sg.eqText) + '</div>');
+        o.push('<div class="tiny">' + h(sg.metricText) + '</div>');
+        o.push('</div>');
+      });
+      o.push('<div class="muted">' + h(t().interpolatedNote || '') + '</div>');
+    }
+    if (cu.kind === 'age_length') {
+      o.push('<div class="muted" style="margin-top:12px">' + h(cu.modelTextX) + '</div>');
+      o.push('<div class="muted">t95：' + h(cu.t95TextX) + '</div>');
+    }
+    // 波动范围：没有就明说「原文未报告」，不能让用户以为不确定度为零
+    if (cu.band95Text) {
+      o.push('<div class="muted" style="margin-top:8px">' + h(t().band95Label || '') + h(cu.band95Text) + '</div>');
+    } else {
+      o.push('<div class="muted" style="margin-top:8px">' + h(t().band95Missing || '') + '</div>');
+    }
+    if (cu.caveatTexts && cu.caveatTexts.length) {
+      o.push('<div class="box caveat"><b>' + h(t().caveatTitle || '需要注意') + '</b><ul>' +
+        cu.caveatTexts.map(function (x) { return '<li>' + h(x) + '</li>'; }).join('') + '</ul></div>');
+    }
+    o.push('<div class="tiny" style="margin-top:8px">' + h(t().sourceLabel || '来源') + '：' +
+      h(cu.source || '') + '（' + h(cu.evidence || '') + '）</div>');
+    o.push('</div>');
+    return o.join('');
+  }
+
+  function viewDetail(sp) {
+    if (!sp) {
+      return '<div class="card"><div class="box err">' + h(t().notFound || '找不到该物种') +
+        '</div><a href="#/">← ' + h(t().appTitle || '返回') + '</a></div>';
+    }
+    var o = [];
+    // ---- 标题卡 ----
     o.push('<div class="card"><h2 style="margin:0">' + h(spName(sp)) +
       '<span class="lt">' + h(sp.latin || '') + '</span></h2>');
     o.push('<div class="tiny" style="margin-top:4px">' + h(taxonLabel(sp.taxon)) + ' · ' + h(sp.en || '') + '</div>');
-    if (sp.scopeShort) o.push('<div class="box scope">' + h(locale === 'en' ? (sp.scopeShortEn || sp.scopeShort) : sp.scopeShort) + '</div>');
-    if (!sp.curves || !sp.curves.length) {
-      o.push('<div class="muted" style="margin-top:8px">' + h(t().layerEmptyTitle || '本物种暂无可靠数据') + '</div>');
-      o.push(donateBox());
-      if (sp.refs && sp.refs.length) {
-        o.push('<div class="tiny" style="margin-top:8px"><b>' + h(t().refsTitle || '已核查的来源') + '</b><ul>' +
-          sp.refs.map(function (x) { return '<li>' + h(x) + '</li>'; }).join('') + '</ul></div>');
-      }
+    if (sp.scopeShort) {
+      o.push('<div class="box scope">' + h(locale === 'en' ? (sp.scopeShortEn || sp.scopeShort) : sp.scopeShort) + '</div>');
     }
     o.push('</div>');
-    var lw = (sp.curves || []).filter(function (c) { return c.kind === 'length_weight'; });
-    var al = (sp.curves || []).filter(function (c) { return c.kind === 'age_length'; });
-    if (lw.length) {
-      o.push('<h2 style="font-size:15px;margin:16px 4px 8px">' + h(t().tabLW || '体长-体重') + '（' + lw.length + '）</h2>');
-      lw.forEach(function (c) { o.push(curveCard(c)); });
-    }
-    if (al.length) {
-      o.push('<h2 style="font-size:15px;margin:16px 4px 8px">' + h(t().tabAL || '年龄-体长') + '（' + al.length + '）</h2>');
-      al.forEach(function (c) { o.push(curveCard(c)); });
-    }
-    if (!lw.length && (sp.curves || []).length) {
-      o.push('<div class="box scope">' + h(t().layerEmptyTitle || '该层暂无数据') + '</div>');
-      o.push(donateBox());
-    }
-    // ---- 未发表数据（低可靠性，U1）----
-    // ⚠️ 这些曲线**不在 sp.curves 里**（构建时已分流到 lowRelCurves），
-    //    所以上面的查询对照与卡片渲染**在物理上**碰不到它们（红线 R1/R2）。
-    //    **默认折叠** —— 用户必须主动展开才看得到（红线 R2）。
-    var low = sp.lowRelCurves || [];
-    if (low.length) {
-      o.push('<div class="card lowrel-card">');
-      o.push('<h2>' + h(t().lowRelTitle || '未发表数据（低可靠性）') + '</h2>');
-      o.push('<div class="muted">' + h(t().lowRelLead || '') + '</div>');
-      o.push('<button class="lowrel-toggle" data-lowtoggle="1">' +
-        h(S.lowOpen ? (t().lowRelClose || '收起') : (t().lowRelOpen || '展开查看')) +
-        (S.lowOpen ? '' : '（' + low.length + '）') + '</button>');
-      if (S.lowOpen) {
-        o.push('<div class="lowrel-warn">' +
-          [t().lowRelWarnNoMix, t().lowRelWarnSingle, t().lowRelWarnSample, t().lowRelWhy]
-            .filter(Boolean).map(function (x) { return '<div class="lowrel-warn-item">' + h(x) + '</div>'; }).join('') +
-          '</div>');
-        low.forEach(function (c) {
-          o.push('<div class="lowrel-item">');
-          o.push('<div class="curve-head"><span class="g">' + h(groupText(c)) + '</span>' +
-            '<span class="pill">' + h(calText(c)) + '</span>' +
-            '<span class="pill">' + h((locale === 'en' ? c.nTextEn : c.nText) || '') + '</span></div>');
-          if (c.kind === 'length_weight') {
-            (c.segments || []).forEach(function (sg) {
-              o.push('<div class="tiny mono">' + num(sg.lo, 0) + '–' + num(sg.hi, 0) +
-                ' mm　M = ' + Number(sg.a).toExponential(3) + ' × L^' + Number(sg.b).toFixed(4) + '</div>');
-            });
-          } else {
-            o.push('<div class="tiny">' + h((locale === 'en' ? c.modelTextEn : c.modelText) || c.model || '') +
-              '　t95：' + h(c.t95Text || '—') + '</div>');
-          }
-          o.push('<div class="tiny">' + h(t().sourceLabel || '来源') + '：' + h(c.source || '') + '</div>');
-          o.push('</div>');
-        });
+
+    // ---- 无数据物种：说明 + 文献 + 征集告示 ----
+    if (!sp.curves || !sp.curves.length) {
+      o.push('<div class="card">');
+      o.push('<div class="big-none">' + h(t().speciesEmptyTitle || t().layerEmptyTitle || '') + '</div>');
+      o.push('<div class="muted" style="margin-top:8px">' + h(t().speciesEmptyBody || '') + '</div>');
+      if (sp.refs && sp.refs.length) {
+        o.push('<div class="tiny" style="margin-top:12px"><b>' + h(t().refsTitle || '查过的文献') +
+          '</b><ul>' + sp.refs.map(function (x) { return '<li>' + h(x) + '</li>'; }).join('') + '</ul></div>');
       }
+      o.push(donateBox());
+      o.push('</div>');
+      o.push(docAccordions(sp));
+      o.push(footerLinks());
+      return o.join('');
+    }
+
+    // ---- 页签 ----
+    var tabs = tabsFor(sp);
+    if (!tabs.some(function (x) { return x.key === S.tab; })) S.tab = tabs[0].key;
+    o.push('<div class="card"><div class="row tabs">');
+    tabs.forEach(function (x) {
+      o.push('<button class="tab ' + (S.tab === x.key ? 'tab-on' : '') + '" data-tabk="' + h(x.key) + '">' +
+        h(x.label) + '</button>');
+    });
+    o.push('</div></div>');
+
+    if (S.tab === 'compare') {
+      o.push(cmpPanel(sp));
+    } else {
+      var list = groupsFor(sp, S.tab);
+      if (!list.length) {
+        // 本层无数据 —— 这里正是最该放征集告示的地方
+        o.push('<div class="card">');
+        o.push('<div class="big-none">' + h(t().layerEmptyTitle || '') + '</div>');
+        o.push('<div class="muted" style="margin-top:8px">' + h(t().layerEmptyBody1 || '') + '</div>');
+        o.push('<div class="muted" style="margin-top:8px">' + h(t().layerEmptyBody2 || '') + '</div>');
+        o.push(donateBox());
+        o.push('</div>');
+      } else {
+        if (S.gi >= list.length) S.gi = 0;
+        // ---- 分组选择器（这是用户要的"按分组筛选"）----
+        o.push('<div class="card"><h2>' + h(t().groupsCount || '分组') + '（' + list.length + '）</h2>');
+        o.push('<div class="row" style="flex-wrap:wrap">');
+        list.forEach(function (g, i) {
+          o.push('<button class="chip ' + (S.gi === i ? 'chip-on' : '') + '" data-gi="' + i + '">' +
+            '<span class="' + h(g.tagClass) + '">' + h(g.groupText) + '</span>' +
+            '<span class="muted" style="margin-left:8px">' + h(g.nTextX) + ' · ' + h(g.caliberTextX) + '</span>' +
+            (g.caliberInferred ? '<span class="tag tag-interp" style="margin-left:8px">' +
+              h(t().caliberInferredTag || '口径未说明') + '</span>' : '') +
+            '</button>');
+        });
+        o.push('</div></div>');
+        // ---- 选中的那一条曲线 ----
+        o.push(curveCardView(list[S.gi], true));
+      }
+      o.push(lowRelSection(sp, S.tab));
+      o.push('<div class="card"><div class="muted">' + h(t().goCompareHint || '') + '</div></div>');
+    }
+
+    o.push(docAccordions(sp));
+    o.push(footerLinks());
+    return o.join('');
+  }
+
+  /** 未发表数据（U1）：与小程序同一套呈现，**默认折叠**。 */
+  function lowRelSection(sp, kind) {
+    var low = (sp.lowRelCurves || []).filter(function (c) { return c.kind === kind; });
+    if (!low.length) return '';
+    var o = [];
+    o.push('<div class="card lowrel-card">');
+    o.push('<h2>' + h(t().lowRelTitle || '未发表数据') + '</h2>');
+    o.push('<div class="muted">' + h(t().lowRelLead || '') + '</div>');
+    o.push('<button class="lowrel-toggle" data-lowtoggle="1">' +
+      h(S.lowOpen ? (t().lowRelClose || '收起') : (t().lowRelOpen || '展开查看')) +
+      (S.lowOpen ? '' : '（' + low.length + '）') + '</button>');
+    if (S.lowOpen) {
+      o.push('<div class="lowrel-warn">' +
+        [t().lowRelWarnNoMix, t().lowRelWarnSingle, t().lowRelWarnSample, t().lowRelWhy]
+          .filter(Boolean).map(function (x) { return '<div class="lowrel-warn-item">' + h(x) + '</div>'; }).join('') +
+        '</div>');
+      low.forEach(function (c) {
+        var d = decorateCurve(c);
+        o.push('<div class="lowrel-item">');
+        o.push('<div class="muted">' + h(d.groupText) + ' · ' + h(d.caliberTextX) + ' · ' + h(d.nTextX) + '</div>');
+        if (c.kind === 'length_weight') {
+          (d.segments || []).forEach(function (sg) {
+            o.push('<div class="tiny mono">' + sg.lo + '–' + sg.hi + ' mm　' + h(sg.eqText) + '</div>');
+          });
+        } else {
+          o.push('<div class="muted">' + h(d.modelTextX) + '　t95：' + h(d.t95TextX) + '</div>');
+        }
+        o.push('<div class="muted" style="margin-top:8px">' + h(t().sourceLabel || '来源') + '：' + h(c.source || '') + '</div>');
+        o.push('</div>');
+      });
+    }
+    o.push('</div>');
+    return o.join('');
+  }
+
+  /** 页尾两个可展开说明（测量口径 / 其他术语）—— 之前离线版完全没有。 */
+  function docAccordions() {
+    var o = [];
+    o.push('<div class="card">');
+    o.push('<div class="accordion-head" data-doc="caliber">' +
+      '<span class="h2" style="margin:0">' + h(t().docCaliberTitle || '测量口径') + '</span>' +
+      '<span class="arrow">' + h(S.docCaliber ? (t().collapse || '收起') : (t().expand || '展开')) + '</span></div>');
+    o.push('<div class="muted" style="margin-top:6px">' + h(t().docCaliberOneLine || '') + '</div>');
+    if (S.docCaliber) {
+      o.push('<div class="doc-body">');
+      o.push('<div class="muted">' + h(t().docCaliberLead || '') + '</div>');
+      o.push('<div class="doc-item"><div class="doc-t">' + h(t().docCaliberSVLTitle || '') + '</div>' +
+        '<div class="muted">' + h(t().docCaliberSVLBody || '') + '</div></div>');
+      o.push('<div class="doc-item"><div class="doc-t">' + h(t().docCaliberTurtleTitle || '') + '</div>' +
+        '<div class="muted">' + h(t().docCaliberTurtleBody || '') + '</div></div>');
+      o.push('<div class="muted" style="margin-top:10px"><b>' + h(t().docCaliberWhyStrong || '') + '</b>' +
+        h(t().docCaliberWhyBody || '') + '</div>');
+      o.push('<div class="muted" style="margin-top:10px"><b>' + h(t().docCaliberListStrong || '') + '</b>' +
+        h(t().docCaliberListBody || '') + '</div>');
       o.push('</div>');
     }
-    if ((sp.curves || []).length) o.push(cmpPanel(sp));
-    o.push('<div style="margin:16px 0"><a href="#/">← ' + h(t().chooseSpecies || '返回物种列表') + '</a></div>');
-    o.push('<div class="foot">' + h(t().disclaimer || '本工具只报告与参照数据的偏离程度，不构成诊断。') + '</div>');
+    o.push('</div>');
+
+    o.push('<div class="card">');
+    o.push('<div class="accordion-head" data-doc="terms">' +
+      '<span class="h2" style="margin:0">' + h(t().docTermsTitle || '其他术语') + '</span>' +
+      '<span class="arrow">' + h(S.docTerms ? (t().collapse || '收起') : (t().expand || '展开')) + '</span></div>');
+    if (S.docTerms) {
+      o.push('<div class="doc-body">' +
+        (t().docTerms || []).map(function (x) { return '<div class="muted">' + h(x) + '</div>'; }).join('') +
+        '</div>');
+    }
+    o.push('</div>');
     return o.join('');
+  }
+
+  function footerLinks() {
+    return '<div style="margin:16px 0"><a href="#/">← ' + h(t().chooseSpecies || '返回物种列表') + '</a></div>' +
+      '<div class="foot">' + h(t().disclaimer || '') + '</div>';
   }
 
   // ---------------- 列表页 ----------------
@@ -627,7 +820,8 @@
     while (el && el !== document.body && !(el.dataset && (el.dataset.go || el.dataset.taxon !== undefined ||
       el.dataset.cmpmode || el.dataset.cmpcal !== undefined || el.dataset.cmpgrp !== undefined ||
       el.dataset.cmpgo || el.dataset.cmprst || el.dataset.fbmail || el.dataset.fbshow ||
-      el.dataset.lowtoggle))) {
+      el.dataset.lowtoggle || el.dataset.tabk !== undefined ||
+      el.dataset.gi !== undefined || el.dataset.doc !== undefined))) {
       el = el.parentNode;
     }
     if (!el || el === document.body) return;
@@ -638,6 +832,13 @@
     if (d.taxon !== undefined) { S.taxon = d.taxon; render(); return; }
     // 低可靠区块的展开/收起。默认折叠，用户主动点才开（红线 R2）。
     if (d.lowtoggle) { S.lowOpen = !S.lowOpen; render(); return; }
+    // 页签切换：换页签时分组下标归零，否则会停在上一页签的下标上
+    if (d.tabk !== undefined) { S.tab = d.tabk; S.gi = 0; render(); return; }
+    // 分组切换（用户要的「按分组筛选」）
+    if (d.gi !== undefined) { S.gi = parseInt(d.gi, 10) || 0; render(); return; }
+    // 页尾说明展开/收起
+    if (d.doc === 'caliber') { S.docCaliber = !S.docCaliber; render(); return; }
+    if (d.doc === 'terms') { S.docTerms = !S.docTerms; render(); return; }
     if (d.cmpmode) { ensureCmp(sp).mode = d.cmpmode; ensureCmp(sp).rows = []; render(); return; }
     if (d.cmpcal !== undefined) { ensureCmp(sp).caliber = d.cmpcal; ensureCmp(sp).group = ''; ensureCmp(sp).rows = []; render(); return; }
     if (d.cmpgrp !== undefined) { ensureCmp(sp).group = d.cmpgrp; ensureCmp(sp).rows = []; render(); return; }
@@ -709,6 +910,10 @@
     // 换页/换物种时把低可靠区块**收回折叠**，
     // 否则上一个物种的展开状态会串到下一个物种（等于变相"默认展开"）。
     S.lowOpen = false;
+    // 同样要重置页签与分组 —— 否则上一条记录的页签会串到下一条，
+    // 比如从只有年龄曲线的物种切到只有体长-体重的物种，会停在空页签上。
+    S.tab = 'length_weight';
+    S.gi = 0;
     window.scrollTo(0, 0);
     render();
   });
